@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://1irryh5i87d4"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_hb31x"]
+[ext_resource type="Texture2D" uid="uid://g4fltmhm1ajk" path="res://Player.png" id="1_ikc88"]
+[ext_resource type="Script" path="res://Player.gd" id="2_w7xx0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pyb6s"]
+size = Vector3(0.180756, 0.173584, 0.101746)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_hb31x")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.241217, -4.5)
+size = Vector3(10, 1, 10)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132031, 1.13769, 0)
+script = ExtResource("2_w7xx0")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_ikc88")
+hframes = 32
+
+[node name="Camera3D" type="Camera3D" parent="Player/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3.11372, 3)
+projection = 1
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00526428, -0.0740967, -0.00192261)
+shape = SubResource("BoxShape3D_pyb6s")

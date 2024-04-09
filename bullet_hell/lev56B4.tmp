@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://1irryh5i87d4"]
+[gd_scene load_steps=24 format=3 uid="uid://1irryh5i87d4"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hb31x"]
 [ext_resource type="Script" path="res://Player.gd" id="2_w7xx0"]
@@ -11,10 +11,6 @@ size = Vector3(0.180756, 0.173584, 0.101746)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sfv26"]
 atlas = ExtResource("3_25nok")
 region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ilgc3"]
-atlas = ExtResource("3_25nok")
-region = Rect2(256, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11b6d"]
 atlas = ExtResource("3_25nok")
@@ -85,9 +81,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sfv26")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ilgc3")
 }],
 "loop": true,
 "name": &"idle",
@@ -182,7 +175,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.587462, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_1qloi")
-animation = &"idle"
+animation = &"walk_up"
 script = ExtResource("4_fkrr7")
 
 [node name="Camera3D" type="Camera3D" parent="Player/AnimatedSprite3D"]
