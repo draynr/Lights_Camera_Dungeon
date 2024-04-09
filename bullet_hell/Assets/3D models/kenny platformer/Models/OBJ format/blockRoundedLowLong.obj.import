@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://da68upxyrqg0d"
+path="res://.godot/imported/blockRoundedLowLong.obj-106514e81ec9b25e33b5ad7d8476dda4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blockRoundedLowLong.obj-106514e81ec9b25e33b5ad7d8476dda4.mesh"]
+
+source_file="res://Assets/3D models/kenny platformer/Models/OBJ format/blockRoundedLowLong.obj"
+dest_files=["res://.godot/imported/blockRoundedLowLong.obj-106514e81ec9b25e33b5ad7d8476dda4.mesh", "res://.godot/imported/blockRoundedLowLong.obj-106514e81ec9b25e33b5ad7d8476dda4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

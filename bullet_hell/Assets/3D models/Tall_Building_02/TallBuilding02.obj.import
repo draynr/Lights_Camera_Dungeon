@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cuk1dk01gxsma"
+path="res://.godot/imported/TallBuilding02.obj-47017e750bfdaa681c730bd47ecb9cfa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/TallBuilding02.obj-47017e750bfdaa681c730bd47ecb9cfa.mesh"]
+
+source_file="res://Assets/3D models/Tall_Building_02/TallBuilding02.obj"
+dest_files=["res://.godot/imported/TallBuilding02.obj-47017e750bfdaa681c730bd47ecb9cfa.mesh", "res://.godot/imported/TallBuilding02.obj-47017e750bfdaa681c730bd47ecb9cfa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

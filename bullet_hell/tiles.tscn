@@ -1,0 +1,249 @@
+[gd_scene load_steps=82 format=3 uid="uid://ciokrbcgmuwy3"]
+
+[ext_resource type="PackedScene" uid="uid://dwrs18tvxtbum" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/balconyLadder_bottom.glb" id="1_cqo0b"]
+[ext_resource type="PackedScene" uid="uid://bqxbtrwe5s8a6" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/balconyLadder_top.glb" id="2_18t63"]
+[ext_resource type="PackedScene" uid="uid://cmm1ajn4x3dm4" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/balcony_typeA.glb" id="3_ab5fx"]
+[ext_resource type="PackedScene" uid="uid://dp2hx8radwkb4" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailAwning_small.glb" id="4_ttga3"]
+[ext_resource type="PackedScene" uid="uid://ci2vqo001fwpa" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailAwning_wide.glb" id="5_1wtyc"]
+[ext_resource type="PackedScene" uid="uid://bjf2w5207s1c" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBarrierStrong_damaged.glb" id="6_5qwlo"]
+[ext_resource type="PackedScene" uid="uid://dq8c4jl6jvf1l" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBarrierStrong_typeA.glb" id="7_7pg2p"]
+[ext_resource type="PackedScene" uid="uid://bcpfdv7eutlut" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBarrierStrong_typeB.glb" id="8_m63op"]
+[ext_resource type="PackedScene" uid="uid://c3wbn8d1tanj4" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBarrier_typeA.glb" id="9_7ragr"]
+[ext_resource type="PackedScene" uid="uid://dxoun3xvjxvcg" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBarrier_typeB.glb" id="10_4x2cm"]
+[ext_resource type="PackedScene" uid="uid://cmg5omryo4ym3" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBeam.glb" id="11_ye4a6"]
+[ext_resource type="PackedScene" uid="uid://b0bwov40qns4x" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBricks_typeA.glb" id="12_7x8oj"]
+[ext_resource type="PackedScene" uid="uid://y15wu3gkvunc" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailBricks_typeB.glb" id="13_rfm16"]
+[ext_resource type="PackedScene" uid="uid://j1nh0lcmocm" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailCables_typeA.glb" id="14_t1ajx"]
+[ext_resource type="PackedScene" uid="uid://jjrm20fk2kok" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailCables_typeB.glb" id="15_fu811"]
+[ext_resource type="PackedScene" uid="uid://j6484q0we5kv" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailDumpster_closed.glb" id="16_kspsg"]
+[ext_resource type="PackedScene" uid="uid://dfav2hf0qfjnd" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailDumpster_open.glb" id="17_vpif8"]
+[ext_resource type="PackedScene" uid="uid://w88le6dyhnxi" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailLight_double.glb" id="18_1fqnp"]
+[ext_resource type="PackedScene" uid="uid://r3bn6udhvwm8" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailLight_single.glb" id="19_d4sy4"]
+[ext_resource type="PackedScene" uid="uid://cckus864mbdod" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/detailLight_traffic.glb" id="20_oit0u"]
+[ext_resource type="PackedScene" uid="uid://b8h3o4blc5j0" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/door_typeA.glb" id="21_frwj2"]
+[ext_resource type="PackedScene" uid="uid://olixgufr4wuf" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/door_typeB.glb" id="22_023i2"]
+[ext_resource type="PackedScene" uid="uid://dye74wp8gwl15" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/grass.glb" id="23_4f8be"]
+[ext_resource type="PackedScene" uid="uid://hprtlbn2hwes" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadAsphalt_cornerInner.glb" id="24_ujcrq"]
+[ext_resource type="PackedScene" uid="uid://csmhmhw4ghumu" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadAsphalt_cornerOuter.glb" id="25_durge"]
+[ext_resource type="PackedScene" uid="uid://dtap4xy7uo3w6" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadAsphalt_damaged.glb" id="26_3umj2"]
+[ext_resource type="PackedScene" uid="uid://x1cala8pskbx" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadAsphalt_pavement.glb" id="27_gb5yv"]
+[ext_resource type="PackedScene" uid="uid://c0sg7yyiq7e3y" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadAsphalt_straight.glb" id="28_rloi4"]
+[ext_resource type="PackedScene" uid="uid://cfejl54ysiurv" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_center.glb" id="29_robdv"]
+[ext_resource type="PackedScene" uid="uid://bjvopoda0cnkw" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_cornerInner.glb" id="30_aoe52"]
+[ext_resource type="PackedScene" uid="uid://bhxa3k7w5w5bc" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_damaged.glb" id="32_25inr"]
+[ext_resource type="PackedScene" uid="uid://bp7u5xdf7pw6c" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_cornerOuter.glb" id="33_cvqx4"]
+[ext_resource type="PackedScene" uid="uid://dsrr543rea44j" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_pavement.glb" id="34_hqsyp"]
+[ext_resource type="PackedScene" uid="uid://cq4mfdcupvr50" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_straight.glb" id="35_iprj2"]
+[ext_resource type="PackedScene" uid="uid://gr54lpe83qbt" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_side.glb" id="36_34ju1"]
+[ext_resource type="PackedScene" uid="uid://b8bdrodnuqaor" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roadDirt_tile.glb" id="37_io0bf"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/roofMetal_typeA.glb" id="38_gag0a"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/scaffolding_poles.glb" id="39_jn332"]
+[ext_resource type="PackedScene" uid="uid://d5pvch6i1yh6" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/treePine_large.glb" id="40_86qy0"]
+[ext_resource type="PackedScene" uid="uid://bm8lqophbxm5m" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/treePine_small.glb" id="41_8oqe3"]
+[ext_resource type="PackedScene" uid="uid://cctjfkpb0jkq4" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/tree_large.glb" id="42_ub7mb"]
+[ext_resource type="PackedScene" uid="uid://bus406ycn8ja0" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/tree_shrub.glb" id="43_7ohll"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/tree_small.glb" id="44_u8vpn"]
+[ext_resource type="PackedScene" uid="uid://g1k371uldllj" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/truck_green.glb" id="45_4lstx"]
+[ext_resource type="PackedScene" uid="uid://bylnav52lpovm" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/truck_grey.glb" id="46_pbn3m"]
+[ext_resource type="PackedScene" uid="uid://bi1tlbe2a5gjd" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_corner.glb" id="47_ibkm5"]
+[ext_resource type="PackedScene" uid="uid://drxtib5eyadtd" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_cornerPainted.glb" id="48_1wy3o"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_detail.glb" id="49_jnie2"]
+[ext_resource type="PackedScene" uid="uid://ddrwbgjaapxp3" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_detailPainted.glb" id="50_qc82k"]
+[ext_resource type="PackedScene" uid="uid://nkp6mq1k4avt" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_flatGarage.glb" id="51_i630g"]
+[ext_resource type="PackedScene" uid="uid://b1q0n3wpionll" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_flat.glb" id="52_10fie"]
+[ext_resource type="PackedScene" uid="uid://cxyr7e178pfdg" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_flatWindow.glb" id="53_ov5h3"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_flatPainted.glb" id="54_mwp3w"]
+[ext_resource type="PackedScene" uid="uid://curca0d44bjgq" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_low.glb" id="55_6gd8u"]
+[ext_resource type="PackedScene" uid="uid://tmfqdgld63ha" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_lowPainted.glb" id="56_ycwhu"]
+[ext_resource type="PackedScene" uid="uid://0x78cqluv2ux" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_open.glb" id="57_we22x"]
+[ext_resource type="PackedScene" uid="uid://bkxet1sl33nv6" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_painted.glb" id="58_jhrvj"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_roofDetailed.glb" id="59_lo8qp"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_roofSlant.glb" id="60_75pli"]
+[ext_resource type="PackedScene" uid="uid://dd6refbtckcpq" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallA_roofSlantDetailed.glb" id="61_1mxk4"]
+[ext_resource type="PackedScene" uid="uid://bldu2p4rnqa0e" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB.glb" id="62_q8b5y"]
+[ext_resource type="PackedScene" uid="uid://cy82xol5e5eus" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB_door.glb" id="63_0p5ln"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallBroken_typeB.glb" id="64_y0o83"]
+[ext_resource type="PackedScene" uid="uid://ywncys3madax" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB_flat.glb" id="65_6dpys"]
+[ext_resource type="PackedScene" uid="uid://obacx8uuvfsc" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB_garage.glb" id="66_x3tqx"]
+[ext_resource type="PackedScene" uid="uid://by1qdf3qg0f1d" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB_open.glb" id="67_y0oos"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB_roofDetailed.glb" id="68_5l71l"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB_roofSlant.glb" id="69_tqnm1"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallB_roofSlantDetailed.glb" id="70_01tx7"]
+[ext_resource type="PackedScene" uid="uid://b05w65i4wip4j" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallC_flat.glb" id="71_saacv"]
+[ext_resource type="PackedScene" uid="uid://bidoo6mrkcn2g" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallC_flatLow.glb" id="72_flewq"]
+[ext_resource type="PackedScene" uid="uid://cgoer4h1anu6r" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallSteps_typeA.glb" id="73_fi3iq"]
+[ext_resource type="PackedScene" uid="uid://d2itoasj3t5ke" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wallSteps_typeB.glb" id="74_idp2e"]
+[ext_resource type="PackedScene" uid="uid://kcg63aq3jga8" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wall_typeA.glb" id="75_5opbl"]
+[ext_resource type="PackedScene" uid="uid://bj52482grlad2" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/wall_typeB.glb" id="76_64xuh"]
+[ext_resource type="PackedScene" uid="uid://d3hyh2ltsejfa" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/windowSmall_typeA.glb" id="77_vrk8u"]
+[ext_resource type="PackedScene" uid="uid://b5o1erulg0y00" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/windowSmall_typeB.glb" id="78_i7kjq"]
+[ext_resource type="PackedScene" uid="uid://dnbrtlon7rc75" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/windowWide_typeA.glb" id="79_okm7p"]
+[ext_resource type="PackedScene" uid="uid://cbgkuqr2rtax2" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/windowWide_typeB.glb" id="80_3tmct"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/windowWide_typeC.glb" id="81_gs3ag"]
+[ext_resource type="PackedScene" path="res://Assets/3D models/kenny urban/Models/GLTF format/glb/windowWide_typeD.glb" id="82_67ym1"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="balconyLadder_bottom2" parent="." instance=ExtResource("1_cqo0b")]
+
+[node name="balconyLadder_top2" parent="." instance=ExtResource("2_18t63")]
+
+[node name="balcony_typeA2" parent="." instance=ExtResource("3_ab5fx")]
+
+[node name="detailAwning_small2" parent="." instance=ExtResource("4_ttga3")]
+
+[node name="detailAwning_wide2" parent="." instance=ExtResource("5_1wtyc")]
+
+[node name="detailBarrierStrong_damaged2" parent="." instance=ExtResource("6_5qwlo")]
+
+[node name="detailBarrierStrong_typeA2" parent="." instance=ExtResource("7_7pg2p")]
+
+[node name="detailBarrierStrong_typeB2" parent="." instance=ExtResource("8_m63op")]
+
+[node name="detailBarrier_typeA2" parent="." instance=ExtResource("9_7ragr")]
+
+[node name="detailBarrier_typeB2" parent="." instance=ExtResource("10_4x2cm")]
+
+[node name="detailBeam2" parent="." instance=ExtResource("11_ye4a6")]
+
+[node name="detailBricks_typeA2" parent="." instance=ExtResource("12_7x8oj")]
+
+[node name="detailBricks_typeB2" parent="." instance=ExtResource("13_rfm16")]
+
+[node name="detailCables_typeA2" parent="." instance=ExtResource("14_t1ajx")]
+
+[node name="detailCables_typeB2" parent="." instance=ExtResource("15_fu811")]
+
+[node name="detailDumpster_closed2" parent="." instance=ExtResource("16_kspsg")]
+
+[node name="detailDumpster_open2" parent="." instance=ExtResource("17_vpif8")]
+
+[node name="detailLight_double2" parent="." instance=ExtResource("18_1fqnp")]
+
+[node name="detailLight_single2" parent="." instance=ExtResource("19_d4sy4")]
+
+[node name="detailLight_traffic2" parent="." instance=ExtResource("20_oit0u")]
+
+[node name="door_typeA2" parent="." instance=ExtResource("21_frwj2")]
+
+[node name="door_typeB2" parent="." instance=ExtResource("22_023i2")]
+
+[node name="grass2" parent="." instance=ExtResource("23_4f8be")]
+
+[node name="roadAsphalt_center2" parent="." instance=ExtResource("24_ujcrq")]
+
+[node name="roadAsphalt_corner2" parent="." instance=ExtResource("25_durge")]
+
+[node name="roadAsphalt_cornerInner2" parent="." instance=ExtResource("26_3umj2")]
+
+[node name="roadAsphalt_damaged2" parent="." instance=ExtResource("27_gb5yv")]
+
+[node name="roadAsphalt_pavement2" parent="." instance=ExtResource("28_rloi4")]
+
+[node name="roadAsphalt_straight2" parent="." instance=ExtResource("29_robdv")]
+
+[node name="roadDirt_center2" parent="." instance=ExtResource("30_aoe52")]
+
+[node name="roadDirt_corner2" parent="." instance=ExtResource("33_cvqx4")]
+
+[node name="roadDirt_cornerInner2" parent="." instance=ExtResource("32_25inr")]
+
+[node name="roadDirt_cornerOuter2" parent="." instance=ExtResource("33_cvqx4")]
+
+[node name="roadDirt_damaged2" parent="." instance=ExtResource("34_hqsyp")]
+
+[node name="roadDirt_pavement2" parent="." instance=ExtResource("35_iprj2")]
+
+[node name="roadDirt_side2" parent="." instance=ExtResource("36_34ju1")]
+
+[node name="roadDirt_straight2" parent="." instance=ExtResource("37_io0bf")]
+
+[node name="roadDirt_tile2" parent="." instance=ExtResource("38_gag0a")]
+
+[node name="roofMetal_typeB2" parent="." instance=ExtResource("39_jn332")]
+
+[node name="scaffolding_structure2" parent="." instance=ExtResource("40_86qy0")]
+
+[node name="treePine_large2" parent="." instance=ExtResource("41_8oqe3")]
+
+[node name="treePine_small2" parent="." instance=ExtResource("42_ub7mb")]
+
+[node name="tree_large2" parent="." instance=ExtResource("43_7ohll")]
+
+[node name="tree_shrub2" parent="." instance=ExtResource("44_u8vpn")]
+
+[node name="truck_flat2" parent="." instance=ExtResource("45_4lstx")]
+
+[node name="truck_green2" parent="." instance=ExtResource("46_pbn3m")]
+
+[node name="truck_grey2" parent="." instance=ExtResource("47_ibkm5")]
+
+[node name="wallA2" parent="." instance=ExtResource("48_1wy3o")]
+
+[node name="wallA_corner2" parent="." instance=ExtResource("49_jnie2")]
+
+[node name="wallA_cornerPainted2" parent="." instance=ExtResource("50_qc82k")]
+
+[node name="wallA_detailPainted2" parent="." instance=ExtResource("51_i630g")]
+
+[node name="wallA_door2" parent="." instance=ExtResource("52_10fie")]
+
+[node name="wallA_flat2" parent="." instance=ExtResource("53_ov5h3")]
+
+[node name="wallA_flatGarage2" parent="." instance=ExtResource("54_mwp3w")]
+
+[node name="wallA_flatWindow2" parent="." instance=ExtResource("55_6gd8u")]
+
+[node name="wallA_garage2" parent="." instance=ExtResource("56_ycwhu")]
+
+[node name="wallA_low2" parent="." instance=ExtResource("57_we22x")]
+
+[node name="wallA_lowPainted2" parent="." instance=ExtResource("58_jhrvj")]
+
+[node name="wallA_open2" parent="." instance=ExtResource("59_lo8qp")]
+
+[node name="wallA_painted2" parent="." instance=ExtResource("60_75pli")]
+
+[node name="wallA_roof2" parent="." instance=ExtResource("61_1mxk4")]
+
+[node name="wallA_roofSlantDetailed2" parent="." instance=ExtResource("62_q8b5y")]
+
+[node name="wallA_window2" parent="." instance=ExtResource("63_0p5ln")]
+
+[node name="wallB2" parent="." instance=ExtResource("64_y0o83")]
+
+[node name="wallB_door2" parent="." instance=ExtResource("65_6dpys")]
+
+[node name="wallB_flat2" parent="." instance=ExtResource("66_x3tqx")]
+
+[node name="wallB_flatWindow2" parent="." instance=ExtResource("67_y0oos")]
+
+[node name="wallB_garage2" parent="." instance=ExtResource("68_5l71l")]
+
+[node name="wallB_open2" parent="." instance=ExtResource("69_tqnm1")]
+
+[node name="wallB_roof2" parent="." instance=ExtResource("70_01tx7")]
+
+[node name="wallB_window2" parent="." instance=ExtResource("71_saacv")]
+
+[node name="wallC_flat2" parent="." instance=ExtResource("72_flewq")]
+
+[node name="wallC_flatLow2" parent="." instance=ExtResource("73_fi3iq")]
+
+[node name="wallFence2" parent="." instance=ExtResource("74_idp2e")]
+
+[node name="wallSteps_typeA2" parent="." instance=ExtResource("75_5opbl")]
+
+[node name="wallSteps_typeB2" parent="." instance=ExtResource("76_64xuh")]
+
+[node name="wall_typeA2" parent="." instance=ExtResource("77_vrk8u")]
+
+[node name="wall_typeB2" parent="." instance=ExtResource("78_i7kjq")]
+
+[node name="windowSmall_typeA2" parent="." instance=ExtResource("79_okm7p")]
+
+[node name="windowSmall_typeB2" parent="." instance=ExtResource("80_3tmct")]
+
+[node name="windowWide_typeA2" parent="." instance=ExtResource("81_gs3ag")]
+
+[node name="windowWide_typeB2" parent="." instance=ExtResource("82_67ym1")]
