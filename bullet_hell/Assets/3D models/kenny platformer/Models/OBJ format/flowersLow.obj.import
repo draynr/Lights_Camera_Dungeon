@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b23u0q5caswwx"
+path="res://.godot/imported/flowersLow.obj-91ba8dc258fe1550dd7a1f7f180abfd4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/flowersLow.obj-91ba8dc258fe1550dd7a1f7f180abfd4.mesh"]
+
+source_file="res://Assets/3D models/kenny platformer/Models/OBJ format/flowersLow.obj"
+dest_files=["res://.godot/imported/flowersLow.obj-91ba8dc258fe1550dd7a1f7f180abfd4.mesh", "res://.godot/imported/flowersLow.obj-91ba8dc258fe1550dd7a1f7f180abfd4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

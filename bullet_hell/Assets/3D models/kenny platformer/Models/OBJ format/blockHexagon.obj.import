@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cm6hm5wrfiv4e"
+path="res://.godot/imported/blockHexagon.obj-eaf012f09f5afb10702bec5e21c6201f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blockHexagon.obj-eaf012f09f5afb10702bec5e21c6201f.mesh"]
+
+source_file="res://Assets/3D models/kenny platformer/Models/OBJ format/blockHexagon.obj"
+dest_files=["res://.godot/imported/blockHexagon.obj-eaf012f09f5afb10702bec5e21c6201f.mesh", "res://.godot/imported/blockHexagon.obj-eaf012f09f5afb10702bec5e21c6201f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2ic8nmdaerxp"
+path="res://.godot/imported/blockSnowLevel.obj-7c1ca751ef5046a3f7b1bf9edbc360b2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blockSnowLevel.obj-7c1ca751ef5046a3f7b1bf9edbc360b2.mesh"]
+
+source_file="res://Assets/3D models/kenny platformer/Models/OBJ format/blockSnowLevel.obj"
+dest_files=["res://.godot/imported/blockSnowLevel.obj-7c1ca751ef5046a3f7b1bf9edbc360b2.mesh", "res://.godot/imported/blockSnowLevel.obj-7c1ca751ef5046a3f7b1bf9edbc360b2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

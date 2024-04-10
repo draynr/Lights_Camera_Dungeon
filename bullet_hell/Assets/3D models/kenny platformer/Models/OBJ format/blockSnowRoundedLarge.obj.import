@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bv0swm5d2m4kg"
+path="res://.godot/imported/blockSnowRoundedLarge.obj-87762eabcb5e3c7311e211a7560f94f0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blockSnowRoundedLarge.obj-87762eabcb5e3c7311e211a7560f94f0.mesh"]
+
+source_file="res://Assets/3D models/kenny platformer/Models/OBJ format/blockSnowRoundedLarge.obj"
+dest_files=["res://.godot/imported/blockSnowRoundedLarge.obj-87762eabcb5e3c7311e211a7560f94f0.mesh", "res://.godot/imported/blockSnowRoundedLarge.obj-87762eabcb5e3c7311e211a7560f94f0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

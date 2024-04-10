@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bkri5adirgqni"
+path="res://.godot/imported/sign.obj-6bf3cce0499e40e9d52597ef95fc6406.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sign.obj-6bf3cce0499e40e9d52597ef95fc6406.mesh"]
+
+source_file="res://Assets/3D models/kenny platformer/Models/OBJ format/sign.obj"
+dest_files=["res://.godot/imported/sign.obj-6bf3cce0499e40e9d52597ef95fc6406.mesh", "res://.godot/imported/sign.obj-6bf3cce0499e40e9d52597ef95fc6406.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
