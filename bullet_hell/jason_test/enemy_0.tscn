@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://o6tuxjnajtdd"]
+[gd_scene load_steps=6 format=3 uid="uid://o6tuxjnajtdd"]
 
 [ext_resource type="Texture2D" uid="uid://bxgrrnv6pvsct" path="res://Assets/Character/player_idle.png" id="1_1no7q"]
+[ext_resource type="Script" path="res://jason_test/enemy_0.gd" id="1_ffrcs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7imdd"]
 atlas = ExtResource("1_1no7q")
@@ -21,7 +22,11 @@ animations = [{
 radius = 0.5829
 height = 1.48385
 
-[node name="Enemy_0" type="CharacterBody3D"]
+[node name="enemy_0" type="CharacterBody3D"]
+transform = Transform3D(0.990396, 0, 0, 0, 0.990396, 0, 0, 0, 0.990396, 0, 0, 0)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ffrcs")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
@@ -32,3 +37,5 @@ animation = &"idle"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.0003125, 0.000961095, -0.00235352)
 shape = SubResource("CapsuleShape3D_j7afk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

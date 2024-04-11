@@ -3,7 +3,7 @@ extends CharacterBody3D
 # const SPEED = 5.0
 # const JUMP_VELOCITY = 4.5
 
-var speed = 3
+var speed = 1
 var target_velocity = Vector3()
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
