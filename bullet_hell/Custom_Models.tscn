@@ -1,0 +1,468 @@
+[gd_scene load_steps=40 format=3 uid="uid://ce8bs83mhcems"]
+
+[ext_resource type="Texture2D" uid="uid://jjiwruefq6wb" path="res://Assets/Custom models/wall_back_0.png" id="1_1oq0n"]
+[ext_resource type="Texture2D" uid="uid://s7atlc5o7n56" path="res://Assets/Custom models/wall_corner_left_0.png" id="3_lka84"]
+[ext_resource type="Texture2D" uid="uid://c8ad7o0nlvwml" path="res://Assets/Custom models/floor_0.png" id="3_unhl8"]
+[ext_resource type="Texture2D" uid="uid://6up1s45ow575" path="res://Assets/Custom models/wall_corner_right_0.png" id="4_y4aoj"]
+[ext_resource type="Texture2D" uid="uid://bw6n3rqgrxig4" path="res://Assets/Custom models/wall_left_0.png" id="6_dpnp0"]
+[ext_resource type="Texture2D" uid="uid://bx1dhdju7g7k1" path="res://Assets/Custom models/wall_right_0.png" id="7_jsjxk"]
+[ext_resource type="Texture2D" uid="uid://dl5hjlejh2e2a" path="res://Assets/Custom models/wall_front_corner_0.png" id="8_qsptt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hko83"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_1oq0n")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ll58p"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1.00001, 1, 1),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 4, 0, 1, 0, 2, 0, 4, 0, 2, 0, 5, 0, 6, 0, 4, 0, 5, 0, 6, 0, 5, 0, 7, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 249, 255, 251, 255, 0, 0, 254, 255, 249, 255, 251, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ga161"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1.00001, 1, 1),
+"attribute_data": PackedByteArray(153, 25, 153, 25, 51, 51, 0, 0, 153, 25, 0, 0, 153, 25, 153, 25, 51, 51, 153, 25, 51, 51, 0, 0, 153, 25, 255, 127, 51, 51, 101, 102, 153, 25, 101, 102, 153, 25, 255, 127, 51, 51, 255, 127, 51, 51, 101, 102, 204, 204, 204, 204, 101, 230, 50, 179, 204, 204, 50, 179, 204, 204, 204, 204, 101, 230, 204, 204, 101, 230, 50, 179),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 15, 0, 17, 0, 16, 0),
+"material": SubResource("StandardMaterial3D_hko83"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 249, 255, 251, 255, 254, 191, 254, 255, 255, 255, 0, 0, 254, 191, 0, 0, 255, 255, 0, 0, 254, 191, 0, 0, 249, 255, 251, 255, 254, 191, 254, 255, 249, 255, 251, 255, 254, 191, 254, 255, 255, 255, 0, 0, 254, 191, 0, 0, 0, 0, 255, 255, 255, 127, 254, 255, 249, 255, 251, 255, 255, 127, 0, 0, 249, 255, 251, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 127, 254, 255, 0, 0, 255, 255, 255, 127, 254, 255, 249, 255, 251, 255, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ll58p")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ov66o"]
+points = PackedVector3Array(0.999995, 0, 1, 0, 0, 1, 0.999995, 0, 0, 0.999995, 0.999902, 0.999902, 0, 0, 0, 0, 0.999902, 0.999902, 0.999995, 1, 0, 0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj0p7"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_unhl8")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wmel5"]
+_surfaces = [{
+"aabb": AABB(0, -7.62914e-05, -5.00025e-05, 1, 0.0001, 1.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q0hrv"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(0, -7.62914e-05, -5.00025e-05, 1, 0.0001, 1.00001),
+"attribute_data": PackedByteArray(51, 51, 50, 51, 204, 76, 153, 25, 51, 51, 153, 25, 51, 51, 50, 51, 204, 76, 50, 51, 204, 76, 153, 25),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_dj0p7"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 254, 191, 255, 255, 255, 255, 0, 0, 254, 191, 0, 0, 255, 255, 0, 0, 254, 191, 0, 0, 0, 0, 254, 255, 254, 191, 255, 255, 0, 0, 254, 255, 254, 191, 255, 255, 255, 255, 0, 0, 254, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wmel5")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_osji2"]
+points = PackedVector3Array(0, 2.37086e-05, -5.00025e-05, 0, -7.62914e-05, 0.999945, 1, 2.37086e-05, -5.00025e-05, 1, -7.62914e-05, 0.999945)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cel3"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_lka84")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_phclq"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1, 1.00001, 1.00005),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 4, 0, 5, 0, 1, 0, 4, 0, 1, 0, 3, 0, 6, 0, 2, 0, 1, 0, 6, 0, 1, 0, 5, 0, 7, 0, 6, 0, 5, 0, 7, 0, 5, 0, 4, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 251, 255, 0, 0, 255, 255, 254, 255, 251, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 251, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6q1q7"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1, 1.00001, 1.00005),
+"attribute_data": PackedByteArray(204, 204, 204, 204, 101, 230, 50, 179, 204, 204, 50, 179, 204, 204, 204, 204, 101, 230, 204, 204, 101, 230, 50, 179, 204, 204, 204, 204, 101, 230, 50, 179, 204, 204, 50, 179, 204, 204, 204, 204, 101, 230, 204, 204, 101, 230, 50, 179, 0, 0, 255, 127, 153, 25, 101, 102, 0, 0, 101, 102, 0, 0, 255, 127, 153, 25, 255, 127, 153, 25, 101, 102, 204, 204, 204, 204, 101, 230, 50, 179, 204, 204, 50, 179, 204, 204, 204, 204, 101, 230, 204, 204, 101, 230, 50, 179),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 15, 0, 17, 0, 16, 0, 18, 0, 20, 0, 19, 0, 21, 0, 23, 0, 22, 0),
+"material": SubResource("StandardMaterial3D_1cel3"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 127, 255, 255, 254, 255, 0, 0, 255, 127, 0, 0, 254, 255, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 255, 127, 255, 255, 0, 0, 0, 0, 255, 127, 255, 255, 254, 255, 0, 0, 255, 127, 255, 255, 0, 0, 251, 255, 255, 191, 255, 255, 254, 255, 0, 0, 255, 191, 255, 255, 254, 255, 251, 255, 255, 191, 255, 255, 0, 0, 251, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 254, 255, 0, 0, 255, 191, 0, 0, 255, 255, 255, 255, 255, 191, 255, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 255, 255, 255, 255, 255, 191, 255, 255, 254, 255, 251, 255, 255, 191, 255, 255, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 251, 255, 255, 127, 255, 255, 254, 255, 251, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 0, 0, 251, 255, 255, 127, 255, 255, 0, 0, 251, 255, 255, 127, 255, 255, 254, 255, 251, 255, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 254, 255, 253, 127, 254, 255, 253, 127, 254, 255, 253, 127, 72, 70, 72, 70, 72, 70, 72, 70, 72, 70, 72, 70, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_phclq")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fc01y"]
+points = PackedVector3Array(0, 0, 0, 1, 0, 0, 0, 0, 0.999952, 0, 0.999913, 0, 1, 0.999913, 0, 1, 0, 0.999952, 0, 0.999913, 0.999952, 1, 0.999913, 0.999952)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3teg"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("4_y4aoj")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6eoj3"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1, 1, 1),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 4, 0, 2, 0, 1, 0, 4, 0, 1, 0, 5, 0, 6, 0, 4, 0, 5, 0, 6, 0, 5, 0, 7, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 247, 255, 251, 255, 0, 0, 255, 255, 247, 255, 251, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v3k72"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1, 1, 1),
+"attribute_data": PackedByteArray(204, 204, 204, 204, 101, 230, 50, 179, 204, 204, 50, 179, 204, 204, 204, 204, 101, 230, 204, 204, 101, 230, 50, 179, 255, 127, 255, 127, 153, 153, 101, 102, 255, 127, 101, 102, 255, 127, 255, 127, 153, 153, 255, 127, 153, 153, 101, 102, 204, 204, 204, 204, 101, 230, 50, 179, 204, 204, 50, 179, 204, 204, 204, 204, 101, 230, 204, 204, 101, 230, 50, 179),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 15, 0, 17, 0, 16, 0),
+"material": SubResource("StandardMaterial3D_a3teg"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 127, 255, 255, 255, 255, 0, 0, 255, 127, 0, 0, 255, 255, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 255, 127, 255, 255, 0, 0, 0, 0, 255, 127, 255, 255, 255, 255, 0, 0, 255, 127, 0, 0, 247, 255, 251, 255, 254, 191, 255, 255, 255, 255, 0, 0, 254, 191, 0, 0, 255, 255, 0, 0, 254, 191, 0, 0, 247, 255, 251, 255, 254, 191, 255, 255, 247, 255, 251, 255, 254, 191, 255, 255, 255, 255, 0, 0, 254, 191, 0, 0, 0, 0, 255, 255, 255, 127, 255, 255, 247, 255, 251, 255, 255, 127, 0, 0, 247, 255, 251, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 127, 255, 255, 0, 0, 255, 255, 255, 127, 255, 255, 247, 255, 251, 255, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6eoj3")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n1cme"]
+points = PackedVector3Array(1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0.999804, 0.999902, 1, 0, 1, 0, 0, 0, 0, 0.999804, 0.999902, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyh1y"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yj03i"]
+_surfaces = [{
+"aabb": AABB(0, 0, 5.00025e-05, 1, 1.00008, 0.99996),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 2, 0, 5, 0, 4, 0, 2, 0, 4, 0, 1, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 255, 255, 249, 255, 254, 255, 0, 0, 0, 0, 249, 255, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_negdu"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, 5.00025e-05, 1, 1.00008, 0.99996),
+"attribute_data": PackedByteArray(153, 25, 153, 25, 51, 51, 0, 0, 153, 25, 0, 0, 153, 25, 153, 25, 51, 51, 153, 25, 51, 51, 0, 0, 204, 204, 204, 204, 101, 230, 50, 179, 204, 204, 50, 179, 204, 204, 204, 204, 101, 230, 204, 204, 101, 230, 50, 179),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0),
+"material": SubResource("StandardMaterial3D_lyh1y"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 127, 255, 255, 249, 255, 254, 255, 255, 127, 0, 0, 249, 255, 254, 255, 255, 127, 0, 0, 0, 0, 254, 255, 255, 127, 255, 255, 0, 0, 254, 255, 255, 127, 255, 255, 249, 255, 254, 255, 255, 127, 0, 0, 249, 255, 254, 255, 254, 191, 255, 255, 255, 255, 0, 0, 254, 191, 0, 0, 255, 255, 0, 0, 254, 191, 0, 0, 249, 255, 254, 255, 254, 191, 255, 255, 249, 255, 254, 255, 254, 191, 255, 255, 255, 255, 0, 0, 254, 191, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yj03i")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_htael"]
+points = PackedVector3Array(0, 0, 0.999995, 1, 0, 0.999995, 0, 0.999982, 0.999995, 0, 1.00008, 5.00025e-05, 1, 1.00008, 5.00025e-05, 1, 0.999982, 0.999995)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5o5c2"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("6_dpnp0")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rapfa"]
+_surfaces = [{
+"aabb": AABB(0, 0, -5.00025e-05, 1.00001, 1, 1.00006),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 4, 0, 5, 0, 1, 0, 4, 0, 1, 0, 2, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 254, 255, 0, 0, 254, 255, 255, 255, 3, 0, 0, 0, 254, 255, 255, 255, 254, 255, 0, 0, 254, 255, 0, 0, 3, 0, 0, 0, 0, 0, 247, 255, 251, 255, 0, 0, 0, 0, 253, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kgxsf"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, -5.00025e-05, 1.00001, 1, 1.00006),
+"attribute_data": PackedByteArray(153, 25, 153, 25, 51, 51, 0, 0, 153, 25, 0, 0, 153, 25, 153, 25, 51, 51, 153, 25, 51, 51, 0, 0, 0, 0, 153, 25, 153, 25, 0, 0, 0, 0, 0, 0, 0, 0, 153, 25, 153, 25, 153, 25, 153, 25, 0, 0),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0),
+"material": SubResource("StandardMaterial3D_5o5c2"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 254, 255, 255, 191, 254, 255, 255, 255, 3, 0, 255, 191, 254, 255, 255, 255, 254, 255, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 254, 255, 0, 0, 3, 0, 255, 191, 254, 255, 255, 255, 3, 0, 255, 191, 0, 0, 247, 255, 251, 255, 254, 191, 254, 255, 255, 255, 3, 0, 254, 191, 0, 0, 253, 255, 0, 0, 254, 191, 0, 0, 247, 255, 251, 255, 255, 191, 254, 255, 255, 255, 254, 255, 255, 191, 254, 255, 255, 255, 3, 0, 255, 191, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 253, 255, 0, 128, 253, 255, 0, 128, 253, 255, 0, 128, 252, 255, 3, 128, 252, 255, 3, 128, 252, 255, 3, 128)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rapfa")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xxqnr"]
+points = PackedVector3Array(0.999995, 0, -5.00025e-05, 0.999995, 1, -5.00025e-05, 0.999995, 0, 0.999995, 0, 0.999804, 0.999897, 0, 0.999902, -5.00025e-05, 0.999995, 1, 0.999995)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un8uh"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("7_jsjxk")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n4dla"]
+_surfaces = [{
+"aabb": AABB(-1.81268e-15, 0, -5.00025e-05, 1, 1.00002, 1.00005),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 1, 0, 2, 0, 4, 0, 1, 0, 4, 0, 5, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 253, 255, 255, 255, 0, 0, 0, 0, 253, 255, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 248, 255, 251, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bu6ax"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(-1.81268e-15, 0, -5.00025e-05, 1, 1.00002, 1.00005),
+"attribute_data": PackedByteArray(102, 102, 153, 25, 255, 127, 0, 0, 102, 102, 0, 0, 102, 102, 153, 25, 255, 127, 153, 25, 255, 127, 0, 0, 255, 127, 153, 25, 153, 153, 0, 0, 255, 127, 0, 0, 255, 127, 153, 25, 153, 153, 153, 25, 153, 153, 0, 0),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0),
+"material": SubResource("StandardMaterial3D_un8uh"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 3, 0, 255, 191, 0, 0, 253, 255, 255, 255, 255, 191, 0, 0, 253, 255, 3, 0, 255, 191, 0, 0, 0, 0, 3, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 253, 255, 255, 255, 255, 191, 0, 0, 253, 255, 255, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 253, 255, 3, 0, 255, 191, 0, 0, 253, 255, 255, 255, 254, 191, 255, 255, 248, 255, 251, 255, 254, 191, 255, 255, 255, 255, 0, 0, 254, 191, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 254, 255, 253, 127, 254, 255, 253, 127, 254, 255, 253, 127, 252, 255, 253, 127, 252, 255, 253, 127, 252, 255, 253, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_n4dla")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dy27i"]
+points = PackedVector3Array(-1.81268e-15, 0, -5.00025e-05, -1.81268e-15, 0.999919, -5.00025e-05, 1, 1.00002, -5.00025e-05, 1, 0.999821, 0.999902, -1.81268e-15, 0, 0.999902, -1.81268e-15, 0.999919, 0.999902)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylen8"]
+resource_name = "test_croc_0"
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("8_qsptt")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yfuwi"]
+_surfaces = [{
+"aabb": AABB(0, 0, 2.22045e-16, 1, 1, 1.00001),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 3, 0, 1, 0, 4, 0, 3, 0, 4, 0, 5, 0, 4, 0, 1, 0, 2, 0, 4, 0, 2, 0, 6, 0),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 247, 255, 3, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rmkrx"]
+resource_name = "default_mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, 2.22045e-16, 1, 1, 1.00001),
+"attribute_data": PackedByteArray(153, 25, 153, 25, 51, 51, 0, 0, 153, 25, 0, 0, 153, 25, 153, 25, 51, 51, 153, 25, 51, 51, 0, 0, 153, 25, 153, 25, 51, 51, 0, 0, 153, 25, 0, 0, 153, 25, 153, 25, 51, 51, 153, 25, 51, 51, 0, 0, 0, 0, 153, 153, 153, 25, 255, 127, 0, 0, 255, 127, 0, 0, 153, 153, 153, 25, 153, 153, 153, 25, 255, 127),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 9, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 15, 0, 17, 0, 16, 0),
+"material": SubResource("StandardMaterial3D_ylen8"),
+"name": "test_croc_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 127, 255, 255, 255, 255, 254, 255, 255, 127, 0, 0, 255, 255, 254, 255, 255, 127, 0, 0, 0, 0, 254, 255, 255, 127, 255, 255, 0, 0, 254, 255, 255, 127, 255, 255, 255, 255, 254, 255, 255, 127, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 0, 0, 247, 255, 3, 0, 255, 255, 0, 0, 255, 255, 254, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 0, 192, 255, 127, 0, 192, 255, 127, 0, 192)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yfuwi")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2vfk7"]
+points = PackedVector3Array(1, 1, 0.999995, 1, 1, 2.22045e-16, 0, 1, 0.999995, 1, 0, 0.999995, 1, 0, 2.22045e-16, 0, 0.999804, 2.22045e-16, 0, 0, 0.999995)
+
+[node name="Models" type="Node3D"]
+
+[node name="wall_back" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_ga161")
+skeleton = NodePath("")
+
+[node name="wall_back" type="Node3D" parent="wall_back"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_back/wall_back"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_back/wall_back/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ov66o")
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_q0hrv")
+skeleton = NodePath("")
+
+[node name="floor" type="Node3D" parent="floor"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor/floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_osji2")
+
+[node name="wall_corner_left" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_6q1q7")
+skeleton = NodePath("")
+
+[node name="wall_corner_left" type="Node3D" parent="wall_corner_left"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_corner_left/wall_corner_left"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_corner_left/wall_corner_left/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fc01y")
+
+[node name="wall_corner_right" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_v3k72")
+skeleton = NodePath("")
+
+[node name="wall_corner_right" type="Node3D" parent="wall_corner_right"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_corner_right/wall_corner_right"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_corner_right/wall_corner_right/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_n1cme")
+
+[node name="wall_front" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_negdu")
+skeleton = NodePath("")
+
+[node name="wall_front" type="Node3D" parent="wall_front"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_front/wall_front"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_front/wall_front/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_htael")
+
+[node name="wall_left" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_kgxsf")
+skeleton = NodePath("")
+
+[node name="wall_left" type="Node3D" parent="wall_left"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_left/wall_left"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_left/wall_left/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xxqnr")
+
+[node name="wall_right" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_bu6ax")
+skeleton = NodePath("")
+
+[node name="wall_right" type="Node3D" parent="wall_right"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_right/wall_right"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_right/wall_right/StaticBody3D"]
+visible = false
+shape = SubResource("ConvexPolygonShape3D_dy27i")
+
+[node name="wall_front_corner2" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("ArrayMesh_rmkrx")
+skeleton = NodePath("")
+
+[node name="wall_front_corner" type="Node3D" parent="wall_front_corner2"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_front_corner2/wall_front_corner"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_front_corner2/wall_front_corner/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2vfk7")
