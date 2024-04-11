@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://o6tuxjnajtdd"]
+
+[ext_resource type="Texture2D" uid="uid://bxgrrnv6pvsct" path="res://Assets/Character/player_idle.png" id="1_1no7q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7imdd"]
+atlas = ExtResource("1_1no7q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5q74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7imdd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j7afk"]
+radius = 0.5829
+height = 1.48385
+
+[node name="Enemy_0" type="CharacterBody3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_c5q74")
+animation = &"idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.0003125, 0.000961095, -0.00235352)
+shape = SubResource("CapsuleShape3D_j7afk")

@@ -16,13 +16,11 @@ func get_input() -> Vector3:
 		input_vector.x += 1
 	return input_vector.normalized()
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-
 func _physics_process(delta):
 	var input_vector = get_input()
 	velocity.x = input_vector.x * speed
 	velocity.z = input_vector.z * speed
-	# velocity.y += gravity * delta // add when collision implemented
+	# velocity.y += gravity * delta // don't really need this 
 	move_and_slide();
 	handle_animation(input_vector);
 

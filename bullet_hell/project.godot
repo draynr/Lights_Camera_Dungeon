@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bullet_hell"
-run/main_scene="res://level.tscn"
+run/main_scene="res://Scene/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -42,6 +42,13 @@ move_down={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="enemies"
+3d_physics/layer_3="world"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/lossless_compression/force_png=true
