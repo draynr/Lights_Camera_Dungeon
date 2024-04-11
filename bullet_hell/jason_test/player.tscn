@@ -61,3 +61,6 @@ billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_d7nr3")
 animation = &"idle"
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
