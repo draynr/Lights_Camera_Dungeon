@@ -22,9 +22,8 @@ animations = [{
 radius = 0.5829
 height = 1.48385
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o2cbc"]
-radius = 0.503393
-height = 1.56246
+[sub_resource type="SphereShape3D" id="SphereShape3D_mb7tq"]
+radius = 3.16424
 
 [node name="enemy_0" type="CharacterBody3D"]
 transform = Transform3D(0.990396, 0, 0, 0, 0.990396, 0, 0, 0, 0.990396, 0, 0.187786, 0)
@@ -45,15 +44,16 @@ shape = SubResource("CapsuleShape3D_j7afk")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="LineOfSight" type="RayCast3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.00193817)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.00193817)
 
 [node name="Area3D" type="Area3D" parent="."]
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_o2cbc")
+transform = Transform3D(1, 0, 0, 0, 0.220594, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_mb7tq")
 
-[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[node name="vision" type="Node3D" parent="."]
+transform = Transform3D(0.998246, 0, 0, 0, 0.998246, 0, 0, 0, 0.998246, 0, 0, 0)
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
