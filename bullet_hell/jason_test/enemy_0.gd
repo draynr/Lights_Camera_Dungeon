@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 var speed = .5
 var accel = 1
+var hp = 5
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
 @onready var line3d = $Line3D
@@ -18,3 +19,8 @@ func _physics_process(delta):
 	velocity = velocity.lerp(dir * speed, accel * delta)
 
 	move_and_slide()
+
+func take_damage(dmg):
+	hp -= dmg;
+	if hp <= 0:
+		queue_free()
