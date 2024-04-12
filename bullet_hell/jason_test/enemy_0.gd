@@ -4,6 +4,8 @@ var speed = .5
 var accel = 1
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 
+@onready var line3d = $Line3D
+
 func _physics_process(delta):
 	var dir = Vector3()
 	# print(get_parent().get_node("player"))

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 # const SPEED = 5.0
 # const JUMP_VELOCITY = 4.5
-const PROJECTILE_SCENE : PackedScene = preload("res://jason_test/Projectile.tscn")
+const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
 
 var attack_speed: float = 0.5
@@ -22,17 +22,16 @@ func get_input_vector():
 
 func get_click_vector() -> Vector3:
 	var viewport = get_viewport()
-	var cam = get_node("Camera3D2")
+	var cam = get_node("Camera3D")
 	var mouse_pos = viewport.get_mouse_position()
 	var from = cam.project_ray_origin(mouse_pos)
 	var dir = cam.project_ray_normal(mouse_pos) * 1000
-	var plane = Plane(Vector3(0,-1,0), -global_position.y)
+	var plane = Plane(Vector3(0, -1, 0), -global_position.y)
 	var intersect_pos = plane.intersects_ray(from, dir)
 	
 	var shoot_vec = intersect_pos - global_position
 	var ret_vec = Vector3(shoot_vec.x, 0, shoot_vec.z)
 	return ret_vec
-	
 	
 	return Vector3.ZERO
 	#return get_global_mouse_position() - global_position
@@ -51,7 +50,7 @@ func get_inputs(dir):
 	return dir
 
 func shoot(shoot_vector: Vector3) -> void:
-	var projectile : Area3D = PROJECTILE_SCENE.instantiate()
+	var projectile: Area3D = PROJECTILE_SCENE.instantiate()
 	get_tree().current_scene.add_child(projectile)
 	projectile.launch(global_position, shoot_vector, proj_speed)
 
