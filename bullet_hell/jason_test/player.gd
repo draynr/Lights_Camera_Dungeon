@@ -5,7 +5,7 @@ extends CharacterBody3D
 const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
 
-var attack_speed: float = 0.5
+var attack_cd: float = 0.1
 var proj_speed: float = 1
 
 var speed = 1
@@ -55,10 +55,10 @@ func shoot(shoot_vector: Vector3) -> void:
 	projectile.launch(global_position, shoot_vector, proj_speed)
 
 func handle_attack():
-	if Input.is_mouse_button_pressed(1):
+	if Input.is_mouse_button_pressed(1) and attack_timer.is_stopped():
 		var click_vector = get_click_vector()
 		shoot(click_vector.normalized())
-		attack_timer.start(attack_speed)
+		attack_timer.start(attack_cd)
 
 func _physics_process(delta):
 	var dir = Vector3()

@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7tgsyug3cvea"]
+[gd_scene load_steps=8 format=3 uid="uid://c7tgsyug3cvea"]
 
 [ext_resource type="Script" path="res://jason_test/Projectile.gd" id="1_5x4bn"]
 [ext_resource type="Texture2D" uid="uid://r2vg573d7be0" path="res://jason_test/sparkredoutline.png" id="1_er35u"]
+[ext_resource type="Shader" path="res://jason_test/Projectile.gdshader" id="2_db8qm"]
+[ext_resource type="Texture2D" uid="uid://cx10gr5lmskld" path="res://jason_test/HitEffect.png" id="3_ejv6m"]
+[ext_resource type="Script" path="res://jason_test/ProjectileSprite3D.gd" id="4_ondwr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u3mmm"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7emkh"]
+render_priority = 0
+shader = ExtResource("2_db8qm")
+
 [node name="Projectile" type="Area3D"]
+collision_layer = 6
+collision_mask = 14
 script = ExtResource("1_5x4bn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -13,5 +22,26 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.005, 0.005, 0)
 shape = SubResource("SphereShape3D_u3mmm")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31375e-05, 0.000600375, -7.09444e-05)
+material_override = SubResource("ShaderMaterial_7emkh")
 texture_filter = 0
 texture = ExtResource("1_er35u")
+script = ExtResource("4_ondwr")
+
+[node name="HitSprite" type="Sprite3D" parent="."]
+visible = false
+texture = ExtResource("3_ejv6m")
+
+[node name="HitTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitLight" type="OmniLight3D" parent="."]
+light_color = Color(0.788235, 0.937255, 0.517647, 1)
+light_energy = 0.0
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
