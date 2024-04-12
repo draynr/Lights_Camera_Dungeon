@@ -32,6 +32,9 @@ func _on_body_entered(body):
 		hit_something = true;
 		get_node("Sprite3D").visible = false
 		get_node("HitSprite").visible = true
+		get_parent().get_node("player").get_node("Camera3D").camera_shake(.02, .02)
 		hit_light.light_energy = 1.0
 		# print(timer)
 		timer.start(0.5)
+	elif body.is_in_group("map"):
+		queue_free()

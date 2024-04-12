@@ -28,11 +28,13 @@ radius = 3.16424
 [node name="enemy_0" type="CharacterBody3D" groups=["enemies"]]
 transform = Transform3D(0.990396, 0, 0, 0, 0.990396, 0, 0, 0, 0.990396, 0, 0.187786, 0)
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_ffrcs")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.00007, 0, 0, 0, 1.00007, 0, 0, 0, 1.00007, 0, 0, 0)
 billboard = 1
+shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_c5q74")
 animation = &"idle"
@@ -58,6 +60,8 @@ shape = SubResource("SphereShape3D_mb7tq")
 transform = Transform3D(0.998246, 0, 0, 0, 0.998246, 0, 0, 0, 0.998246, 0, 0, 0)
 
 [node name="ShootTimer" type="Timer" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

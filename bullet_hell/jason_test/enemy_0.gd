@@ -27,17 +27,23 @@ var state = IDLE
 func _ready():
 	pass
 
-func _on_ShootTimer_timeout():
+func _on_shoot_timer_timeout():
 	if raycast.is_colliding():
 		var hit = raycast.get_collider()
 		if hit.is_in_group("player"):
 			print("hit motherfker")
 
 func _physics_process(delta):
+	var dir = Vector3()
 	if state == ALERT:
 		# print("yoo")
-		vision.look_at(target.global_transform.origin, Vector3.UP)
-		rotate_y(deg_to_rad(vision.rotation.y * turn_speed))
+		nav.target_position = get_parent().get_node("player").position
+		if (target != null):
+			vision.look_at(target.global_transform.origin, Vector3.UP)
+			rotate_y(deg_to_rad(vision.rotation.y * turn_speed))
+		dir = nav.get_next_path_position() - global_position
+		dir = dir.normalized()
+	velocity = velocity.lerp(dir * speed, accel * delta)
 	move_and_slide()
 func _on_area_3d_body_entered(body):
 	# pass # Replace with function body.
@@ -47,10 +53,13 @@ func _on_area_3d_body_entered(body):
 		shoottimer.start()
 
 func _on_area_3d_body_exited(body):
-	state = IDLE
+	# state = IDLE
 	shoottimer.stop()
 
 func take_damage(dmg):
 	hp -= dmg;
 	if hp <= 0:
 		queue_free()
+		get_parent().get_node("player").get_node("Camera3D").camera_shake(.2, .15)
+	else:
+		state = ALERT
