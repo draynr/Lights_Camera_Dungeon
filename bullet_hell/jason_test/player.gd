@@ -8,7 +8,7 @@ const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn
 var attack_cd: float = 0.1
 var proj_speed: float = 1
 
-var speed = 1
+var speed = 2.3
 var target_velocity = Vector3()
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

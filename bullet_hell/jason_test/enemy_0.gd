@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var speed = .5
+var speed = 1
 var accel = 1
 var hp = 5
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
@@ -11,7 +11,7 @@ var view_distance = 20.0
 var view_angle = 45.0
 
 var target
-const turn_speed = 2
+const turn_speed = 5
 
 @onready var line3d = $Line3D
 @onready var los = $LineOfSight
@@ -38,9 +38,8 @@ func _physics_process(delta):
 	if state == ALERT:
 		# print("yoo")
 		nav.target_position = get_parent().get_node("player").position
-		if (target != null):
-			vision.look_at(target.global_transform.origin, Vector3.UP)
-			rotate_y(deg_to_rad(vision.rotation.y * turn_speed))
+		vision.look_at(target.global_transform.origin, Vector3.UP)
+		rotate_y(deg_to_rad(vision.rotation.y * turn_speed))
 		dir = nav.get_next_path_position() - global_position
 		dir = dir.normalized()
 	velocity = velocity.lerp(dir * speed, accel * delta)
@@ -56,10 +55,17 @@ func _on_area_3d_body_exited(body):
 	# state = IDLE
 	shoottimer.stop()
 
+func flash():
+	$AnimatedSprite3D.material_override.set_shader_parameter("active", true)
+	$HitTimer.start()
 func take_damage(dmg):
 	hp -= dmg;
+	flash()
 	if hp <= 0:
 		queue_free()
-		get_parent().get_node("player").get_node("Camera3D").camera_shake(.2, .15)
 	else:
 		state = ALERT
+
+func _on_hit_timer_timeout():
+	# pass # Replace with function body.
+	$AnimatedSprite3D.material_override.set_shader_parameter("active", false)

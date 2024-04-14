@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wcxyk"]
-height = 1.27911
+height = 2.08441
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wejp2"]
 atlas = ExtResource("2_qhpdq")
