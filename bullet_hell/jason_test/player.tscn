@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=11 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
+[ext_resource type="PackedScene" uid="uid://datklj0fvgipp" path="res://gun.tscn" id="3_02hws"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wcxyk"]
 height = 2.08441
@@ -65,3 +66,6 @@ animation = &"idle"
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Gun" parent="." instance=ExtResource("3_02hws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00165649, 0, 0)

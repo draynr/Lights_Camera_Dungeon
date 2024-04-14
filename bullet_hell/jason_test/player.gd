@@ -55,8 +55,11 @@ func shoot(shoot_vector: Vector3) -> void:
 	projectile.launch(global_position, shoot_vector, proj_speed)
 
 func handle_attack():
+	var click_vector = get_click_vector()
+	var gun = get_node("Gun")
+	var player = get_node(".")
+	gun.aim_gun(player, click_vector, gun)
 	if Input.is_mouse_button_pressed(1) and attack_timer.is_stopped():
-		var click_vector = get_click_vector()
 		shoot(click_vector.normalized())
 		attack_timer.start(attack_cd)
 
