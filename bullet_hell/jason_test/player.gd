@@ -21,8 +21,8 @@ func get_input_vector():
 	return input_vector
 
 func get_click_vector() -> Vector3:
-	var viewport = get_viewport()
-	var cam = get_node("Camera3D")
+	var viewport = get_node("SubViewportContainer/SubViewport")
+	var cam = viewport.get_node("Camera3D")
 	var mouse_pos = viewport.get_mouse_position()
 	var from = cam.project_ray_origin(mouse_pos)
 	var dir = cam.project_ray_normal(mouse_pos) * 1000
@@ -32,9 +32,6 @@ func get_click_vector() -> Vector3:
 	var shoot_vec = intersect_pos - global_position
 	var ret_vec = Vector3(shoot_vec.x, 0, shoot_vec.z)
 	return ret_vec
-	
-	return Vector3.ZERO
-	#return get_global_mouse_position() - global_position
 	
 func get_inputs(dir):
 	if Input.is_action_pressed("move_down"):
