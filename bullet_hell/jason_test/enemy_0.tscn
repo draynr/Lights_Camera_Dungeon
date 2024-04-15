@@ -5,6 +5,7 @@
 [ext_resource type="Shader" path="res://jason_test/enemy_0.gdshader" id="2_cux7i"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ftlgi"]
+height = 1.42123
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mb7tq"]
 radius = 3.16424
@@ -13,7 +14,7 @@ radius = 3.16424
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_cux7i")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_color = Color(0.952941, 0.0901961, 0.207843, 1)
 shader_parameter/active = false
 shader_parameter/sprite_texture = ExtResource("1_1no7q")
 
@@ -39,11 +40,11 @@ collision_mask = 7
 script = ExtResource("1_ffrcs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.193656, 0, 0, 0, 0.139068, 0, 0, 0, 0.157247, 0, 0.0960964, -0.002)
+transform = Transform3D(0.193656, 0, 0, 0, 0.139068, 0, 0, 0, 0.157247, 0, 0.0195352, -0.002)
 shape = SubResource("CylinderShape3D_ftlgi")
 
 [node name="LineOfSight" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1.51557e-07, -1, 0, 3.46722, -4.37114e-08, 0.00505462, -0.00430323, 0.00419959)
+transform = Transform3D(0.7269, 0, 0, 0, -1.60176e-07, -1, 0, 3.66441, -4.37114e-08, 0.00505462, -0.00430323, 0.00419959)
 collision_mask = 5
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -63,7 +64,7 @@ transform = Transform3D(0.998246, 0, 0, 0, 0.998246, 0, 0, 0, 0.998246, 0, 0, 0)
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1.11393, 0, 0, 0, 1.11393, 0, 0, 0, 1.11393, 0.0175953, 0.0828148, -0.00312762)
+transform = Transform3D(1.13439, 0, 0, 0, 1.13439, 0, 0, 0, 1.13439, 0.0175953, 0.0100964, -0.00312762)
 material_override = SubResource("ShaderMaterial_wit2p")
 billboard = 1
 shaded = true
@@ -72,7 +73,7 @@ sprite_frames = SubResource("SpriteFrames_c5q74")
 animation = &"idle"
 
 [node name="HitTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.12
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

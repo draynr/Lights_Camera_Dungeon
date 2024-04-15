@@ -15,8 +15,9 @@ void vertex() {
 }
 void fragment() {
     vec4 original_color = texture(sprite_texture, UV);
-	   if (original_color.a < 0.5) { // Adjust 0.5 to your preferred threshold for transparency
+	   if (original_color.a < 0.5) { 
         discard;
     }
     ALBEDO = active ? flash_color.rgb : original_color.rgb;
+	ALPHA = active ? flash_color.a : original_color.a;
 }
