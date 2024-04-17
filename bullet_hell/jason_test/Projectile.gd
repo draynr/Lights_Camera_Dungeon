@@ -12,9 +12,7 @@ var hit = -1
 func launch(initial_position: Vector3, dir: Vector3, speed: int) -> void:
 	position = initial_position
 	direction = dir
-	#knockback_direction = dir
 	proj_speed = speed + 10
-	#rotation += dir.angle() + PI/4
 
 func _physics_process(delta: float) -> void:
 	if lifetime.is_stopped():
@@ -32,7 +30,7 @@ func _on_body_entered(body):
 		hit_something = true;
 		get_node("Sprite3D").visible = false
 		get_node("HitSprite").visible = true
-		get_parent().get_node("player").get_node("Camera3D").camera_shake(.05, .05)
+		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.05, .05)
 		hit_light.light_energy = 1.0
 		timer.start(0.5)
 	elif body.is_in_group("map"):
