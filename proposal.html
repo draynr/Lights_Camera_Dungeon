@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    background-color: white;
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  kbd {
+    color: #121212;
+  }
+</style>
+<title>CS 184 Final Project Proposal</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Final Project Proposal 2024</h1>
+<h1 align="middle">Lighting-based bullet hell</h1>
+<h2 align="middle">Abhi Alderman, Jason Dang, Juno Lee, Saif Moolji</h2>
+
+<!-- Add Website URL -->
+
+<br><br>
+
+
+
+<div>
+
+
+<h2 align="middle">Problem Description<br>
+Here you should provide the context for your idea. Describe the problem that you are trying to solve, why it is important, where it is challenging. Give us a general idea on how you are going to solve it.</h2>
+<p>We are going to make a top-down (2D/2.5D) bullet-hell shooter (e.g. Galaga). We plan to incorporate class concepts as mechanics in our game.
+  One example is using lenses (optics unit) to aim the player's weapon (a laser), at the enemy. (We also have 
+  several other ideas, such as incorporating color theory into enemy bullet/projectiles). (See image below.)<br>
+  </p>
+  <img src="diagram.png" width="1200px" height="800px">
+  <p>
+  We plan to use a combination of sprites, and computer-generated graphics (such as lasers/lights/glow effects).<br>
+  The importance of our idea of incorporating computer graphics techniques into 2D-style games is to illustrate
+  how even non-realistic/3D looking games can require creativity and CS184-inspired graphics techniques. 
+  Additionally, incorporating key concepts like optics diagrams as game mechanics will internalize these
+  concepts and help educate people.<br><br>
+  We anticipate to run into several challenges; the first is learning a game engine (we plan to use Godot,
+  but we don't really know how to use it yet), and learning the ins and outs of 2.5D-style game development. 
+  Another challenge would be designing satisfying game mechanics that utilize course concepts (such as aiming
+  using lens diagrams). We covered neither 2D/isometric systems, nor game design in class, so we foresee learning
+  about these things to be time-consuming.<br><br>
+  To solve our problem(s), we plan to use the Godot game engine (which supports both 2D and 3D games). We 
+  anticipate having to code several of the lighting/simulation effects ourselves in GDScript (or C#, which is also
+  supported). We also anticipate having to use 3D vectors/geometry for several of our effects, although
+  the controls will be 2D (WASD). We will have to find or create our own sprites, and we will design our own
+  visually appealing bullet patterns, (e.g. trajectories following sinusoidal patterns, or influenced by 
+  bullet-bullet particle interactions). 
+</p>
+<br>
+
+<h2 align="middle">Goals and Deliverables<br>
+This is the most important part of your proposal. You should carefully think through what you are trying to accomplish, what results you are going for, and why you think you can accomplish those goals. For example:
+Since this is a graphics class you will likely define the kind of images you will create (e.g. including a photo of a new lighting effect you will simulate).
+If you are working on an interactive system, describe what demo you will create.
+Define how you will measure the quality / performance of your system (e.g. graphs showing speedup, or quantifying accuracy). It may not be possible to define precise target metrics at this time, but we encourage you to try.
+What questions do you plan to answer with your analysis?
+You should break this section into two parts: (1) what you plan to deliver, and (2) what you hope to deliver. In (1), describe what you believe you must accomplish to have a successful project and achieve the grade you expect (i.e. your baseline plan -- planning for some unexpected problems would make sense). In (2), describe what you hope to achieve if things go well and you get ahead of schedule (your aspirational plan).</h2>
+<p>Our deliverable will be a playable demo of our game (an .exe).<br>
+We will measure the quality of our system through subjective measures of visual attractiveness, and gameplay
+engagement. We will also benchmark frames per second (FPS) to ensure that our algorithms are performant
+enough for smooth gameplay (e.g. frequency of FPS drops).<br><br>
+(1) We plan to deliver a functional demo of our game. We will have some kind of particle system 
+(at minimum, to plan out trajectories for bullet patterns). To implement enemy aiming AI, we will use
+raytracing. We will also incorporate
+optics/lensing into core mechanics in some way (at the current, we plan to make the player weapon
+an aimable laser+lens system, but this is subject to change). We also want to ensure that our collision system
+is performant and completely accurate (at minimum, Godot will handle this). We will also add some kind
+of lighting effects (we need to research this subject further to figure out what a "minimum" and "extra"
+lighting scheme would be, though).<br><br>
+(2) What we "hope" to deliver is a more polished and feature-complete version of our game. This could 
+include a more complex enemy bullet system (for instance, involving bullet-bullet particle interactions).
+could have particle shaders for bullet interactions that create effects such as explosions, allowing for an
+immersive environment.
+We could also rethink how we want to implement the "lens" aiming scheme, and redesign this core mechanic.
+We could also hack into Godot's game engine and revamp the collision system for efficiency (since we 
+may only need to check collisions with the player, who takes up only the bottom half of the screen).
+We could also add extra lighting effects; particularly, we could add a 3rd dimension (e.g. making certain
+effects or game objects 3D; which would also create more complex lighting interactions). We could 
+experiment with having the player/enemy lighting effects glow/reflect on the screen. We could have lensing
+distortion/bloom/other visual effects (maybe as debuffs to decrease visibility).</p>
+<br>
+<h2 align="middle">Schedule<br>
+In this section you should organize and plan the tasks and subtasks that your team will execute. Since presentations are ~4 weeks from the due-date of the proposal, you should include a set of tasks for every week.</h2>
+<p>1. Make a basic 2d game with player movement and terrain. Try to incorporate basic enemies as well.<br>
+  2. Implement the Camera/Lense weapon and projectile motion for enemy projectiles. <br>
+  3. Finalize Camera/Lense weapon and enemy projectile motion. Implement lighting systems. <br>
+  4. Finalize all implemented features. Create a basic “level” using the terrain, enemies, and player that we already made. If we have time, add some advanced lighting, shadow reflections, or procedural terrain generation. Create a final demo, writeup, reflection, etc.
+  </p>
+<br>
+<h2 align="middle">Resources<br>
+List what resources, e.g. books, papers and/or online resources that are references for your project. List the computing platform, hardware and software resources that you will use for your project. You have a wide latitude here to use what you have access to, but be aware that you will have to support and trouble-shoot on your platform yourselves. If you are starting from an existing piece of code or system, describe and provide a pointer to it here.</h2>
+
+<p>Godot Docs: https://docs.godotengine.org/en/stable/index.html</p>
+<p>Game Assets: https://www.itch.io</p>
+<p>Class notes: https://cs184.eecs.berkeley.edu/sp24</p>
+<p>Independent Gamedev Blogs (example:) https://slembcke.github.io/2D-Lighting-Overview</p>
+<p>Research papers on games/lighting (example:) https://orbit.dtu.dk/files/3046500/imm4046.pdf</p>
+<br>
+<p> We plan to use Windows 11 and Godot (and Aseprite for sprites/other assets). We have three gaming 
+  computers to compile and render our game (and record demo).
+
+</p>
+</body>
+</html>

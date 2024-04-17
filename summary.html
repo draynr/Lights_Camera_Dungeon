@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    background-color: white;
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  kbd {
+    color: #121212;
+  }
+</style>
+<title>CS 184 Final Project Proposal</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+</head>
+
+
+<body>
+
+<h1 align="middle">Project Milestone</h1>
+
+<ul>
+	<li>
+	<a href="proposal.html">Proposal</a>
+	</li>
+	<li><a target="_blank"  href="https://docs.google.com/presentation/d/15NN62p6--oOP3cnlDI7BsgpHlrCpvbB7O87YCsWA914/edit#slide=id.g2cd025174d9_0_50">Slides</a></li>
+</ul>
+<br>
+<h2>What we've implemented into our game</h2>
+<p>
+	In the first week, we learned godot to get familiar with the game engine, 
+	and worked on the basics of what our game should have: player movement, basic sprites for character
+	and enemies (drawn via Aseprite), collisions. We weren't sure how to create our 3D environment from 
+	tiles (our goal was to have a  pixel-art look to our game), whether to use Blender or other software, but we eventually
+	settled on a software called Crocotile3D that we used to construct 3D blocks for our game 
+	imported from 2D tilemaps.
+</p>
+ <div align="middle">
+      <table style="width:100%">
+        <tbody><tr align="center">
+          <td>
+              <img src="images/player_idle.png" align="middle" width="300px" >
+              <figcaption>Enemy 0 design</figcaption>
+              
+          </td>
+          <td>
+              <img src="images/coputer.png" align="middle" width="300px" >
+              <figcaption>Character Design</figcaption>
+          </td>
+        </tr>
+        <tr align="center">
+          <td>
+              <img src="images/room.png" align="middle" width="300px">
+              <figcaption>Basic Room</figcaption>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+<br>
+<p>
+	Then, we moved onto projectiles (creating the projectile and adding shaders to it)
+	and getting player shooting to work (aiming is aligned with mouse movement).
+	We wanted to make projectile collision feel more immersive, so we added a shader that animates a hitflash on our enemy when its hit.
+	This turned out to be a much greater challenge than we expected, as we
+	had a 2D sprite for our character, but we're rendering in 3D. We had to orient the shader on our character sprite
+	face the camera. Therefore, we had to run through all the vertices in our model and construct a custom model-view matrix
+	that ensures the new shader always faces the camera.
+</p>
+
+</body>
+</html>
