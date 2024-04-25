@@ -11,6 +11,12 @@ var proj_speed: float = 1
 var speed = 2.3
 var target_velocity = Vector3()
 
+#stuff for dashing
+const dash_speed = 5
+const dash_duration = 0.15
+@onready var sprite = $AnimatedSprite3D
+@onready var dash = $Dash
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func get_input_vector():
@@ -47,6 +53,9 @@ func get_inputs(dir):
 		dir.x += 1
 	# if dir != Vector3.ZERO:
 	dir = dir.normalized()
+	#dashing input
+	if Input.is_action_just_pressed("Dash") && dash.can_dash && !dash.is_dashing():
+		dash.start_dash(sprite, dash_duration)
 	return dir
 
 func shoot(shoot_vector: Vector3) -> void:
@@ -66,10 +75,13 @@ func handle_attack():
 func _physics_process(delta):
 	var dir = Vector3()
 	dir = get_inputs(dir)
-	handle_attack()
-	target_velocity.x = dir.x * speed
-	target_velocity.z = dir.z * speed
+	var dashing = dash.is_dashing()
+	target_velocity.x = dir.x * speed if !dashing else dir.x * dash_speed
+	target_velocity.z = dir.z * speed if !dashing else dir.z * dash_speed
 	velocity = target_velocity
 	move_and_slide()
+	handle_attack()
 	if (dir == Vector3.ZERO):
 		$AnimatedSprite3D.play("idle")
+
+

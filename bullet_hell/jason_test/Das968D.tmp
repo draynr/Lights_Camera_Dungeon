@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxrajd0mu6d5u"]
+
+[ext_resource type="Texture2D" uid="uid://denvsvavujy3c" path="res://Assets/Character/coputer.png" id="1_5n6t1"]
+[ext_resource type="Script" path="res://DashGhost.gd" id="1_770to"]
+
+[node name="Sprite3D" type="Sprite3D"]
+pixel_size = 1.651
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_5n6t1")
+script = ExtResource("1_770to")
