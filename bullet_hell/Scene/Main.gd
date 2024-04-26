@@ -11,7 +11,6 @@ func _process(delta):
 	pass
 
 func spawn_enemy():
-
 	var enemy = enemy_scene.instantiate()
 	add_child(enemy)
 
