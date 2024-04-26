@@ -42,7 +42,7 @@ light_color = Color(1, 1, 0.188235, 1)
 transform = Transform3D(0.998999, 0, 0, 0, 0.998999, 0, 0, 0, 0.998999, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_5syk0")
 
-[node name="Node3D" parent="NavigationRegion3D" instance=ExtResource("4_0mxak")]
+[node name="room" parent="NavigationRegion3D" instance=ExtResource("4_0mxak")]
 transform = Transform3D(1.001, 0, 0, 0, 1.001, 0, 0, 0, 1.001, 0, 0, 0)
 
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
