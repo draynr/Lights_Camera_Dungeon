@@ -5,14 +5,33 @@ var direction: Vector3 = Vector3.ZERO
 var proj_speed: int = 0
 var damage: int = 1
 var hit = -1
+var init_pos: Vector3 = Vector3.ZERO
 @onready var lifetime: Timer = get_node("Lifetime")
 @onready var timer: Timer = get_node("HitTime")
 @onready var hit_light: OmniLight3D = get_node("HitLight")
+@onready var line: Line2D = get_node("Line2D")
+@onready var mainnd = get_parent()
+@onready var cam: Camera3D = get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D")
+@onready var arrowhead: Sprite3D = get_node("Sprite3D")
+@onready var tail: GPUParticles3D = get_node("GPUParticles3D")
+
+var rng = RandomNumberGenerator.new()
+var color: Color
 
 func launch(initial_position: Vector3, dir: Vector3, speed: int) -> void:
+	#print(initial_position)
+	look_at(dir, Vector3(0,1,0))
+	global_rotation_degrees[0] = -45.
+	print(global_rotation_degrees)
 	position = initial_position
+	init_pos = initial_position
 	direction = dir
-	proj_speed = speed + 10
+	proj_speed = speed
+	#mesh.add_vertex(init_pos)
+
+	color = Color(rng.randf(), rng.randf(), rng.randf())
+	arrowhead.modulate = color
+	tail.material_override.albedo_color = color
 
 func _physics_process(delta: float) -> void:
 	if lifetime.is_stopped():
@@ -29,6 +48,7 @@ func _on_body_entered(body):
 		body.take_damage(damage)
 		hit_something = true;
 		get_node("Sprite3D").visible = false
+		get_node("GPUParticles3D").visible = false
 		get_node("HitSprite").visible = true
 		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.05, .05)
 		hit_light.light_energy = 1.0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=11 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wcxyk"]
-height = 2.08441
+radius = 0.075
+height = 0.4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wejp2"]
 atlas = ExtResource("2_qhpdq")
@@ -49,11 +50,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vucik"]
+radius = 0.025
+height = 0.4
+
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_5obcd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_wcxyk")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -65,3 +69,10 @@ animation = &"idle"
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Area3D" type="Area3D" parent="." groups=["playerhurtbox"]]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_vucik")

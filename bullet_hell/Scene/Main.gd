@@ -1,6 +1,7 @@
 extends Node
 
 var enemy_scene = preload ("../jason_test/enemy_0.tscn")
+var teapot_scene = preload ("../jason_test/teapot.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,8 +13,12 @@ func _process(delta):
 
 func spawn_enemy():
 
-	var enemy = enemy_scene.instantiate()
-	add_child(enemy)
+	if (randf() >= .5):
+		var teapot = teapot_scene.instantiate()
+		add_child(teapot)
+	else:
+		var enemy = enemy_scene.instantiate()
+		add_child(enemy)
 
 func _on_enemy_timer_timeout():
 	# pass # Replace with function body.

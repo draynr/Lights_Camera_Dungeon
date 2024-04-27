@@ -59,7 +59,8 @@ shape = SubResource("SphereShape3D_mb7tq")
 [node name="vision" type="Node3D" parent="."]
 transform = Transform3D(0.998246, 0, 0, 0, 0.998246, 0, 0, 0, 0.998246, 0, 0, 0)
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -77,5 +78,5 @@ wait_time = 0.12
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
