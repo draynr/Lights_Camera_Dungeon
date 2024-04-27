@@ -38,9 +38,14 @@ shape = SubResource("SphereShape3D_seeg3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1.0904, 0, 0, 0, 1.0904, 0, 0, 0, 1.0904, -0.221956, 0.240627, 0)
+shadow_enabled = true
+omni_range = 0.5
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1.0904, 0, 0, 0, 1.0904, 0, 0, 0, 1.0904, 0.170413, 0.240627, 0)
+shadow_enabled = true
+omni_range = 0.5
+omni_attenuation = 0.277392
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout_new"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
