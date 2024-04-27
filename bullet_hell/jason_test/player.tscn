@@ -57,6 +57,7 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_wcxyk")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.986928, 0, 0, 0, 0.986928, 0, 0, 0, 0.986928, 0, 0, 0)
 billboard = 1
 shaded = true
 texture_filter = 0

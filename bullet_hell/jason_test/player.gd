@@ -5,14 +5,19 @@ extends CharacterBody3D
 const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
 
+signal health_changed(value)
+
 var attack_cd: float = 0.1
 var proj_speed: float = 1
 
-var speed = 2.3
+var speed = 2.2
 var target_velocity = Vector3()
 
+var hp: int = 5
+var hearts: float = hp
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 func get_input_vector():
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength('ui_right') - Input.get_action_strength('ui_left')
@@ -67,3 +72,12 @@ func _physics_process(delta):
 	move_and_slide()
 	if (dir == Vector3.ZERO):
 		$AnimatedSprite3D.play("idle")
+func flash():
+	$AnimatedSprite3D.material_override.set_shader_parameter("active", true)
+	$HitTimer.start()
+func take_damage(dmg):
+	hp -= dmg;
+	# flash()
+	emit_signal("health_changed", hp)
+	if hp <= 0:
+		queue_free()

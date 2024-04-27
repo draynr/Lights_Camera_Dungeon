@@ -38,8 +38,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="HitLight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59714e-05, 1.11354, -0.000276998)
-light_color = Color(0.788235, 0.937255, 0.517647, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59714e-05, 0.34345, -0.000276998)
+light_color = Color(0.858824, 0.87451, 0.882353, 1)
 light_energy = 0.0
 omni_range = 2.0
 

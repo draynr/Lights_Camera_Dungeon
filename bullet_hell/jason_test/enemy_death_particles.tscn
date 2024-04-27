@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu5klc1j8yw73"]
+
+[sub_resource type="Gradient" id="Gradient_sgncn"]
+offsets = PackedFloat32Array(0.515528, 1)
+colors = PackedColorArray(1, 0, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m1gjw"]
+gradient = SubResource("Gradient_sgncn")
+
+[sub_resource type="Curve" id="Curve_6iwbt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vp2vl"]
+curve = SubResource("Curve_6iwbt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ji2ga"]
+lifetime_randomness = 0.5
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_min = 20.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_vp2vl")
+color = Color(0, 0, 1, 1)
+color_ramp = SubResource("GradientTexture1D_m1gjw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nirr7"]
+albedo_color = Color(0, 0, 1, 1)
+proximity_fade_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6l0cf"]
+material = SubResource("StandardMaterial3D_nirr7")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(1.00215, 0, 0, 0, 1.00215, 0, 0, 0, 1.00215, 5.2361, 3.49089, 1.80609)
+amount = 53
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ji2ga")
+draw_pass_1 = SubResource("BoxMesh_6l0cf")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dugh4dkyhicte"]
+
+[ext_resource type="Texture2D" uid="uid://csebvr17eis2d" path="res://Assets/UI/full_heart.png" id="1_h1jax"]
+[ext_resource type="Script" path="res://jason_test/ui.gd" id="1_isj4n"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_isj4n")
+
+[node name="HealthFull" type="TextureRect" parent="."]
+offset_right = 89.0
+offset_bottom = 18.0
+scale = Vector2(0.99767, 1.00116)
+texture = ExtResource("1_h1jax")
+stretch_mode = 1

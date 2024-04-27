@@ -3,11 +3,15 @@ extends CharacterBody3D
 @export var ENEMY_BULLET: PackedScene = preload ("res://jason_test/enemy_bullet.tscn")
 # const DEATH_PARTICLE: PackedScene = preload ("res://jason_test/enemy_death_particles.tscn")
 
+const MAX_BULLETS = 15
+const turn_speed = 15
+
 var proj_speed: float = 2
 
 var speed = 1
 var accel = 1
 var hp = 5
+
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 var player = null
 var player_spotted: bool = false
@@ -15,20 +19,21 @@ var player_spotted: bool = false
 var view_distance = 20.0
 var angle_cone := deg_to_rad(30.)
 var angle_between_rays := deg_to_rad(5.)
-
 var target
-const turn_speed = 15
 
 @onready var line3d = $Line3D
 @onready var raycast: RayCast3D = $LineOfSight
 @onready var vision = $vision
-@onready var shoottimer = $ReloadTimer
+
+@onready var reloadCnt = 0
+
+@onready var shoottimer = $ShootTimer
+@onready var reloadtimer = $ReloadTimer
 
 enum {IDLE, ALERT}
 
 var see_player = false
 var state = IDLE
-# var can_shoot = true
 
 func _ready():
 	pass
@@ -55,7 +60,7 @@ func _physics_process(delta):
 			if raycast.is_colliding() and raycast.get_collider().is_in_group("player"):
 				target = raycast.get_collider()
 				# vision.look_at(target.global_transform.origin, Vector3.UP)
-				if (shoottimer.is_stopped()):
+				if (shoottimer.is_stopped() and reloadtimer.is_stopped()):
 					shoot()
 				break
 	velocity = velocity.lerp(dir * speed, accel * delta)
@@ -66,33 +71,37 @@ func _on_area_3d_body_entered(body):
 		state = ALERT
 		target = body
 
+## REWORKING SHOOTING MECHANIC
 func shoot() -> void:
-	var bullet: CharacterBody3D = ENEMY_BULLET.instantiate()
-	bullet.projectile_texture = load("res://jason_test/Enemy_Bullet.png")
+
 	var direction = (get_parent().get_node("player").global_position - global_position).normalized()
-	bullet.rotation.y = atan2(direction.x, direction.z)
-	bullet.spawnCoords = global_position + Vector3(0, .05, 0)
-	bullet.spawnRotation = direction
-	get_tree().current_scene.add_child(bullet)
 
 	var cone_angle = deg_to_rad(30)
-
-	for i in range(2):
-		var ofs = ENEMY_BULLET.instantiate()
-		ofs.projectile_texture = load("res://jason_test/Enemy_Bullet.png")
-		var offset_angle = randf_range( - cone_angle, cone_angle)
+	var num_bullets = 5
+	var spread_angle = cone_angle / (num_bullets - 1) if num_bullets > 1 else 0
+	var start_angle = -cone_angle / 2
+	for i in range(num_bullets):
+		var bullet = ENEMY_BULLET.instantiate()
+		bullet.projectile_texture = load("res://jason_test/teabag.png")
+		
+		var offset_angle = start_angle + i * spread_angle
 		var offset_direction = direction.rotated(Vector3.UP, offset_angle)
-		ofs.rotation.y = atan2(offset_direction.x, offset_direction.z)
-		ofs.spawnCoords = global_position + Vector3(0, .05, 0)
-		ofs.spawnRotation = offset_direction
-		get_tree().current_scene.add_child(ofs)
+		bullet.rotation.y = atan2(offset_direction.x, offset_direction.z)
+		bullet.spawnCoords = global_position + Vector3(0, .05, 0)
+		bullet.spawnRotation = offset_direction
+		get_tree().current_scene.add_child(bullet)
 
 	# flash()
 	shoottimer.start()
+	reloadCnt += num_bullets
+	if (reloadCnt >= MAX_BULLETS):
+		reloadtimer.start()
+		reloadCnt = 0
+		# print("hello")
 
 ################# ON-HIT #####################################
 func flash():
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", true)
+	$Sprite3D.material_override.set_shader_parameter("active", true)
 	$HitTimer.start()
 func take_damage(dmg):
 	hp -= dmg;
@@ -105,7 +114,7 @@ func take_damage(dmg):
 
 func _on_hit_timer_timeout():
 	# pass # Replace with function body.
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", false)
+	$Sprite3D.material_override.set_shader_parameter("active", false)
 
 func die():
 	# don't have one yet
@@ -114,5 +123,5 @@ func die():
 	# _particle.rotation = global_rotation
 	# _particle.emitting = true
 	# get_tree().current_scene.add_child(_particle)
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", false)
+	$Sprite3D.material_override.set_shader_parameter("active", false)
 	queue_free()

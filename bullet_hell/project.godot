@@ -15,10 +15,15 @@ run/main_scene="res://Scene/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+HealthManagement="*res://Scripts/health_management.gd"
+
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=520
+mouse_cursor/custom_image="res://Assets/UI/crosshair161.png"
 
 [filesystem]
 
@@ -52,6 +57,7 @@ move_down={
 3d_physics/layer_1="player"
 3d_physics/layer_2="enemies"
 3d_physics/layer_3="world"
+3d_physics/layer_4="projectiles"
 
 [rendering]
 
