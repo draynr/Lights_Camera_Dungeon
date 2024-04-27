@@ -19,7 +19,6 @@ var angle_between_rays := deg_to_rad(5.)
 var target
 const turn_speed = 15
 
-@onready var line3d = $Line3D
 @onready var raycast: RayCast3D = $LineOfSight
 @onready var vision = $vision
 @onready var shoottimer = $ReloadTimer
@@ -45,6 +44,7 @@ func _physics_process(delta):
 		rotation = rotation.lerp(target_rotation, turn_speed * delta)
 		
 		dir = nav.get_next_path_position() - global_position
+		dir.y = 0
 		dir = dir.normalized()
 		
 		for index in cast_count:
@@ -60,6 +60,7 @@ func _physics_process(delta):
 				break
 	velocity = velocity.lerp(dir * speed, accel * delta)
 	move_and_slide()
+	#print("ENEMY", global_position, dir)
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("player"):

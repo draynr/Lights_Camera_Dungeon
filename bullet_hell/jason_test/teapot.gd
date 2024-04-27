@@ -21,7 +21,6 @@ var angle_cone := deg_to_rad(30.)
 var angle_between_rays := deg_to_rad(5.)
 var target
 
-@onready var line3d = $Line3D
 @onready var raycast: RayCast3D = $LineOfSight
 @onready var vision = $vision
 
@@ -50,6 +49,7 @@ func _physics_process(delta):
 		rotation = rotation.lerp(target_rotation, turn_speed * delta)
 		
 		dir = nav.get_next_path_position() - global_position
+		dir.y = 0
 		dir = dir.normalized()
 		
 		for index in cast_count:
@@ -97,7 +97,6 @@ func shoot() -> void:
 	if (reloadCnt >= MAX_BULLETS):
 		reloadtimer.start()
 		reloadCnt = 0
-		# print("hello")
 
 ################# ON-HIT #####################################
 func flash():

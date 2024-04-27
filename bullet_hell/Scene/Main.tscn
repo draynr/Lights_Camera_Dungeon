@@ -32,7 +32,7 @@ light_color = Color(0.568627, 0.611765, 0.803922, 1)
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_sx4l6")]
-transform = Transform3D(1.00053, 0, 0, 0, 1.00053, 0, 0, 0, 1.00053, 0, 0.180102, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
 collision_mask = 6
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="player"]
@@ -51,7 +51,7 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="player/SubViewportContainer/SubViewport"]
-transform = Transform3D(1.00053, 0, 0, 0, 0.707482, 0.707482, 0, -0.707482, 0.707482, 0, 1.93103, 1.45077)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.93, 1.45)
 projection = 1
 current = true
 size = 2.5
@@ -82,11 +82,9 @@ transform = Transform3D(1, 0, 0, 0, -0.0666396, 0.997777, 0, -0.997777, -0.06663
 light_color = Color(1, 1, 0.188235, 1)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(0.998999, 0, 0, 0, 0.998999, 0, 0, 0, 0.998999, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_5syk0")
 
 [node name="room" parent="NavigationRegion3D" instance=ExtResource("8_1772t")]
-transform = Transform3D(1.001, 0, 0, 0, 1.001, 0, 0, 0, 1.001, 0, 0, 0)
 
 [node name="UI" parent="." instance=ExtResource("7_l4jvi")]
 

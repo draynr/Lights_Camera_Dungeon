@@ -9,7 +9,6 @@ var init_pos: Vector3 = Vector3.ZERO
 @onready var lifetime: Timer = get_node("Lifetime")
 @onready var timer: Timer = get_node("HitTime")
 @onready var hit_light: OmniLight3D = get_node("HitLight")
-@onready var line: Line2D = get_node("Line2D")
 @onready var mainnd = get_parent()
 @onready var cam: Camera3D = get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D")
 @onready var arrowhead: Sprite3D = get_node("Sprite3D")
@@ -22,7 +21,7 @@ func launch(initial_position: Vector3, dir: Vector3, speed: int) -> void:
 	#print(initial_position)
 	look_at(dir, Vector3(0,1,0))
 	global_rotation_degrees[0] = -45.
-	print(global_rotation_degrees)
+	#print(global_rotation_degrees)
 	position = initial_position
 	init_pos = initial_position
 	direction = dir
@@ -34,6 +33,7 @@ func launch(initial_position: Vector3, dir: Vector3, speed: int) -> void:
 	tail.material_override.albedo_color = color
 
 func _physics_process(delta: float) -> void:
+	#print(global_position, direction)
 	if lifetime.is_stopped():
 		queue_free()
 	elif not hit_something:

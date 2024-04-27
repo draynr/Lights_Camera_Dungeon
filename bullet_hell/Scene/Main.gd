@@ -16,9 +16,11 @@ func spawn_enemy():
 	if (randf() >= .5):
 		var teapot = teapot_scene.instantiate()
 		add_child(teapot)
+		teapot.global_position.y = 0.2
 	else:
 		var enemy = enemy_scene.instantiate()
 		add_child(enemy)
+		enemy.global_position.y = 0.2
 
 func _on_enemy_timer_timeout():
 	# pass # Replace with function body.
