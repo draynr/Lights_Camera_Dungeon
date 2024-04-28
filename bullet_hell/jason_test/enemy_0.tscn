@@ -5,8 +5,7 @@
 [ext_resource type="Shader" path="res://jason_test/enemy_0.gdshader" id="2_cux7i"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ftlgi"]
-height = 0.14
-radius = 0.05
+height = 1.42123
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mb7tq"]
 radius = 3.16424
@@ -35,13 +34,13 @@ animations = [{
 }]
 
 [node name="enemy_0" type="CharacterBody3D" groups=["enemies"]]
-transform = Transform3D(1.15464, 0, 0, 0, 1.15464, 0, 0, 0, 1.15464, 0, 0, 0)
+transform = Transform3D(1.15464, 0, 0, 0, 1.15464, 0, 0, 0, 1.15464, 0, 0.0141568, 0)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_ffrcs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0195352, -0.002)
+transform = Transform3D(0.193656, 0, 0, 0, 0.139068, 0, 0, 0, 0.157247, 0, 0.0195352, -0.002)
 shape = SubResource("CylinderShape3D_ftlgi")
 
 [node name="LineOfSight" type="RayCast3D" parent="."]
@@ -49,10 +48,12 @@ transform = Transform3D(0.7269, 0, 0, 0, -1.60176e-07, -1, 0, 3.66441, -4.37114e
 collision_mask = 5
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.92334, 0, 0, 0, 1.00109, 0, 0, 0, 1.4979, 0, 0, 0)
 collision_layer = 2
 collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.220594, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_mb7tq")
 
 [node name="vision" type="Node3D" parent="."]
@@ -62,6 +63,9 @@ transform = Transform3D(0.998246, 0, 0, 0, 0.998246, 0, 0, 0, 0.998246, 0, 0, 0)
 one_shot = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+height = 0.01
+neighbor_distance = 0.1
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.13439, 0, 0, 0, 1.13439, 0, 0, 0, 1.13439, 0.0175953, 0.0100964, -0.00312762)
