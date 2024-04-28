@@ -20,9 +20,9 @@ height = 0.660419
 radius = 0.145474
 
 [node name="teapot" type="CharacterBody3D" groups=["enemies"]]
-transform = Transform3D(1.15464, 0, 0, 0, 1.15464, 0, 0, 0, 1.15464, 0.00015673, 0.0152056, -0.0002729)
+transform = Transform3D(1.14544, 0, 0, 0, 1.14544, 0, 0, 0, 1.14544, 0.00015673, 0.0152056, -0.0002729)
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_87yhw")
 
 [node name="LineOfSight" type="RayCast3D" parent="."]

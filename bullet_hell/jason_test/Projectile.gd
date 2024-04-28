@@ -28,6 +28,8 @@ func launch(initial_position: Vector3, dir: Vector3, speed: int) -> void:
 	proj_speed = speed
 	#mesh.add_vertex(init_pos)
 
+	# if (randf() > .2):
+	# 	get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.05, .05)
 	color = Color(rng.randf(), rng.randf(), rng.randf())
 	arrowhead.modulate = color
 	tail.material_override.albedo_color = color
@@ -50,7 +52,7 @@ func _on_body_entered(body):
 		get_node("Sprite3D").visible = false
 		get_node("GPUParticles3D").visible = false
 		# get_node("HitSprite").visible = true
-		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.05, .05)
+		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.04, .04)
 		hit_light.light_energy = 1.0
 		timer.start(0.5)
 	elif body.is_in_group("map"):

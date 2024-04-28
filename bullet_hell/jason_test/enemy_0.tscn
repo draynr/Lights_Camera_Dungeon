@@ -38,7 +38,7 @@ radius = 0.145474
 [node name="enemy_0" type="CharacterBody3D" groups=["enemies"]]
 transform = Transform3D(1.15464, 0, 0, 0, 1.15464, 0, 0, 0, 1.15464, 0, 0.0141568, 0)
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_ffrcs")
 
 [node name="LineOfSight" type="RayCast3D" parent="."]
