@@ -19,7 +19,7 @@ var color: Color
 
 func launch(initial_position: Vector3, dir: Vector3, speed: int) -> void:
 	#print(initial_position)
-	look_at(dir, Vector3(0,1,0))
+	look_at(dir, Vector3(0, 1, 0))
 	global_rotation_degrees[0] = -45.
 	#print(global_rotation_degrees)
 	position = initial_position
@@ -49,7 +49,7 @@ func _on_body_entered(body):
 		hit_something = true;
 		get_node("Sprite3D").visible = false
 		get_node("GPUParticles3D").visible = false
-		get_node("HitSprite").visible = true
+		# get_node("HitSprite").visible = true
 		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.05, .05)
 		hit_light.light_energy = 1.0
 		timer.start(0.5)

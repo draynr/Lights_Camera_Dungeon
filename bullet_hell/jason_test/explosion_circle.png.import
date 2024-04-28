@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co2xdjq3dbum6"
-path.s3tc="res://.godot/imported/teapot_bullet.png-55e9f2719f42c69fa06378e6b4ec20eb.s3tc.ctex"
+uid="uid://bcqtpotsc4u67"
+path="res://.godot/imported/explosion_circle.png-a247e3c21f99d689907aa8b5e5e5e85a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://jason_test/teapot_bullet.png"
-dest_files=["res://.godot/imported/teapot_bullet.png-55e9f2719f42c69fa06378e6b4ec20eb.s3tc.ctex"]
+source_file="res://jason_test/explosion_circle.png"
+dest_files=["res://.godot/imported/explosion_circle.png-a247e3c21f99d689907aa8b5e5e5e85a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

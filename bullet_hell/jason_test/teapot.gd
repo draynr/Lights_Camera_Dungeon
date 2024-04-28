@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var ENEMY_BULLET: PackedScene = preload ("res://jason_test/enemy_bullet.tscn")
-# const DEATH_PARTICLE: PackedScene = preload ("res://jason_test/enemy_death_particles.tscn")
+var death_particle = preload ("res://jason_test/enemy_death_explosion_blue.tscn")
 
 const MAX_BULLETS = 15
 const turn_speed = 15
@@ -91,7 +91,6 @@ func shoot() -> void:
 		bullet.spawnRotation = offset_direction
 		get_tree().current_scene.add_child(bullet)
 
-	# flash()
 	shoottimer.start()
 	reloadCnt += num_bullets
 	if (reloadCnt >= MAX_BULLETS):
@@ -102,6 +101,7 @@ func shoot() -> void:
 func flash():
 	$Sprite3D.material_override.set_shader_parameter("active", true)
 	$HitTimer.start()
+
 func take_damage(dmg):
 	hp -= dmg;
 	flash()
@@ -122,5 +122,10 @@ func die():
 	# _particle.rotation = global_rotation
 	# _particle.emitting = true
 	# get_tree().current_scene.add_child(_particle)
+	var _particle_parent = death_particle.instantiate()
+	var _particle = _particle_parent.get_node("death_particles")
+	_particle.position = global_position
+	_particle.emitting = true
+	get_tree().current_scene.add_child(_particle_parent)
 	$Sprite3D.material_override.set_shader_parameter("active", false)
 	queue_free()

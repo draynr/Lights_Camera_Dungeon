@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co2xdjq3dbum6"
-path.s3tc="res://.godot/imported/teapot_bullet.png-55e9f2719f42c69fa06378e6b4ec20eb.s3tc.ctex"
+uid="uid://bv8fac05h5f6v"
+path.s3tc="res://.godot/imported/white.png-8087b900f9d56dbc967d88fdc9ee9521.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://jason_test/teapot_bullet.png"
-dest_files=["res://.godot/imported/teapot_bullet.png-55e9f2719f42c69fa06378e6b4ec20eb.s3tc.ctex"]
+source_file="res://jason_test/white.png"
+dest_files=["res://.godot/imported/white.png-8087b900f9d56dbc967d88fdc9ee9521.s3tc.ctex"]
 
 [params]
 

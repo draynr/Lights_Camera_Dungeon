@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export var ENEMY_BULLET: PackedScene = preload ("res://jason_test/enemy_bullet.tscn")
 # const DEATH_PARTICLE: PackedScene = preload ("res://jason_test/enemy_death_particles.tscn")
 
+var death_particle = preload ("res://jason_test/enemy_death_explosion.tscn")
+
 var proj_speed: float = 2
 
 var speed = 1
@@ -72,7 +74,7 @@ func shoot() -> void:
 	bullet.projectile_texture = load("res://jason_test/Enemy_Bullet.png")
 	var direction = (get_parent().get_node("player").global_position - global_position).normalized()
 	bullet.rotation.y = atan2(direction.x, direction.z)
-	bullet.spawnCoords = global_position + Vector3(0, .05, 0)
+	bullet.spawnCoords = global_position + Vector3(0, .02, 0)
 	bullet.spawnRotation = direction
 	get_tree().current_scene.add_child(bullet)
 
@@ -84,7 +86,7 @@ func shoot() -> void:
 		var offset_angle = randf_range( - cone_angle, cone_angle)
 		var offset_direction = direction.rotated(Vector3.UP, offset_angle)
 		ofs.rotation.y = atan2(offset_direction.x, offset_direction.z)
-		ofs.spawnCoords = global_position + Vector3(0, .05, 0)
+		ofs.spawnCoords = global_position + Vector3(0, .02, 0)
 		ofs.spawnRotation = offset_direction
 		get_tree().current_scene.add_child(ofs)
 
@@ -115,5 +117,14 @@ func die():
 	# _particle.rotation = global_rotation
 	# _particle.emitting = true
 	# get_tree().current_scene.add_child(_particle)
+	var _particle_parent = death_particle.instantiate()
+	var _particle = _particle_parent.get_node("death_particles")
+	_particle.position = global_position
+	_particle.emitting = true
+
+	# print(_particle.death_particles.emitting)
+	get_tree().current_scene.add_child(_particle_parent)
+
+	# $death/death_particles.restart()
 	$AnimatedSprite3D.material_override.set_shader_parameter("active", false)
 	queue_free()

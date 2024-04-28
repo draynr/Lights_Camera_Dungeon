@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://xhd8y0vefgrg"]
+
+[ext_resource type="Texture2D" uid="uid://bv8fac05h5f6v" path="res://jason_test/white.png" id="1_ad7lp"]
+
+[sub_resource type="Curve" id="Curve_dws3f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.782857, 0.717076), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2wep8"]
+curve = SubResource("Curve_dws3f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h8qij"]
+lifetime_randomness = 0.5
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_2wep8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3m6xj"]
+transparency = 1
+albedo_color = Color(0, 0, 1.71, 1)
+albedo_texture = ExtResource("1_ad7lp")
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 3.0
+billboard_mode = 1
+billboard_keep_scale = true
+distance_fade_max_distance = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_atum7"]
+material = SubResource("StandardMaterial3D_3m6xj")
+
+[node name="death" type="Node3D"]
+
+[node name="death_particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00506997, 0.00672436, -0.00221634)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_h8qij")
+draw_pass_1 = SubResource("QuadMesh_atum7")

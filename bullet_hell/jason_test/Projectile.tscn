@@ -56,6 +56,7 @@ one_shot = true
 
 [node name="HitLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59714e-05, 1.11354, -0.000276998)
+visible = false
 light_color = Color(0.788235, 0.937255, 0.517647, 1)
 light_energy = 0.0
 omni_range = 2.0
@@ -77,5 +78,6 @@ draw_pass_1 = SubResource("TubeTrailMesh_230x1")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1.00309, 0, 0, 0, 1.00309, 0, 0, 0, 1.00309, 0, 0.139697, 0)
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

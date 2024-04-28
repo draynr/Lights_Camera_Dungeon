@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcgl7maiwokab"]
+[gd_scene load_steps=7 format=3 uid="uid://dsuqw2emw8po2"]
 
 [ext_resource type="Script" path="res://jason_test/teapot.gd" id="1_87yhw"]
 [ext_resource type="Shader" path="res://jason_test/enemy_0.gdshader" id="2_cux7i"]
-[ext_resource type="Texture2D" uid="uid://dh4kkaahpo5gd" path="res://jason_test/teapot.png" id="4_a758d"]
+[ext_resource type="Texture2D" uid="uid://eomn5g44rfgn" path="res://Assets/Character/camera.png" id="3_t3rp6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mb7tq"]
 radius = 3.16424
@@ -13,7 +13,7 @@ render_priority = 0
 shader = ExtResource("2_cux7i")
 shader_parameter/flash_color = Color(1, 0, 0, 1)
 shader_parameter/active = false
-shader_parameter/sprite_texture = ExtResource("4_a758d")
+shader_parameter/sprite_texture = ExtResource("3_t3rp6")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j3ibh"]
 height = 0.660419
@@ -55,7 +55,7 @@ transform = Transform3D(0.998043, 0, 0, 0, 0.998043, 0, 0, 0, 0.998043, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_qdm5j")
 billboard = 1
 texture_filter = 0
-texture = ExtResource("4_a758d")
+texture = ExtResource("3_t3rp6")
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.1

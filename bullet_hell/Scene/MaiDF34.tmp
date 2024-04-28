@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hf7fe3qpks5o"]
+[gd_scene load_steps=14 format=3 uid="uid://hf7fe3qpks5o"]
 
 [ext_resource type="Script" path="res://Scene/Main.gd" id="1_7f24b"]
 [ext_resource type="MeshLibrary" uid="uid://yw5jydlt6p33" path="res://Better_Models.tres" id="3_7ow6i"]
@@ -35,30 +35,12 @@ size = Vector3(3.03833, 1, 2.07288)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2d0te"]
 size = Vector3(1, 1, 0.373535)
 
-[sub_resource type="Environment" id="Environment_a1fl2"]
-background_mode = 3
-tonemap_mode = 3
-glow_enabled = true
-glow_levels/1 = 1.0
-glow_levels/2 = 1.0
-glow_levels/4 = 1.0
-glow_levels/6 = 1.0
-glow_levels/7 = 1.0
-glow_blend_mode = 1
-
 [node name="Main" type="Node"]
 script = ExtResource("1_7f24b")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(47.9607, 27.0747)
-color = Color(0.670588, 0.670588, 0.670588, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999997, -0.000882792, 0.00234297, -4.14782e-05, 0.92981, 0.36804, -0.00250342, -0.368039, 0.929807, 0, 4.25281, 5.90649)
 light_color = Color(0.568627, 0.611765, 0.803922, 1)
-light_energy = 2.5
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_sx4l6")]
@@ -102,16 +84,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.211765, 0.211765, 0.211765, 1)
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0666396, 0.997777, 0, -0.997777, -0.0666396, 0.489134, 1, -0.54492)
+transform = Transform3D(1, 0, 0, 0, -0.0666396, 0.997777, 0, -0.997777, -0.0666396, 0.489134, 2, 1.45508)
 light_color = Color(1, 1, 0.188235, 1)
-light_energy = 5.0
 
 [node name="UI" parent="." instance=ExtResource("7_l4jvi")]
 
@@ -170,51 +150,18 @@ transform = Transform3D(0.1, 0, 0, 0, 0.178051, 0, 0, 0, 0.0815941, -0.441354, -
 transform = Transform3D(16.542, 0, 0, 0, 16.542, 0, 0, 0, 16.542, 0.310547, 0, 3.28418)
 shape = SubResource("BoxShape3D_a6bxi")
 
+[node name="Spawn" type="Node3D" parent="Rooms/MainRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000367165, 0.00516873, -0.0412405)
+
+[node name="Position" type="Marker3D" parent="Rooms/MainRoom/Spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5438, 0, -9.92951)
+
 [node name="Room_1" type="Area3D" parent="Rooms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0227144, 0, -0.0156775)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Room_1"]
-transform = Transform3D(6.16672, 0, 0, 0, 5.84298, 0, 0, 0, 11.0366, -0.309619, 0.00388908, -3.20437)
+transform = Transform3D(6.16672, 0, 0, 0, 5.84298, 0, 0, 0, 11.0366, -0.309619, 0.00388908, -3.7186)
 shape = SubResource("BoxShape3D_2d0te")
 
-[node name="main_tr" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.1, 0, 0, 0, 0.178051, 0, 0, 0, 0.0815941, 1.36415, 0.0498086, -0.760099)
-
-[node name="main_tl" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.01, 0, 0, 0, 0.0317021, 0, 0, 0, 0.0066576, -2.07177, 0.058677, -0.822119)
-
-[node name="room1_tl" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.001, 0, 0, 0, 0.00564458, 0, 0, 0, 0.000543221, -2.76505, 0.0602561, -5.72407)
-
-[node name="room1_tr" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.0001, 0, 0, 0, 0.00100502, 0, 0, 0, 4.43236e-05, 1.96163, 0.0605372, -5.65656)
-
-[node name="room1_bl" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.001, 0, 0, 0, 0.00564458, 0, 0, 0, 0.000543221, -2.76505, 0.0602561, -4.29717)
-
-[node name="room1_br" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.0001, 0, 0, 0, 0.00100502, 0, 0, 0, 4.43236e-05, 2.45839, 0.0605372, -4.07303)
-
-[node name="room2_tr" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.0001, 0, 0, 0, 0.00100502, 0, 0, 0, 4.43236e-05, 7.42862, 0.2, -9.95217)
-
-[node name="room2_tl" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.0001, 0, 0, 0, 0.00100502, 0, 0, 0, 4.43236e-05, 3.60044, 0.2, -9.95217)
-
-[node name="room2_br" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.0001, 0, 0, 0, 0.00100502, 0, 0, 0, 4.43236e-05, 7.42862, 0.2, -8.84188)
-
-[node name="room2_bl" type="Marker3D" parent="Rooms"]
-transform = Transform3D(0.0001, 0, 0, 0, 0.00100502, 0, 0, 0, 4.43236e-05, 3.60044, 0.2, -8.84188)
-
-[node name="room_1_spawner" type="Timer" parent="."]
-wait_time = 3.5
-one_shot = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_a1fl2")
-
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
-[connection signal="body_entered" from="Rooms/MainRoom" to="." method="_on_main_room_body_entered"]
-[connection signal="body_entered" from="Rooms/Room_1" to="." method="_on_room_1_body_entered"]
-[connection signal="timeout" from="room_1_spawner" to="." method="_on_room_1_spawner_timeout"]
+[connection signal="area_entered" from="Rooms/MainRoom" to="." method="_on_main_room_area_entered"]
+[connection signal="area_entered" from="Rooms/Room_1" to="." method="_on_room_1_area_entered"]

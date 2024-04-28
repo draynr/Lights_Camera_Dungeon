@@ -30,13 +30,15 @@ transform = Transform3D(1.19222, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_seeg3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1.0904, 0, 0, 0, 1.0904, 0, 0, 0, 1.0904, -0.221956, 0.240627, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.221956, 0.126366, 0)
+visible = false
 light_energy = 0.1
 shadow_enabled = true
 omni_range = 0.5
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1.0904, 0, 0, 0, 1.0904, 0, 0, 0, 1.0904, 0.170413, 0.240627, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.170413, 0.126366, 0)
+visible = false
 shadow_enabled = true
 omni_range = 0.5
 omni_attenuation = 0.277392

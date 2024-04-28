@@ -3,14 +3,14 @@ extends CharacterBody3D
 var dir: float
 var spawnCoords: Vector3
 var spawnRotation: Vector3
-var speed = 1.8
+var speed = 1.2
 var lifetime = 5.
 var projectile_texture
 
 #@onready var sprite: Sprite3D = get_node("Sprite3D")
 #@onready var sphereshape: SphereShape3D = get_node("Area3D/CollisionShape3D").shape
 
-@onready var player = get_parent().get_node("player") #preload ("res://jason_test/player.gd")
+@onready var player = get_parent().get_node("player") # preload ("res://jason_test/player.gd")
 
 func _ready():
 	global_position = spawnCoords
