@@ -4,6 +4,9 @@ extends CharacterBody3D
 # const JUMP_VELOCITY = 4.5
 const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
+@onready var iframe_timer: Timer = get_node("Invuln")
+
+@onready var hurtoverlay = get_node("SubViewportContainer/SubViewport/Camera3D/CanvasLayer/ColorRect")
 
 signal health_changed(value)
 
@@ -13,7 +16,7 @@ var proj_speed: float = 1
 var speed = 2.2
 var target_velocity = Vector3()
 
-var hp: int = 5
+var hp: int = 1
 var hearts: float = hp
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -72,12 +75,16 @@ func _physics_process(delta):
 	move_and_slide()
 	if (dir == Vector3.ZERO):
 		$AnimatedSprite3D.play("idle")
-func flash():
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", true)
-	$HitTimer.start()
+	if not iframe_timer.is_stopped():
+		hurtoverlay.visible = true
+	else:
+		hurtoverlay.visible = false
 func take_damage(dmg):
-	hp -= dmg;
-	# flash()
-	emit_signal("health_changed", hp)
-	if hp <= 0:
-		queue_free()
+	if iframe_timer.is_stopped():
+		var viewport = get_node("SubViewportContainer/SubViewport")
+		var colorrect = viewport.get_node("Camera3D/CanvasLayer/ColorRect")
+		iframe_timer.start()
+		hp -= dmg;
+		emit_signal("health_changed", hp)
+		if hp <= 0:
+			queue_free()

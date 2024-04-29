@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpx7kv0r6vjiw"]
+[gd_scene load_steps=5 format=3 uid="uid://cpx7kv0r6vjiw"]
 
 [ext_resource type="Texture2D" uid="uid://dxwcixq36oaxl" path="res://jason_test/Enemy_Bullet.png" id="1_6qtve"]
 [ext_resource type="Script" path="res://jason_test/enemy_bullet.gd" id="1_rhtmu"]
+[ext_resource type="Shape3D" uid="uid://cgndtg5y8y5k8" path="res://jason_test/enemybullethitbox1.tres" id="3_jwk86"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_seeg3"]
-radius = 0.0878808
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3dil"]
+transparency = 1
+albedo_color = Color(0.615686, 0.0470588, 1, 0.156863)
 
 [node name="enemy_bullet" type="CharacterBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -13,7 +15,6 @@ collision_mask = 20
 script = ExtResource("1_rhtmu")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.999997, -0.000119381, -0.00240111, 0.000125721, 0.999997, 0.00264974, 0.00240079, -0.00265004, 0.999994, 0, 0, 0)
 billboard = 1
 shaded = true
 texture_filter = 0
@@ -26,20 +27,31 @@ collision_layer = 8
 collision_mask = 21
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.19222, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("SphereShape3D_seeg3")
+shape = ExtResource("3_jwk86")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1.0904, 0, 0, 0, 1.0904, 0, 0, 0, 1.0904, -0.221956, 0.240627, 0)
+visible = false
 light_energy = 0.1
 shadow_enabled = true
 omni_range = 0.5
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1.0904, 0, 0, 0, 1.0904, 0, 0, 0, 1.0904, 0.170413, 0.240627, 0)
+visible = false
 shadow_enabled = true
 omni_range = 0.5
 omni_attenuation = 0.277392
+
+[node name="debug" type="CSGCylinder3D" parent="."]
+visible = false
+radius = 0.088
+height = 1.5
+material = SubResource("StandardMaterial3D_g3dil")
+
+[node name="debugsphere" type="CSGSphere3D" parent="."]
+visible = false
+radius = 0.088
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout_new"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

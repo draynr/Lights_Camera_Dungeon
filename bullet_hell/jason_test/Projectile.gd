@@ -13,6 +13,7 @@ var init_pos: Vector3 = Vector3.ZERO
 @onready var cam: Camera3D = get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D")
 @onready var arrowhead: Sprite3D = get_node("Sprite3D")
 @onready var tail: GPUParticles3D = get_node("GPUParticles3D")
+@onready var planemesh = get_node("MeshInstance3D").mesh
 
 var rng = RandomNumberGenerator.new()
 var color: Color
@@ -31,6 +32,9 @@ func launch(initial_position: Vector3, dir: Vector3, speed: int) -> void:
 	color = Color(rng.randf(), rng.randf(), rng.randf())
 	arrowhead.modulate = color
 	tail.material_override.albedo_color = color
+	planemesh.material.resource_local_to_scene =true
+	planemesh.material.albedo_color = color
+
 
 func _physics_process(delta: float) -> void:
 	#print(global_position, direction)
@@ -50,7 +54,7 @@ func _on_body_entered(body):
 		get_node("Sprite3D").visible = false
 		get_node("GPUParticles3D").visible = false
 		get_node("HitSprite").visible = true
-		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.05, .05)
+		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.01, .01)
 		hit_light.light_energy = 1.0
 		timer.start(0.5)
 	elif body.is_in_group("map"):

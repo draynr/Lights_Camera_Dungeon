@@ -1,17 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7tgsyug3cvea"]
+[gd_scene load_steps=18 format=3 uid="uid://c7tgsyug3cvea"]
 
 [ext_resource type="Script" path="res://jason_test/Projectile.gd" id="1_5x4bn"]
 [ext_resource type="Texture2D" uid="uid://fl1aeet6bbex" path="res://arrowhead2.png" id="2_22yf1"]
 [ext_resource type="Texture2D" uid="uid://cx10gr5lmskld" path="res://jason_test/HitEffect.png" id="3_ejv6m"]
 [ext_resource type="Script" path="res://jason_test/ProjectileSprite3D.gd" id="4_ondwr"]
+[ext_resource type="Material" uid="uid://cps8fxs8yqmbh" path="res://jason_test/tail.tres" id="5_kduw4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u3mmm"]
+
+[sub_resource type="Gradient" id="Gradient_acyje"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d1ft5"]
+gradient = SubResource("Gradient_acyje")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dw7c6"]
 resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture1D_d1ft5")
 
 [sub_resource type="Curve" id="Curve_xdggp"]
 _data = [Vector2(0, 1), -2.28378, -3.46667, 1, 0, Vector2(1, 0), -0.265574, 0.0, 0, 0]
@@ -29,6 +37,24 @@ radius = 0.01
 section_length = 0.01
 cap_top = false
 cap_bottom = false
+
+[sub_resource type="Gradient" id="Gradient_4al4c"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_equn8"]
+gradient = SubResource("Gradient_4al4c")
+width = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr2lk"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture1D_equn8")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w5iu1"]
+resource_local_to_scene = true
+material = ExtResource("5_kduw4")
+size = Vector2(0.15, 0.02)
 
 [node name="Projectile" type="Area3D"]
 transform = Transform3D(0.996919, 0, 0, 0, 0.996919, 0, 0, 0, 0.996919, 0, 0, 0)
@@ -56,12 +82,13 @@ one_shot = true
 
 [node name="HitLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59714e-05, 1.11354, -0.000276998)
+visible = false
 light_color = Color(0.788235, 0.937255, 0.517647, 1)
 light_energy = 0.0
 omni_range = 2.0
 
 [node name="Lifetime" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
@@ -69,7 +96,7 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, -0.707107, -0.707107, 0, 0.707107, -0.707107, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_dw7c6")
 amount = 16
-lifetime = 0.5
+lifetime = 0.3
 draw_order = 2
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_8s5kn")
@@ -77,5 +104,18 @@ draw_pass_1 = SubResource("TubeTrailMesh_230x1")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1.00309, 0, 0, 0, 1.00309, 0, 0, 0, 1.00309, 0, 0.139697, 0)
+visible = false
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, -0.05, 0.05)
+visible = false
+material_override = SubResource("StandardMaterial3D_kr2lk")
+radius = 0.01
+height = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.09086e-08, 3.09086e-08, 1, 0.707107, 0.707107, 0, -0.707107, 0.707107, -4.37114e-08, 0, -0.075, 0.075)
+visible = false
+mesh = SubResource("PlaneMesh_w5iu1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
