@@ -4,12 +4,12 @@ extends CharacterBody3D
 # const DEATH_PARTICLE: PackedScene = preload ("res://jason_test/enemy_death_particles.tscn")
 
 var death_particle = preload ("res://jason_test/enemy_death_explosion.tscn")
-
 var proj_speed: float = 2
 
 var speed = 1
 var accel = 1
 var hp = 5
+signal died
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 var player = null
 var player_spotted: bool = false
@@ -20,7 +20,7 @@ var angle_between_rays := deg_to_rad(5.)
 
 var target
 const turn_speed = 15
-
+@onready var main_node = get_node("Main")
 @onready var raycast: RayCast3D = $LineOfSight
 @onready var vision = $vision
 @onready var shoottimer = $ReloadTimer
@@ -129,7 +129,7 @@ func die():
 
 	# print(_particle.death_particles.emitting)
 	get_tree().current_scene.add_child(_particle_parent)
-
+	died.emit()
 	# $death/death_particles.restart()
 	animatedSprite3d.material_override.set_shader_parameter("active", false)
 	queue_free()

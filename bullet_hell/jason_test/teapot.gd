@@ -11,6 +11,7 @@ var proj_speed: float = 2
 var speed = 1
 var accel = 1
 var hp = 5
+signal died
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 var player = null
@@ -132,4 +133,5 @@ func die():
 	_particle.emitting = true
 	get_tree().current_scene.add_child(_particle_parent)
 	sprite3d.material_override.set_shader_parameter("active", false)
+	died.emit()
 	queue_free()

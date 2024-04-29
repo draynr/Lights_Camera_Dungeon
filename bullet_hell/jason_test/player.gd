@@ -18,7 +18,7 @@ var proj_speed: float = 1
 var speed = 1.2
 var target_velocity = Vector3()
 
-var hp: int = 5
+var hp: int = 40
 var hearts: float = hp
 
 func _ready():

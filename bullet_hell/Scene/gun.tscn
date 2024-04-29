@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://datklj0fvgipp"]
 
-[ext_resource type="Texture2D" uid="uid://b6kp2yrv2pws1" path="res://Assets/weapons/gun.png" id="2_1pnem"]
+[ext_resource type="Texture2D" uid="uid://cwmdbh8d3wsgv" path="res://Assets/weapons/camera_gun.png" id="2_2gips"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="2_exrdn"]
 
 [node name="Gun" type="Node3D"]
@@ -12,7 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="Sprite3D" type="Sprite3D" parent="WeaponPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113263, 0, 0)
 texture_filter = 0
-texture = ExtResource("2_1pnem")
+texture = ExtResource("2_2gips")
 
 [node name="ShootingPoint" type="Marker3D" parent="WeaponPivot/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0634122, 0.0406337, 0)

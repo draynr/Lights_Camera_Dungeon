@@ -8,6 +8,8 @@ var player = preload ("../jason_test/player.gd")
 var main_entered = false
 var room_1_entered = false
 var room_2_entered = false
+
+var enemies_alive = 0
 @onready var cnt = 0
 
 @onready var room1_br = $Rooms/room1_br
@@ -25,6 +27,8 @@ var room_2_entered = false
 @onready var main_tr = $Rooms/main_tr
 @onready var main_tl = $Rooms/main_tl
 
+@onready var doors = $doors
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +43,7 @@ func _on_room_2_body_entered(body):
 	# pass # Replace with function body.
 	# player.current_room = $Rooms/Room_1
 	if (!room_2_entered):
+		add_child(doors)
 		spawn_enemy(camera_scene, room2_br)
 		spawn_enemy(camera_scene, room2_bl)
 		room2_spawner.start()
@@ -48,6 +53,7 @@ func _on_room_1_body_entered(body):
 	# pass # Replace with function body.
 	# player.current_room = $Rooms/Room_1
 	if (!room_1_entered):
+		add_child(doors)
 		spawn_enemy(teapot_scene, room1_br)
 		spawn_enemy(teapot_scene, room1_bl)
 		room1_spawner.start()
@@ -59,6 +65,7 @@ func _on_main_room_body_entered(body):
 	# player.current_room = $MainRoom
 	# print(player.global_position)
 	if (!main_entered):
+		add_child(doors)
 		spawn_enemy(enemy_scene, main_tr)
 		spawn_enemy(enemy_scene, main_tl)
 		main_entered = true
@@ -66,6 +73,8 @@ func _on_main_room_body_entered(body):
 func spawn_enemy(spawn_type, marker):
 	var enemy = spawn_type.instantiate()
 	enemy.global_position = marker.position;
+	enemies_alive += 1
+	enemy.died.connect(enemy_killed)
 
 	# print(enemy)
 	#print(marker.position)
@@ -86,3 +95,9 @@ func _on_room_2_spawner_timeout():
 	if cnt < 2:
 		room2_spawner.start()
 		cnt += 1
+		
+func enemy_killed():
+	enemies_alive -= 1
+	if enemies_alive <= 0:
+		enemies_alive = 0
+		remove_child(doors)
