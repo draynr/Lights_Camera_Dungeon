@@ -9,7 +9,7 @@ var main_entered = false
 var room_1_entered = false
 var room_2_entered = false
 
-var enemies_alive = 0
+@onready var enemies_alive = 0
 @onready var cnt = 0
 
 @onready var room1_br = $Rooms/room1_br
@@ -29,7 +29,6 @@ var enemies_alive = 0
 
 @onready var doors = $doors
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -37,6 +36,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# print(enemies_alive)
 	pass
 
 func _on_room_2_body_entered(body):
@@ -76,8 +76,6 @@ func spawn_enemy(spawn_type, marker):
 	enemies_alive += 1
 	enemy.died.connect(enemy_killed)
 
-	# print(enemy)
-	#print(marker.position)
 	add_child(enemy)
 
 func _on_room_1_spawner_timeout():
@@ -90,8 +88,8 @@ func _on_room_2_spawner_timeout():
 
 	spawn_enemy(camera_scene, room2_tr)
 	spawn_enemy(camera_scene, room2_tl)
-	spawn_enemy(camera_scene, room2_br)
-	spawn_enemy(camera_scene, room2_bl)
+	# spawn_enemy(camera_scene, room2_br)
+	# spawn_enemy(camera_scene, room2_bl)
 	if cnt < 2:
 		room2_spawner.start()
 		cnt += 1

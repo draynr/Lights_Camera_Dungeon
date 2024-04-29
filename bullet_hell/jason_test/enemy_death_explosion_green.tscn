@@ -36,9 +36,9 @@ material = SubResource("StandardMaterial3D_3m6xj")
 [node name="death" type="Node3D"]
 
 [node name="death_particles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00506997, 0.00672436, -0.00221634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0149499, 0.00103998, 0.00672007)
 emitting = false
-amount = 50
+amount = 25
 one_shot = true
 explosiveness = 1.0
 trail_lifetime = 1.0

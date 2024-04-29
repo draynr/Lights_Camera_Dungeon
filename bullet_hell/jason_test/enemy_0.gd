@@ -27,7 +27,7 @@ const turn_speed = 15
 
 @onready var animatedSprite3d = $AnimatedSprite3D
 @onready var hitTimer = $HitTimer
-@onready var projectile_texture = preload("res://jason_test/Enemy_Bullet.png")
+@onready var projectile_texture = preload ("res://jason_test/Enemy_Bullet.png")
 @onready var playerNode = get_parent().get_node("player")
 
 enum {IDLE, ALERT}
@@ -83,17 +83,17 @@ func shoot() -> void:
 	bullet.spawnRotation = direction
 	get_tree().current_scene.add_child(bullet)
 
-	var cone_angle = deg_to_rad(30)
+	# var cone_angle = deg_to_rad(30)
 
-	for i in range(2):
-		var ofs = ENEMY_BULLET.instantiate()
-		ofs.projectile_texture = projectile_texture
-		var offset_angle = randf_range( - cone_angle, cone_angle)
-		var offset_direction = direction.rotated(Vector3.UP, offset_angle)
-		ofs.rotation.y = atan2(offset_direction.x, offset_direction.z)
-		ofs.spawnCoords = global_position + Vector3(0, .02, 0)
-		ofs.spawnRotation = offset_direction
-		get_tree().current_scene.add_child(ofs)
+	# for i in range(2):
+	# 	var ofs = ENEMY_BULLET.instantiate()
+	# 	ofs.projectile_texture = projectile_texture
+	# 	var offset_angle = randf_range( - cone_angle, cone_angle)
+	# 	var offset_direction = direction.rotated(Vector3.UP, offset_angle)
+	# 	ofs.rotation.y = atan2(offset_direction.x, offset_direction.z)
+	# 	ofs.spawnCoords = global_position + Vector3(0, .02, 0)
+	# 	ofs.spawnRotation = offset_direction
+	# 	get_tree().current_scene.add_child(ofs)
 
 	# flash()
 	shoottimer.start()

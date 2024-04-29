@@ -11,4 +11,4 @@ func take_dmg(health_amount: int):
 	#die
 	if hp <= 0:
 		queue_free()
-	print('hit')
+	# print('hit')

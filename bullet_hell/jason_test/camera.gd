@@ -3,12 +3,13 @@ extends CharacterBody3D
 @export var ENEMY_BULLET: PackedScene = preload ("res://jason_test/enemy_bullet.tscn")
 var death_particle = preload ("res://jason_test/enemy_death_explosion_green.tscn")
 
-const MAX_BULLETS = 15
+const MAX_BULLETS = 10
 const turn_speed = 15
+signal died
 
 var proj_speed: float = 2
 
-var speed = 1
+var speed = .5
 var accel = 1
 var hp = 5
 
@@ -31,7 +32,7 @@ var target
 
 @onready var hitTimer = $HitTimer
 @onready var sprite3d = $Sprite3D
-@onready var projectile_texture = preload("res://jason_test/teapot_bullet.png")
+@onready var projectile_texture = preload ("res://jason_test/teapot_bullet.png")
 
 enum {IDLE, ALERT}
 
@@ -80,8 +81,8 @@ func shoot() -> void:
 
 	var direction = (get_parent().get_node("player").global_position - global_position).normalized()
 
-	var cone_angle = deg_to_rad(30)
-	var num_bullets = 5
+	var cone_angle = deg_to_rad(180)
+	var num_bullets = 10
 	var spread_angle = cone_angle / (num_bullets - 1) if num_bullets > 1 else 0
 	var start_angle = -cone_angle / 2
 	for i in range(num_bullets):
@@ -132,4 +133,5 @@ func die():
 	_particle.emitting = true
 	get_tree().current_scene.add_child(_particle_parent)
 	sprite3d.material_override.set_shader_parameter("active", false)
+	died.emit()
 	queue_free()
