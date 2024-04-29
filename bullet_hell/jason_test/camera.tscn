@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsuqw2emw8po2"]
 
-[ext_resource type="Script" path="res://jason_test/teapot.gd" id="1_87yhw"]
+[ext_resource type="Script" path="res://jason_test/camera.gd" id="1_qgwnw"]
 [ext_resource type="Shader" path="res://jason_test/enemy_0.gdshader" id="2_cux7i"]
 [ext_resource type="Texture2D" uid="uid://eomn5g44rfgn" path="res://Assets/Character/camera.png" id="3_t3rp6"]
 
@@ -19,15 +19,11 @@ shader_parameter/sprite_texture = ExtResource("3_t3rp6")
 height = 0.660419
 radius = 0.145474
 
-[node name="teapot" type="CharacterBody3D" groups=["enemies"]]
+[node name="camera" type="CharacterBody3D" groups=["enemies"]]
 transform = Transform3D(1.15464, 0, 0, 0, 1.15464, 0, 0, 0, 1.15464, 0.00015673, 0.0152056, -0.0002729)
 collision_layer = 2
 collision_mask = 7
-script = ExtResource("1_87yhw")
-
-[node name="LineOfSight" type="RayCast3D" parent="."]
-transform = Transform3D(0.7269, 0, 0, 0, -1.60176e-07, -1, 0, 3.66441, -4.37114e-08, 0.00666908, -0.00430323, 0.00419959)
-collision_mask = 5
+script = ExtResource("1_qgwnw")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1.92334, 0, 0, 0, 1.00109, 0, 0, 0, 1.4979, 0, 0, 0)
@@ -64,6 +60,12 @@ one_shot = true
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.49, 0, 0, 0, 0.46267, 0, 0, 0, 0.787365, 0, 0, 0)
 shape = SubResource("CylinderShape3D_j3ibh")
+
+[node name="Spawner" type="Node3D" parent="."]
+
+[node name="LineOfSight" type="RayCast3D" parent="."]
+transform = Transform3D(0.7269, 0, 0, 0, -1.60176e-07, -1, 0, 3.66441, -4.37114e-08, 0.00666908, -0.00430323, 0.00419959)
+collision_mask = 5
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

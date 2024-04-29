@@ -1,5 +1,7 @@
 extends Node3D
 
+var particle_explosion = preload ("res://jason_test/particle_explosion.tscn")
+
 var hit_something: bool = false
 var direction: Vector3 = Vector3.ZERO
 var proj_speed: int = 0
@@ -56,4 +58,9 @@ func _on_body_entered(body):
 		hit_light.light_energy = 1.0
 		timer.start(0.5)
 	elif body.is_in_group("map"):
+		var _particle_parent = particle_explosion.instantiate()
+		var _particle = _particle_parent.get_node("death_particles")
+		_particle.position = global_position
+		_particle.emitting = true
+		get_tree().current_scene.add_child(_particle_parent)
 		queue_free()

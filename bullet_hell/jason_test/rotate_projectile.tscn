@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpx7kv0r6vjiw"]
+[gd_scene load_steps=4 format=3 uid="uid://dwr711vpi807k"]
 
-[ext_resource type="Texture2D" uid="uid://dxwcixq36oaxl" path="res://jason_test/Enemy_Bullet.png" id="1_6qtve"]
-[ext_resource type="Script" path="res://jason_test/enemy_bullet.gd" id="1_rhtmu"]
+[ext_resource type="Script" path="res://jason_test/rotate_projectile.gd" id="1_qcjc1"]
+[ext_resource type="Texture2D" uid="uid://co2xdjq3dbum6" path="res://jason_test/teapot_bullet.png" id="2_flrbs"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_seeg3"]
 radius = 0.0878808
@@ -10,14 +10,14 @@ radius = 0.0878808
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 8
 collision_mask = 20
-script = ExtResource("1_rhtmu")
+script = ExtResource("1_qcjc1")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.999997, -0.000119381, -0.00240111, 0.000125721, 0.999997, 0.00264974, 0.00240079, -0.00265004, 0.999994, 0, 0, 0)
 billboard = 1
 shaded = true
 texture_filter = 0
-texture = ExtResource("1_6qtve")
+texture = ExtResource("2_flrbs")
 
 [node name="LifetimeTimer" type="Timer" parent="."]
 

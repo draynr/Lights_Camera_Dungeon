@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj544myivxn40"]
+[gd_scene load_steps=7 format=3 uid="uid://qsatfm4lqimp"]
 
 [ext_resource type="Texture2D" uid="uid://bv8fac05h5f6v" path="res://jason_test/white.png" id="1_ad7lp"]
 
@@ -21,10 +21,10 @@ scale_curve = SubResource("CurveTexture_2wep8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3m6xj"]
 transparency = 1
-albedo_color = Color(1.71, 0, 0, 1)
+albedo_color = Color(0, 0, 1.5, 1)
 albedo_texture = ExtResource("1_ad7lp")
 emission_enabled = true
-emission = Color(1, 0, 0, 1)
+emission = Color(0, 0, 1.5, 1)
 emission_energy_multiplier = 3.0
 billboard_mode = 1
 billboard_keep_scale = true
@@ -32,15 +32,16 @@ distance_fade_max_distance = 5.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_atum7"]
 material = SubResource("StandardMaterial3D_3m6xj")
+size = Vector2(0.25, 0.25)
 
 [node name="death" type="Node3D"]
 
 [node name="death_particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000482081, 0.00672388, -0.00297594)
 emitting = false
-amount = 50
+amount = 4
 one_shot = true
-explosiveness = 1.0
+explosiveness = 0.35
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_h8qij")
 draw_pass_1 = SubResource("QuadMesh_atum7")

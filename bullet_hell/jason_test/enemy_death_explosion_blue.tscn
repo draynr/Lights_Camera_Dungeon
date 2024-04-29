@@ -12,8 +12,8 @@ curve = SubResource("Curve_dws3f")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h8qij"]
 lifetime_randomness = 0.5
 spread = 180.0
-initial_velocity_min = 1.0
-initial_velocity_max = 1.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
 gravity = Vector3(0, 0, 0)
 scale_min = 0.1
 scale_max = 0.1
@@ -21,7 +21,7 @@ scale_curve = SubResource("CurveTexture_2wep8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3m6xj"]
 transparency = 1
-albedo_color = Color(0, 0, 1.71, 1)
+albedo_color = Color(0, 0, 1.56, 1)
 albedo_texture = ExtResource("1_ad7lp")
 emission_enabled = true
 emission = Color(0, 0, 1, 1)
@@ -38,7 +38,7 @@ material = SubResource("StandardMaterial3D_3m6xj")
 [node name="death_particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00506997, 0.00672436, -0.00221634)
 emitting = false
-amount = 20
+amount = 50
 one_shot = true
 explosiveness = 1.0
 trail_lifetime = 1.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkhh31v8enbir"]
+
+[ext_resource type="Script" path="res://laser.gd" id="1_8e2fk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nxt7k"]
+
+[node name="Laser" type="Node3D"]
+script = ExtResource("1_8e2fk")
+
+[node name="Raycast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 1000)
+
+[node name="End" type="GPUParticles3D" parent="."]
+
+[node name="Spatial" type="Node3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.000324696, 0.000386, 0.0002307)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spatial"]
+mesh = SubResource("BoxMesh_nxt7k")

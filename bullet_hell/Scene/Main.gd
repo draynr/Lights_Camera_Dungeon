@@ -2,10 +2,13 @@ extends Node
 
 var enemy_scene = preload ("../jason_test/enemy_0.tscn")
 var teapot_scene = preload ("../jason_test/teapot.tscn")
+var camera_scene = preload ("../jason_test/camera.tscn")
 var player = preload ("../jason_test/player.gd")
 
 var main_entered = false
 var room_1_entered = false
+var room_2_entered = false
+@onready var cnt = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +19,14 @@ func _ready():
 func _process(delta):
 	pass
 
-# func spawn_enemy():
+func _on_room_2_body_entered(body):
+	# pass # Replace with function body.
+	# player.current_room = $Rooms/Room_1
+	if (!room_2_entered):
+		spawn_enemy(camera_scene, $Rooms/room2_br)
+		spawn_enemy(camera_scene, $Rooms/room2_bl)
+		$room_2_spawner.start()
+		room_2_entered = true
 
 func _on_room_1_body_entered(body):
 	# pass # Replace with function body.
@@ -25,8 +35,6 @@ func _on_room_1_body_entered(body):
 		spawn_enemy(teapot_scene, $Rooms/room1_br)
 		spawn_enemy(teapot_scene, $Rooms/room1_bl)
 		$room_1_spawner.start()
-		# spawn_enemy(teapot_scene, $Rooms/room1_tr)
-		# spawn_enemy(teapot_scene, $Rooms/room1_tl)
 		room_1_entered = true
 
 func _on_main_room_body_entered(body):
@@ -52,3 +60,13 @@ func _on_room_1_spawner_timeout():
 	spawn_enemy(teapot_scene, $Rooms/room1_tl)
 	spawn_enemy(enemy_scene, $Rooms/room1_br)
 	spawn_enemy(enemy_scene, $Rooms/room1_bl)
+
+func _on_room_2_spawner_timeout():
+
+	spawn_enemy(camera_scene, $Rooms/room2_tr)
+	spawn_enemy(camera_scene, $Rooms/room2_tl)
+	spawn_enemy(camera_scene, $Rooms/room2_br)
+	spawn_enemy(camera_scene, $Rooms/room2_bl)
+	if cnt < 2:
+		$room_2_spawner.start()
+		cnt += 1
