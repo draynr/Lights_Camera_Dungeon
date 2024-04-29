@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://be8tmwcad72em"]
+[gd_scene load_steps=2 format=3 uid="uid://b8vvxklbjrjwh"]
 
-[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_h6yns"]
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_hagk4"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,27 +11,40 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h6yns")
+script = ExtResource("1_hagk4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = -185.0
-offset_top = -200.0
-offset_right = -138.0
-offset_bottom = -134.0
-scale = Vector2(7.46767, 5.57946)
+offset_left = -130.0
+offset_top = 120.0
+offset_right = -31.0
+offset_bottom = 186.0
+scale = Vector2(4.14569, 4.11841)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "PLAY"
+text = "TRY AGAIN?"
 icon_alignment = 1
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "QUIT"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -603.0
+offset_top = -565.0
+offset_right = -295.0
+offset_bottom = -448.0
+scale = Vector2(4.40631, 4.6912)
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

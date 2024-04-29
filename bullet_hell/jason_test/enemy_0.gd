@@ -25,6 +25,11 @@ const turn_speed = 15
 @onready var vision = $vision
 @onready var shoottimer = $ReloadTimer
 
+@onready var animatedSprite3d = $AnimatedSprite3D
+@onready var hitTimer = $HitTimer
+@onready var projectile_texture = preload("res://jason_test/Enemy_Bullet.png")
+@onready var playerNode = get_parent().get_node("player")
+
 enum {IDLE, ALERT}
 
 var see_player = false
@@ -39,7 +44,7 @@ func _physics_process(delta):
 	var cast_count = int(angle_cone / angle_between_rays) + 1
 	
 	if state == ALERT:
-		nav.target_position = get_parent().get_node("player").global_position
+		nav.target_position = playerNode.global_position
 		
 		var target_direction = target.global_position - global_position
 		var target_rotation = Vector3(0, atan2(target_direction.x, target_direction.z), 0)
@@ -71,8 +76,8 @@ func _on_area_3d_body_entered(body):
 
 func shoot() -> void:
 	var bullet: CharacterBody3D = ENEMY_BULLET.instantiate()
-	bullet.projectile_texture = load("res://jason_test/Enemy_Bullet.png")
-	var direction = (get_parent().get_node("player").global_position - global_position).normalized()
+	bullet.projectile_texture = projectile_texture
+	var direction = (playerNode.global_position - global_position).normalized()
 	bullet.rotation.y = atan2(direction.x, direction.z)
 	bullet.spawnCoords = global_position + Vector3(0, .02, 0)
 	bullet.spawnRotation = direction
@@ -82,7 +87,7 @@ func shoot() -> void:
 
 	for i in range(2):
 		var ofs = ENEMY_BULLET.instantiate()
-		ofs.projectile_texture = load("res://jason_test/Enemy_Bullet.png")
+		ofs.projectile_texture = projectile_texture
 		var offset_angle = randf_range( - cone_angle, cone_angle)
 		var offset_direction = direction.rotated(Vector3.UP, offset_angle)
 		ofs.rotation.y = atan2(offset_direction.x, offset_direction.z)
@@ -95,8 +100,8 @@ func shoot() -> void:
 
 ################# ON-HIT #####################################
 func flash():
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", true)
-	$HitTimer.start()
+	animatedSprite3d.material_override.set_shader_parameter("active", true)
+	hitTimer.start()
 func take_damage(dmg):
 	hp -= dmg;
 	flash()
@@ -108,7 +113,7 @@ func take_damage(dmg):
 
 func _on_hit_timer_timeout():
 	# pass # Replace with function body.
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", false)
+	animatedSprite3d.material_override.set_shader_parameter("active", false)
 
 func die():
 	# don't have one yet
@@ -126,5 +131,5 @@ func die():
 	get_tree().current_scene.add_child(_particle_parent)
 
 	# $death/death_particles.restart()
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", false)
+	animatedSprite3d.material_override.set_shader_parameter("active", false)
 	queue_free()

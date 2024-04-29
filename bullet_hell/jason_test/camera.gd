@@ -29,6 +29,10 @@ var target
 @onready var shoottimer = $ShootTimer
 @onready var reloadtimer = $ReloadTimer
 
+@onready var hitTimer = $HitTimer
+@onready var sprite3d = $Sprite3D
+@onready var projectile_texture = preload("res://jason_test/teapot_bullet.png")
+
 enum {IDLE, ALERT}
 
 var see_player = false
@@ -82,7 +86,7 @@ func shoot() -> void:
 	var start_angle = -cone_angle / 2
 	for i in range(num_bullets):
 		var bullet = ENEMY_BULLET.instantiate()
-		bullet.projectile_texture = load("res://jason_test/teapot_bullet.png")
+		bullet.projectile_texture = projectile_texture
 		
 		var offset_angle = start_angle + i * spread_angle
 		var offset_direction = direction.rotated(Vector3.UP, offset_angle)
@@ -99,8 +103,8 @@ func shoot() -> void:
 
 ################# ON-HIT #####################################
 func flash():
-	$Sprite3D.material_override.set_shader_parameter("active", true)
-	$HitTimer.start()
+	sprite3d.material_override.set_shader_parameter("active", true)
+	hitTimer.start()
 
 func take_damage(dmg):
 	hp -= dmg;
@@ -113,7 +117,7 @@ func take_damage(dmg):
 
 func _on_hit_timer_timeout():
 	# pass # Replace with function body.
-	$Sprite3D.material_override.set_shader_parameter("active", false)
+	sprite3d.material_override.set_shader_parameter("active", false)
 
 func die():
 	# don't have one yet
@@ -127,5 +131,5 @@ func die():
 	_particle.position = global_position
 	_particle.emitting = true
 	get_tree().current_scene.add_child(_particle_parent)
-	$Sprite3D.material_override.set_shader_parameter("active", false)
+	sprite3d.material_override.set_shader_parameter("active", false)
 	queue_free()

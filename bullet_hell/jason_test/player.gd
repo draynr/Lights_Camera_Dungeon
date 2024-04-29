@@ -4,6 +4,10 @@ extends CharacterBody3D
 # const JUMP_VELOCITY = 4.5
 const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
+@onready var animatedSprite3d = $AnimatedSprite3D
+@onready var hitTimer = $HitTimer
+@onready var gun_node = get_node("Gun")
+@onready var player_node = get_node(".")
 
 var current_room = null
 signal health_changed(value)
@@ -59,8 +63,10 @@ func shoot(shoot_vector: Vector3) -> void:
 	projectile.launch(global_position, shoot_vector, proj_speed)
 
 func handle_attack():
+	var click_vector = get_click_vector()
+	var gun = gun_node
+	gun.aim_gun(player_node, click_vector, gun_node)
 	if Input.is_mouse_button_pressed(1) and attack_timer.is_stopped():
-		var click_vector = get_click_vector()
 		shoot(click_vector.normalized())
 		attack_timer.start(attack_cd)
 
@@ -73,11 +79,11 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 	if (dir == Vector3.ZERO):
-		$AnimatedSprite3D.play("idle")
+		animatedSprite3d.play("idle")
 
 func flash():
-	$AnimatedSprite3D.material_override.set_shader_parameter("active", true)
-	$HitTimer.start()
+	animatedSprite3d.material_override.set_shader_parameter("active", true)
+	hitTimer.start()
 
 func take_damage(dmg):
 	hp -= dmg;
@@ -85,4 +91,5 @@ func take_damage(dmg):
 	emit_signal("health_changed", hp)
 	if hp <= 0:
 		queue_free()
+		get_tree().change_scene_to_file("res://Scene/game_over.tscn")
 	

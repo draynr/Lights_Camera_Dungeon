@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cx10gr5lmskld" path="res://jason_test/HitEffect.png" id="3_ejv6m"]
 [ext_resource type="Script" path="res://jason_test/ProjectileSprite3D.gd" id="4_ondwr"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_u3mmm"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ew0lr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dw7c6"]
 resource_local_to_scene = true
@@ -37,7 +37,7 @@ script = ExtResource("1_5x4bn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.005, 0.005, 0)
-shape = SubResource("SphereShape3D_u3mmm")
+shape = SubResource("CapsuleShape3D_ew0lr")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.353553, 0.353553, 0, -0.353553, 0.353553, 5.31375e-05, 0.000600375, -7.09444e-05)
