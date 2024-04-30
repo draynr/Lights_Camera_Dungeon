@@ -58,7 +58,6 @@ func _on_body_entered(body):
 		# get_node("HitSprite").visible = true
 		if (player.hp > 0):
 			cam.camera_shake(.02, .02)
-			print("SHAKE!")
 		hit_light.light_energy = 1.0
 		timer.start(0.5)
 	elif body.is_in_group("map"):
