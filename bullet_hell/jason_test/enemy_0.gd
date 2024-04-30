@@ -78,6 +78,8 @@ func _physics_process(delta):
 				break
 	velocity = velocity.lerp(dir * speed, accel * delta)
 	move_and_slide()
+	print(global_position)
+	global_position.y = 0.18
 	#print("ENEMY", global_position, dir)
 
 func _on_area_3d_body_entered(body):

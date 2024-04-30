@@ -79,6 +79,18 @@ makelens={
 3d_physics/layer_2="enemies"
 3d_physics/layer_3="world"
 
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+jolt_3d/collisions/areas_detect_static_bodies=true
+jolt_3d/kinematics/recovery_iterations=1
+jolt_3d/kinematics/recovery_amount=1.0
+jolt_3d/solver/velocity_iterations=8
+jolt_3d/solver/position_iterations=4
+jolt_3d/solver/active_edge_threshold=0.349066
+jolt_3d/solver/contact_speculative_distance=0.02
+jolt_3d/solver/contact_allowed_penetration=0.02
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

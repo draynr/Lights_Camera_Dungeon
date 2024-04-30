@@ -81,6 +81,8 @@ func _physics_process(delta):
 				break
 	velocity = velocity.lerp(dir * speed, accel * delta)
 	move_and_slide()
+	global_position.y = 0.18
+	print(global_position)
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("player"):

@@ -176,10 +176,10 @@ func _on_room_8_body_entered(body):
 		
 func spawn_enemy(spawn_type, marker):
 	var enemy = spawn_type.instantiate()
-	enemy.global_position = marker.position;
 	enemies_alive += 1
-	enemy.died.connect(enemy_killed)
+	enemy.global_position = marker.global_position;
 	add_child(enemy)
+	enemy.died.connect(enemy_killed)
 
 func _on_room_1_spawner_timeout():
 	spawn_enemy(teapot_scene, room1_tr)
@@ -191,6 +191,7 @@ func _on_room_1_spawner_timeout():
 func _on_room_2_spawner_timeout():
 
 	spawn_enemy(camera_scene, room2_tr)
+	#spawn_enemy(teapot_scene, room2_tr)
 	spawn_enemy(camera_scene, room2_tl)
 	if cnt < 1:
 		room2_spawner.start()
@@ -292,6 +293,7 @@ func _on_room_8_spawner_timeout():
 	
 func enemy_killed():
 	enemies_alive -= 1
+	print(enemies_alive)
 	if enemies_alive <= 0 and !spawning:
 		enemies_alive = 0
 		remove_child(doors)
