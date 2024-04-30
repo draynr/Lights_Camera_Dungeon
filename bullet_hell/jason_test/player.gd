@@ -4,10 +4,13 @@ extends CharacterBody3D
 # const JUMP_VELOCITY = 4.5
 const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
+@onready var iframe_timer: Timer = get_node("Invuln")
+@onready var hurtoverlay = get_node("SubViewportContainer/SubViewport/Camera3D/CanvasLayer/ColorRect")
 @onready var animatedSprite3d = $AnimatedSprite3D
 @onready var hitTimer = $HitTimer
 @onready var gun_node = get_node("Gun")
 @onready var player_node = get_node(".")
+
 
 var current_room = null
 signal health_changed(value)
@@ -18,7 +21,7 @@ var proj_speed: float = 1
 var speed = 1.2
 var target_velocity = Vector3()
 
-var hp: int = 40
+var hp: int = 3
 var hearts: float = hp
 
 func _ready():
@@ -53,6 +56,11 @@ func get_inputs(dir):
 		dir.x -= 1
 	if Input.is_action_pressed("move_right"):
 		dir.x += 1
+	if Input.is_action_pressed("debug_tp"):
+		print('aaa')
+		global_position.x = -5
+		global_position.z = -13
+		global_position.y = 0.2
 
 	dir = dir.normalized()
 	return dir
@@ -80,16 +88,23 @@ func _physics_process(delta):
 	move_and_slide()
 	if (dir == Vector3.ZERO):
 		animatedSprite3d.play("idle")
+	if not iframe_timer.is_stopped():
+		hurtoverlay.visible = true
+	else:
+		hurtoverlay.visible = false
 
 func flash():
 	animatedSprite3d.material_override.set_shader_parameter("active", true)
 	hitTimer.start()
 
 func take_damage(dmg):
-	hp -= dmg;
-	# flash()
-	emit_signal("health_changed", hp)
-	if hp <= 0:
-		queue_free()
-		get_tree().change_scene_to_file("res://Scene/game_over.tscn")
+	if iframe_timer.is_stopped():
+		var viewport = get_node("SubViewportContainer/SubViewport")
+		var colorrect = viewport.get_node("Camera3D/CanvasLayer/ColorRect")
+		iframe_timer.start()
+		hp -= dmg;
+		emit_signal("health_changed", hp)
+		if hp <= 0:
+			queue_free()
+			get_tree().change_scene_to_file("res://Scene/game_over.tscn")
 	

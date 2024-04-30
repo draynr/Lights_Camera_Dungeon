@@ -54,7 +54,7 @@ func _on_body_entered(body):
 		get_node("Sprite3D").visible = false
 		get_node("GPUParticles3D").visible = false
 		# get_node("HitSprite").visible = true
-		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.04, .04)
+		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.01, .01)
 		hit_light.light_energy = 1.0
 		timer.start(0.5)
 	elif body.is_in_group("map"):
