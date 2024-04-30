@@ -2,10 +2,15 @@ extends CharacterBody3D
 
 @export var ENEMY_BULLET: PackedScene = preload ("res://jason_test/enemy_bullet.tscn")
 
+var rainbow_shader = preload ("res://jason_test/Tpot_rainbow.gdshader")
+var pixelated_shader = preload ("res://jason_test/Tpot_pixelated.gdshader")
+var wireframe_shader = preload ("res://jason_test/Tpot_wireframe.gdshader")
 var speed = 0
 var accel = 1
-const maxhp = 300
+
+const maxhp = 9
 var hp = maxhp
+
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 #var player = null
 var player_spotted: bool = false
@@ -26,12 +31,12 @@ const turn_speed = 5
 @onready var damaged_audio = player.get_node("Damaged_Enemy")
 @onready var killed_audio = player.get_node("Killed_Enemy")
 
-@onready var win_screen = preload("res://Scene/win_screen.tscn")
+@onready var win_screen = preload ("res://Scene/win_screen.tscn")
 enum {IDLE, ALERT}
 
 var see_player = false
 var state = IDLE
-var stage = 1 #bullet pattern
+var stage = 1 # bullet pattern
 
 var delta_ang = 0
 var delta_ang2 = 0
@@ -46,7 +51,7 @@ func _on_shoot_timer_timeout():
 			print("hit motherfker")
 
 func _physics_process(delta):
-	var target_direction = global_position - player.global_position 
+	var target_direction = global_position - player.global_position
 	var target_rotation = Vector3(0, atan2(target_direction.x, target_direction.z), 0)
 	rotation.y = lerp_angle(rotation.y, target_rotation.y, 0.5)
 
@@ -70,9 +75,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func shootA1() -> void:
-	var direction = Vector3(1,0,0)
+	var direction = Vector3(1, 0, 0)
 	var subdiv360 = 9
-	for i in range(0, 360, 360/subdiv360):
+	for i in range(0, 360, 360 / subdiv360):
 		var angle = deg_to_rad(i + delta_ang)
 		delta_ang = (delta_ang + 9) % 360
 		var bullet = ENEMY_BULLET.instantiate()
@@ -80,7 +85,7 @@ func shootA1() -> void:
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
-		bullet.acceldir = 1.5*offset_direction.cross(Vector3.UP)
+		bullet.acceldir = 1.5 * offset_direction.cross(Vector3.UP)
 		bullet.speed = 0.2
 		bullet.lifetime = 20
 		bullet.scale_bullet(0.5)
@@ -90,9 +95,9 @@ func shootA1() -> void:
 	shoottimer.start()
 
 func shootA2() -> void:
-	var direction = Vector3(1,0,0) #(get_parent().get_node("player").global_position - global_position).normalized()
+	var direction = Vector3(1, 0, 0) # (get_parent().get_node("player").global_position - global_position).normalized()
 	var subdiv360 = 30
-	for i in range(0, 360, 360/subdiv360):
+	for i in range(0, 360, 360 / subdiv360):
 		var angle = deg_to_rad(i)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
@@ -109,7 +114,7 @@ func shootB1() -> void:
 	#var direction = (get_parent().get_node("player").global_position - global_position).normalized()
 	var direction = (player.global_position - global_position).normalized()
 	var subdiv = 13
-	for i in range(0, 120, 120/subdiv):
+	for i in range(0, 120, 120 / subdiv):
 		delta_ang = (delta_ang + 10) % 360 - 180
 		var angle = deg_to_rad(i + delta_ang)
 		var bullet = ENEMY_BULLET.instantiate()
@@ -117,7 +122,7 @@ func shootB1() -> void:
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
-		bullet.acceldir = -1.*offset_direction.cross(Vector3.UP) + 1.*offset_direction
+		bullet.acceldir = -1. * offset_direction.cross(Vector3.UP) + 1. * offset_direction
 		bullet.speed = 0.15
 		bullet.lifetime = 20
 		bullet.scale_bullet(0.5)
@@ -128,14 +133,14 @@ func shootB2() -> void:
 	#var direction = (get_parent().get_node("player").global_position - global_position).normalized()
 	var direction = (player.global_position - global_position).normalized()
 	var subdiv360 = 30
-	for i in range(0, 360, 360/subdiv360):
+	for i in range(0, 360, 360 / subdiv360):
 		var angle = deg_to_rad(i)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
-		bullet.acceldir = 2.*direction #0.01*offset_direction.cross(Vector3.UP)
+		bullet.acceldir = 2. * direction # 0.01*offset_direction.cross(Vector3.UP)
 		bullet.speed = 0.1
 		bullet.lifetime = 10
 		bullet.scale_bullet(0.5)
@@ -143,9 +148,9 @@ func shootB2() -> void:
 	shoottimer2.start()
 
 func shootC1() -> void:
-	var direction = Vector3(1,0,0)
+	var direction = Vector3(1, 0, 0)
 	var subdiv360 = 24
-	for i in range(0, 360, 360/subdiv360):
+	for i in range(0, 360, 360 / subdiv360):
 		var angle = deg_to_rad(i)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
@@ -155,7 +160,7 @@ func shootC1() -> void:
 		delta_ang = (delta_ang + 1) % 88 + 1
 		var ang_1 = pow(delta_ang, 0.5)
 		var offset_cross = offset_direction.cross(Vector3.UP)
-		bullet.acceldir = 0.0025*(delta_ang * offset_direction + (1 - delta_ang) * offset_cross)
+		bullet.acceldir = 0.0025 * (delta_ang * offset_direction + (1 - delta_ang) * offset_cross)
 		bullet.speed = 0.2
 		bullet.lifetime = 20
 		bullet.scale_bullet(0.5)
@@ -165,7 +170,7 @@ func shootC1() -> void:
 func shootC2() -> void:
 	var direction = (get_parent().get_node("player").global_position - global_position).normalized()
 	var subdiv = 8
-	for i in range(0, 30, 30/subdiv):
+	for i in range(0, 30, 30 / subdiv):
 		delta_ang2 = (delta_ang2 + 15) % 30
 		var angle = deg_to_rad(i + delta_ang2)
 		var bullet = ENEMY_BULLET.instantiate()
@@ -173,8 +178,8 @@ func shootC2() -> void:
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
-		bullet.acceldir = 0.005*pow(i,2)*direction
-		bullet.speed = 0.1*pow((88-delta_ang),0.5)
+		bullet.acceldir = 0.005 * pow(i, 2) * direction
+		bullet.speed = 0.1 * pow((88 - delta_ang), 0.5)
 		bullet.lifetime = 20
 		bullet.scale_bullet(0.5)
 		get_tree().current_scene.add_child(bullet)
@@ -197,16 +202,28 @@ func _on_area_3d_body_exited(body):
 func take_damage(dmg):
 	hp -= dmg;
 	damaged_audio.play()
-	if hp < maxhp/3:
+	if hp < maxhp / 3:
 		stage = 3
 		shoottimer.wait_time = 0.3
 		shoottimer2.wait_time = 2
-	elif hp < 2*maxhp/3:
+		var new_shader = ShaderMaterial.new()
+		new_shader.set("shader", wireframe_shader)
+		$Mesh.get_mesh().surface_set_material(0, new_shader)
+	elif hp < 2 * maxhp / 3:
 		stage = 2
 		shoottimer.wait_time = 0.1
 		shoottimer2.wait_time = 6
+		# print($Mesh)
+		var new_shader = ShaderMaterial.new()
+		new_shader.set("shader", rainbow_shader)
+		$Mesh.get_mesh().surface_set_material(0, new_shader)
+		new_shader = ShaderMaterial.new()
+		new_shader.set("shader", pixelated_shader)
+		$Mesh.get_mesh().surface_get_material(0).set_next_pass(new_shader)
+
 	if hp <= 0:
 		killed_audio.play()
+		# print("yoo")
 		player.hp = 0
 		queue_free()
 		get_tree().change_scene_to_file("res://Scene/win_screen.tscn")

@@ -20,4 +20,3 @@ func end_dash():
 
 func _on_duration_timer_timeout():
 	end_dash()
-	

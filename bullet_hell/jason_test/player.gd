@@ -13,6 +13,7 @@ const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn
 
 @onready var damaged_audio = $Damaged_Player
 
+@onready var dash_timer = $DashTimer
 var current_room = null
 signal health_changed(value)
 
@@ -65,8 +66,11 @@ func get_inputs(dir):
 		dir.x += 1
 	if Input.is_action_pressed("escape"):
 		take_damage(hp)
-	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
+	if Input.is_action_just_pressed("dash")&&dash.can_dash&&!dash.is_dashing():
 		dash.start_dash(sprite, dash_duration)
+		# $dash_particle.emitting = true
+		# dash_timer.start()
+
 	if Input.is_action_pressed("debug_tp"):
 		print('aaa')
 		global_position.x = -5
@@ -110,7 +114,7 @@ func flash():
 	hitTimer.start()
 
 func take_damage(dmg):
-	if iframe_timer.is_stopped() && !dash.is_dashing():
+	if iframe_timer.is_stopped()&&!dash.is_dashing():
 		damaged_audio.play()
 		var viewport = get_node("SubViewportContainer/SubViewport")
 		var colorrect = viewport.get_node("Camera3D/CanvasLayer/ColorRect")
@@ -123,4 +127,6 @@ func take_damage(dmg):
 			
 func get_hp():
 	return hp
-	
+
+func _on_dash_timer_timeout():
+	$dash_particle.emitting = false
