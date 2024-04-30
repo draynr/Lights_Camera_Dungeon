@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://be8tmwcad72em"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_h6yns"]
-[ext_resource type="AudioStream" uid="uid://dgvxvv76apjug" path="res://Assets/Audio/Music/Goblins_Den_(Regular).wav" id="2_52ov1"]
+[ext_resource type="AudioStream" uid="uid://b0rdj7gpjhqvy" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 06 - Diamonds on The Ceiling.ogg" id="2_gg2rc"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -35,8 +35,8 @@ layout_mode = 2
 text = "QUIT"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_52ov1")
-volume_db = 1.209
+stream = ExtResource("2_gg2rc")
+volume_db = -26.03
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 0

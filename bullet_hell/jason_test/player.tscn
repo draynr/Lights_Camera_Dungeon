@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=17 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cbbniyiogkif5" path="res://Assets/Audio/SFX/killed_enemy.wav" id="5_621pw"]
 [ext_resource type="AudioStream" uid="uid://7560ys7mftk0" path="res://Assets/Audio/SFX/damaged_player.wav" id="6_11rir"]
 [ext_resource type="AudioStream" uid="uid://bx3700ge0a8hu" path="res://Assets/Audio/SFX/Bubble heavy 2.wav" id="7_kqxfw"]
+[ext_resource type="PackedScene" uid="uid://cbcmvj5jtns5e" path="res://Scene/dash.tscn" id="8_8yjpi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wejp2"]
 atlas = ExtResource("2_qhpdq")
@@ -101,3 +102,5 @@ stream = ExtResource("6_11rir")
 
 [node name="Killed_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_kqxfw")
+
+[node name="Dash" parent="." instance=ExtResource("8_8yjpi")]

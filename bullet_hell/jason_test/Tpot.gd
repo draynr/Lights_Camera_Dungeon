@@ -5,7 +5,7 @@ extends CharacterBody3D
 var speed = 0
 var accel = 1
 const maxhp = 300
-var hp = 4
+var hp = maxhp
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 #var player = null
 var player_spotted: bool = false

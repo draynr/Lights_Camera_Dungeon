@@ -44,7 +44,14 @@ var see_player = false
 var state = IDLE
 
 func _ready():
-	pass
+	var _particle_parent = death_particle.instantiate()
+	var _particle = _particle_parent.get_node("death_particles")
+	_particle.position = global_position
+	_particle.emitting = true
+	get_tree().current_scene.add_child(_particle_parent)
+	set_physics_process(false)
+	await get_tree().create_timer(0.7).timeout
+	set_physics_process(true)
 
 func _physics_process(delta):
 	var dir = Vector3.ZERO

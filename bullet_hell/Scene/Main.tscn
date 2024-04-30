@@ -8,7 +8,7 @@
 [ext_resource type="Shader" path="res://Scene/screen.gdshader" id="4_mcvp3"]
 [ext_resource type="PackedScene" uid="uid://dugh4dkyhicte" path="res://jason_test/ui.tscn" id="7_l4jvi"]
 [ext_resource type="PackedScene" uid="uid://dxn8l6la0d72b" path="res://jason_test/Tpot.tscn" id="8_h88s0"]
-[ext_resource type="AudioStream" uid="uid://dmfwv3nh7b6ss" path="res://Assets/Audio/Music/Goblins_Dance_(Battle).wav" id="9_yo7vr"]
+[ext_resource type="AudioStream" uid="uid://sg872dq4i0b" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg" id="9_eve6w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oqyxg"]
 render_priority = 0
@@ -494,8 +494,8 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.842, 0.2, -13.764)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_yo7vr")
-volume_db = 1.238
+stream = ExtResource("9_eve6w")
+volume_db = -27.238
 
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="body_entered" from="Rooms/MainRoom" to="." method="_on_main_room_body_entered"]

@@ -25,6 +25,12 @@ var target_velocity = Vector3()
 var hp: int = 5
 var hearts: float = hp
 
+#stuff for dashing
+const dash_speed = 5
+const dash_duration = 0.15
+@onready var sprite = $AnimatedSprite3D
+@onready var dash = $Dash
+
 func _ready():
 	current_room = null
 
@@ -57,12 +63,16 @@ func get_inputs(dir):
 		dir.x -= 1
 	if Input.is_action_pressed("move_right"):
 		dir.x += 1
+	if Input.is_action_pressed("escape"):
+		take_damage(hp)
+	if Input.is_action_just_pressed("dash") && dash.can_dash && !dash.is_dashing():
+		dash.start_dash(sprite, dash_duration)
 	if Input.is_action_pressed("debug_tp"):
 		print('aaa')
 		global_position.x = -5
 		global_position.z = -13
 		global_position.y = 0.2
-
+	
 	dir = dir.normalized()
 	return dir
 
@@ -83,8 +93,9 @@ func _physics_process(delta):
 	var dir = Vector3()
 	dir = get_inputs(dir)
 	handle_attack()
-	target_velocity.x = dir.x * speed
-	target_velocity.z = dir.z * speed
+	var dashing = dash.is_dashing()
+	target_velocity.x = dir.x * speed if !dashing else dir.x * dash_speed
+	target_velocity.z = dir.z * speed if !dashing else dir.z * dash_speed
 	velocity = target_velocity
 	move_and_slide()
 	if (dir == Vector3.ZERO):
@@ -99,7 +110,7 @@ func flash():
 	hitTimer.start()
 
 func take_damage(dmg):
-	if iframe_timer.is_stopped():
+	if iframe_timer.is_stopped() && !dash.is_dashing():
 		damaged_audio.play()
 		var viewport = get_node("SubViewportContainer/SubViewport")
 		var colorrect = viewport.get_node("Camera3D/CanvasLayer/ColorRect")

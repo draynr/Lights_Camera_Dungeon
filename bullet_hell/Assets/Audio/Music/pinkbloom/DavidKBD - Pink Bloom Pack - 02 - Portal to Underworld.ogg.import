@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://sg872dq4i0b"
+path="res://.godot/imported/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg-003d0388f23c933e541c996a5efc12e5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg-003d0388f23c933e541c996a5efc12e5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

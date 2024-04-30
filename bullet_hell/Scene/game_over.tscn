@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8vvxklbjrjwh"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_hagk4"]
-[ext_resource type="AudioStream" uid="uid://dgvxvv76apjug" path="res://Assets/Audio/Music/Goblins_Den_(Regular).wav" id="2_2keca"]
+[ext_resource type="AudioStream" uid="uid://ca41kxy7n5brb" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 08 - Lost Spaceship's Signal.ogg" id="2_k0h1m"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -48,8 +48,8 @@ text = "GAME OVER"
 horizontal_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2keca")
-volume_db = 1.209
+stream = ExtResource("2_k0h1m")
+volume_db = -26.865
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

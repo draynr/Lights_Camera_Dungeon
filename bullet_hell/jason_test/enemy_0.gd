@@ -32,6 +32,7 @@ const turn_speed = 15
 @onready var shoot_audio = $ShootAudio
 @onready var damaged_audio = playerNode.get_node("Damaged_Enemy")
 @onready var killed_audio = playerNode.get_node("Killed_Enemy")
+@onready var spawn_timer = $spawntimer
 enum {IDLE, ALERT}
 
 var see_player = false
@@ -39,7 +40,14 @@ var state = IDLE
 # var can_shoot = true
 
 func _ready():
-	pass
+	var _particle_parent = death_particle.instantiate()
+	var _particle = _particle_parent.get_node("death_particles")
+	_particle.position = global_position
+	_particle.emitting = true
+	get_tree().current_scene.add_child(_particle_parent)
+	set_physics_process(false)
+	await get_tree().create_timer(0.7).timeout
+	set_physics_process(true)
 
 func _physics_process(delta):
 	var dir = Vector3.ZERO
