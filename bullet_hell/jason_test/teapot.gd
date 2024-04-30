@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var ENEMY_BULLET: PackedScene = preload ("res://jason_test/enemy_bullet.tscn")
 var death_particle = preload ("res://jason_test/enemy_death_explosion_blue.tscn")
 
-const MAX_BULLETS = 15
+const MAX_BULLETS = 5
 const turn_speed = 15
 
 var proj_speed: float = 2
@@ -32,7 +32,7 @@ var target
 
 @onready var sprite3d = $Sprite3D
 @onready var hitTimer = $HitTimer
-@onready var projectile_texture = preload("res://jason_test/teabag.png")
+@onready var projectile_texture = preload ("res://jason_test/teabag.png")
 
 enum {IDLE, ALERT}
 
