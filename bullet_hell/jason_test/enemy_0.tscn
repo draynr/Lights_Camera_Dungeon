@@ -86,7 +86,7 @@ shape = SubResource("CylinderShape3D_0xl65")
 
 [node name="ShootAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_hsss5")
-volume_db = -3.176
+volume_db = -4.452
 
 [node name="spawntimer" type="Timer" parent="."]
 wait_time = 10.553

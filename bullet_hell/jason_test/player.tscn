@@ -93,14 +93,18 @@ one_shot = true
 
 [node name="Damaged_Enemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5mnnu")
+volume_db = -2.552
 
 [node name="Killed_Enemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_621pw")
+volume_db = -3.19
 
 [node name="Damaged_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_11rir")
+volume_db = -1.914
 
 [node name="Killed_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_kqxfw")
+volume_db = -1.914
 
 [node name="Dash" parent="." instance=ExtResource("8_8yjpi")]

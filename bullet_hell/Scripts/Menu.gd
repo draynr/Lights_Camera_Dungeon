@@ -1,10 +1,46 @@
 extends Control
 
-@onready var music = $Music
+@onready var music1 = $Music1
+@onready var music2 = $Music2
+@onready var music3 = $Music3
+@onready var music4 = $Music4
+@onready var music5 = $Music5
+@onready var music6 = $Music6
+@onready var music7 = $Music7
+@onready var music8 = $Music8
+@onready var music9 = $Music9
+
+var last_music = null
+var rng
+var my_random_number
 @onready var killed_player = $Killed_Player
 func _process(delta):
-	if !music.playing:
-		music.play()
+	if last_music == null || !last_music.playing:
+		rng = RandomNumberGenerator.new()
+		my_random_number = rng.randi_range(1, 9)
+		match my_random_number:
+			1:
+				last_music = music1
+				last_music.play()
+			2:
+				last_music = music2
+				last_music.play()
+			3:
+				last_music = music3
+				last_music.play()
+			4:
+				last_music = music4
+				last_music.play()
+			5:
+				last_music = music5
+				last_music.play()
+			6:
+				last_music = music6
+				last_music.play()
+			7:
+				last_music = music7
+				last_music.play()
+		
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://Scene/Main.tscn")
 
