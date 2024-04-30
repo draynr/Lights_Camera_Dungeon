@@ -68,8 +68,8 @@ func get_inputs(dir):
 		take_damage(hp)
 	if Input.is_action_just_pressed("dash")&&dash.can_dash&&!dash.is_dashing():
 		dash.start_dash(sprite, dash_duration)
-		# $dash_particle.emitting = true
-		# dash_timer.start()
+		$dash_particle.emitting = true
+		dash_timer.start()
 
 	if Input.is_action_pressed("debug_tp"):
 		print('aaa')
@@ -96,8 +96,10 @@ func handle_attack():
 func _physics_process(delta):
 	var dir = Vector3()
 	dir = get_inputs(dir)
-	handle_attack()
+	# handle_attack()
 	var dashing = dash.is_dashing()
+	if (!dashing):
+		handle_attack()
 	target_velocity.x = dir.x * speed if !dashing else dir.x * dash_speed
 	target_velocity.z = dir.z * speed if !dashing else dir.z * dash_speed
 	velocity = target_velocity

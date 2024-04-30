@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgl5krtxjgj0k" path="res://Assets/Character/coputer_ghost.png" id="1_lec81"]
 
 [sub_resource type="Gradient" id="Gradient_50jet"]
+offsets = PackedFloat32Array(0, 0.445455)
 colors = PackedColorArray(1, 1, 1, 1, 0.408329, 0.408329, 0.408329, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_k00i1"]
@@ -16,15 +17,19 @@ color_ramp = SubResource("GradientTexture1D_k00i1")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irvye"]
 transparency = 1
 vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
 albedo_texture = ExtResource("1_lec81")
 texture_filter = 0
+billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_5r0vi"]
 material = SubResource("StandardMaterial3D_irvye")
-size = Vector2(0.2, 0.2)
+size = Vector2(0.16, 0.16)
 
 [node name="GPUParticles3D" type="GPUParticles3D"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
-emitting = false
+transform = Transform3D(0.018, 0, 0, 0, 0.018, 0, 0, 0, 0.018, 0, 0, 0)
+amount = 30
+lifetime = 0.3
+trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_612ve")
 draw_pass_1 = SubResource("QuadMesh_5r0vi")

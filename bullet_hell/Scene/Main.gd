@@ -3,7 +3,7 @@ extends Node
 var enemy_scene = preload ("../jason_test/enemy_0.tscn")
 var teapot_scene = preload ("../jason_test/teapot.tscn")
 var camera_scene = preload ("../jason_test/camera.tscn")
-var player = preload ("../jason_test/player.gd")
+# var player = preload ("../jason_test/player.gd")
 
 var main_entered = false
 var room_1_entered = false
@@ -68,7 +68,6 @@ var room_8_entered = false
 @onready var room8_tr = $Rooms/room_8_tr
 @onready var room8_tl = $Rooms/room_8_tl
 @onready var room8_spawner = $Rooms/room_8_spawner
-
 
 @onready var doors = $doors
 @onready var music = $Music
@@ -253,7 +252,6 @@ func _on_room_8_spawner_timeout():
 		cnt += 1
 	else:
 		cnt = 0
-
 	
 func enemy_killed():
 	enemies_alive -= 1

@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var duration_timer = $DurationTimer
-const dash_cooldown = 0.4
+const dash_cooldown = 1.5
 var can_dash = true
 var sprite
 
