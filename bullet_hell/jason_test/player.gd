@@ -17,8 +17,9 @@ const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn
 var current_room = null
 signal health_changed(value)
 
-var attack_cd: float = 0.1
-var proj_speed: float = 1
+var attack_cd: float = 0.3
+var proj_speed: float = 2.5
+var can_shoot = true
 
 var speed = 1.2
 var target_velocity = Vector3()
@@ -89,8 +90,9 @@ func handle_attack():
 	var click_vector = get_click_vector()
 	var gun = gun_node
 	gun.aim_gun(player_node, click_vector, gun_node)
-	if Input.is_mouse_button_pressed(1) and attack_timer.is_stopped():
+	if Input.is_mouse_button_pressed(1) and can_shoot:
 		shoot(click_vector.normalized())
+		can_shoot = false
 		attack_timer.start(attack_cd)
 
 func _physics_process(delta):
@@ -132,3 +134,6 @@ func get_hp():
 
 func _on_dash_timer_timeout():
 	$dash_particle.emitting = false
+
+func _on_attack_timer_timeout():
+	can_shoot = true

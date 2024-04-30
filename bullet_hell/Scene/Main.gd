@@ -72,6 +72,7 @@ var room_8_entered = false
 @onready var doors = $doors
 @onready var music = $Music
 
+var spawning = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	remove_child(doors)
@@ -98,6 +99,7 @@ func _on_room_1_body_entered(body):
 		spawn_enemy(teapot_scene, room1_bl)
 		room1_spawner.start()
 		room_1_entered = true
+		spawning = true
 
 func _on_room_2_body_entered(body):
 	if (!room_2_entered):
@@ -106,6 +108,7 @@ func _on_room_2_body_entered(body):
 		spawn_enemy(camera_scene, room2_bl)
 		room2_spawner.start()
 		room_2_entered = true
+		spawning = true
 		
 func _on_room_3_body_entered(body):
 	if (!room_3_entered):
@@ -115,6 +118,7 @@ func _on_room_3_body_entered(body):
 		spawn_enemy(teapot_scene, room3_tr)
 		room3_spawner.start()
 		room_3_entered = true
+		spawning = true
 
 func _on_room_4_body_entered(body):
 	if (!room_4_entered):
@@ -125,6 +129,7 @@ func _on_room_4_body_entered(body):
 		spawn_enemy(camera_scene, room4_tr)
 		room4_spawner.start()
 		room_4_entered = true
+		spawning = true
 
 func _on_room_5_body_entered(body):
 	if (!room_5_entered):
@@ -134,6 +139,7 @@ func _on_room_5_body_entered(body):
 		spawn_enemy(teapot_scene, room5_tr)
 		room5_spawner.start()
 		room_5_entered = true
+		spawning = true
 
 func _on_room_6_body_entered(body):
 	if (!room_6_entered):
@@ -144,6 +150,7 @@ func _on_room_6_body_entered(body):
 		spawn_enemy(teapot_scene, room6_tl)
 		room6_spawner.start()
 		room_6_entered = true
+		spawning = true
 		
 func _on_room_7_body_entered(body):
 	if (!room_7_entered):
@@ -154,6 +161,7 @@ func _on_room_7_body_entered(body):
 		spawn_enemy(camera_scene, room7_tl)
 		room7_spawner.start()
 		room_7_entered = true
+		spawning = true
 
 func _on_room_8_body_entered(body):
 	if (!room_8_entered):
@@ -164,6 +172,7 @@ func _on_room_8_body_entered(body):
 		spawn_enemy(camera_scene, room8_tl)
 		room8_spawner.start()
 		room_8_entered = true
+		spawning = true
 		
 func spawn_enemy(spawn_type, marker):
 	var enemy = spawn_type.instantiate()
@@ -177,15 +186,18 @@ func _on_room_1_spawner_timeout():
 	spawn_enemy(teapot_scene, room1_tl)
 	spawn_enemy(enemy_scene, room1_br)
 	spawn_enemy(enemy_scene, room1_bl)
+	spawning = false
 
 func _on_room_2_spawner_timeout():
 
 	spawn_enemy(camera_scene, room2_tr)
 	spawn_enemy(camera_scene, room2_tl)
-	if cnt < 2:
+	if cnt < 1:
 		room2_spawner.start()
 		cnt += 1
 	else:
+		spawn_enemy(camera_scene, room2_tr)
+		spawning = false
 		cnt = 0
 
 func _on_room_3_spawner_timeout():
@@ -197,16 +209,23 @@ func _on_room_3_spawner_timeout():
 		room3_spawner.start()
 		cnt += 1
 	else:
+		spawn_enemy(enemy_scene, room3_tl)
+		spawn_enemy(camera_scene, room3_bl)
+		spawning = false
 		cnt = 0
 
 func _on_room_4_spawner_timeout():
 	spawn_enemy(teapot_scene, room4_tr)
 	spawn_enemy(camera_scene, room4_tl)
 	spawn_enemy(camera_scene, room4_bl)
-	if cnt < 3:
+	if cnt < 2:
 		room4_spawner.start()
 		cnt += 1
 	else:
+		spawn_enemy(teapot_scene, room4_tr)
+		spawn_enemy(camera_scene, room4_tl)
+		spawn_enemy(camera_scene, room4_bl)
+		spawning = false
 		cnt = 0
 
 func _on_room_5_spawner_timeout():
@@ -218,6 +237,10 @@ func _on_room_5_spawner_timeout():
 		room5_spawner.start()
 		cnt += 1
 	else:
+		spawn_enemy(enemy_scene, room5_tl)
+		spawn_enemy(camera_scene, room5_bl)
+		spawn_enemy(camera_scene, room5_br)
+		spawning = false
 		cnt = 0
 
 func _on_room_6_spawner_timeout():
@@ -225,10 +248,15 @@ func _on_room_6_spawner_timeout():
 	spawn_enemy(enemy_scene, room6_tl)
 	spawn_enemy(enemy_scene, room6_bl)
 	spawn_enemy(camera_scene, room6_br)
-	if cnt < 4:
+	if cnt < 3:
 		room6_spawner.start()
 		cnt += 1
 	else:
+		spawn_enemy(teapot_scene, room6_tr)
+		spawn_enemy(enemy_scene, room6_tl)
+		spawn_enemy(enemy_scene, room6_bl)
+		spawn_enemy(camera_scene, room6_br)
+		spawning = false
 		cnt = 0
 
 func _on_room_7_spawner_timeout():
@@ -236,10 +264,14 @@ func _on_room_7_spawner_timeout():
 	spawn_enemy(camera_scene, room7_tl)
 	spawn_enemy(enemy_scene, room7_bl)
 	spawn_enemy(camera_scene, room7_br)
-	if cnt < 4:
+	if cnt < 3:
 		room7_spawner.start()
 		cnt += 1
 	else:
+		spawn_enemy(camera_scene, room7_tl)
+		spawn_enemy(enemy_scene, room7_bl)
+		spawn_enemy(camera_scene, room7_br)
+		spawning = false
 		cnt = 0
 
 func _on_room_8_spawner_timeout():
@@ -247,14 +279,19 @@ func _on_room_8_spawner_timeout():
 	spawn_enemy(teapot_scene, room8_tl)
 	spawn_enemy(enemy_scene, room8_bl)
 	spawn_enemy(enemy_scene, room8_br)
-	if cnt < 4:
+	if cnt < 3:
 		room8_spawner.start()
 		cnt += 1
 	else:
+		spawn_enemy(teapot_scene, room8_tr)
+		spawn_enemy(teapot_scene, room8_tl)
+		spawn_enemy(enemy_scene, room8_bl)
+		spawn_enemy(enemy_scene, room8_br)
+		spawning = false
 		cnt = 0
 	
 func enemy_killed():
 	enemies_alive -= 1
-	if enemies_alive <= 0:
+	if enemies_alive <= 0 and !spawning:
 		enemies_alive = 0
 		remove_child(doors)

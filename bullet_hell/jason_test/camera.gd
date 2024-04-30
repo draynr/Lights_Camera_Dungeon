@@ -11,7 +11,7 @@ var proj_speed: float = 2
 
 var speed = .5
 var accel = 1
-var hp = 5
+var hp = 3
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 var player = null
@@ -39,7 +39,7 @@ var target
 @onready var killed_audio = playerNode.get_node("Killed_Enemy")
 
 enum {IDLE, ALERT}
-
+var alive = true
 var see_player = false
 var state = IDLE
 
@@ -123,7 +123,8 @@ func flash():
 func take_damage(dmg):
 	hp -= dmg;
 	flash()
-	if hp <= 0:
+	if hp <= 0 and alive:
+		alive = false
 		killed_audio.play()
 		die()
 		# queue_free()

@@ -8,7 +8,7 @@ var wireframe_shader = preload ("res://jason_test/Tpot_wireframe.gdshader")
 var speed = 0
 var accel = 1
 
-const maxhp = 9
+const maxhp = 150
 var hp = maxhp
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
-[ext_resource type="PackedScene" path="res://Scene/gun.tscn" id="3_fd6yu"]
+[ext_resource type="PackedScene" uid="uid://datklj0fvgipp" path="res://Scene/gun.tscn" id="3_fd6yu"]
 [ext_resource type="AudioStream" uid="uid://d08rpg76hsmp0" path="res://Assets/Audio/SFX/hit_enemy.wav" id="4_5mnnu"]
 [ext_resource type="AudioStream" uid="uid://cbbniyiogkif5" path="res://Assets/Audio/SFX/killed_enemy.wav" id="5_621pw"]
 [ext_resource type="AudioStream" uid="uid://7560ys7mftk0" path="res://Assets/Audio/SFX/damaged_player.wav" id="6_11rir"]
@@ -74,7 +74,6 @@ sprite_frames = SubResource("SpriteFrames_d7nr3")
 animation = &"idle"
 
 [node name="AttackTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="Area3D" type="Area3D" parent="." groups=["playerhurtbox"]]
 collision_layer = 16
@@ -121,4 +120,5 @@ emitting = false
 one_shot = true
 speed_scale = 2.0
 
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

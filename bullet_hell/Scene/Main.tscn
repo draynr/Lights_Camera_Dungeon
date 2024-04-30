@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dao7uc1w3p3nk" path="res://jason_test/player.tscn" id="3_sx4l6"]
 [ext_resource type="Script" path="res://Scene/Camera3D.gd" id="4_j5gsd"]
 [ext_resource type="Shader" path="res://Scene/screen.gdshader" id="4_mcvp3"]
-[ext_resource type="PackedScene" path="res://jason_test/ui.tscn" id="7_l4jvi"]
+[ext_resource type="PackedScene" uid="uid://dugh4dkyhicte" path="res://jason_test/ui.tscn" id="7_l4jvi"]
 [ext_resource type="PackedScene" uid="uid://yx0b0mmaqlr6" path="res://jason_test/Tpot.tscn" id="8_h88s0"]
 [ext_resource type="AudioStream" uid="uid://sg872dq4i0b" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg" id="9_eve6w"]
 
