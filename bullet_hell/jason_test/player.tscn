@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=24 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bx3700ge0a8hu" path="res://Assets/Audio/SFX/Bubble heavy 2.wav" id="7_kqxfw"]
 [ext_resource type="PackedScene" uid="uid://lt30cwubnaje" path="res://Scene/dash.tscn" id="8_8yjpi"]
 [ext_resource type="PackedScene" uid="uid://cq1f7ogs4t07" path="res://jason_test/dash_particle.tscn" id="9_wknk2"]
+[ext_resource type="Texture2D" uid="uid://2jejhs8ncrkd" path="res://Assets/Character/coputer_sunglasses-Sheet.png" id="10_4wvo7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wejp2"]
 atlas = ExtResource("2_qhpdq")
@@ -28,6 +29,26 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sylds"]
 atlas = ExtResource("2_qhpdq")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkccq"]
+atlas = ExtResource("10_4wvo7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7c8e"]
+atlas = ExtResource("10_4wvo7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7ias"]
+atlas = ExtResource("10_4wvo7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqerb"]
+atlas = ExtResource("10_4wvo7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bnn3"]
+atlas = ExtResource("10_4wvo7")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7nr3"]
@@ -51,6 +72,26 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkccq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7c8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7ias")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqerb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bnn3")
+}],
+"loop": true,
+"name": &"idle_sunglasses",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vucik"]
@@ -71,7 +112,7 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_d7nr3")
-animation = &"idle"
+animation = &"idle_sunglasses"
 
 [node name="AttackTimer" type="Timer" parent="."]
 

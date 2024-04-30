@@ -33,8 +33,11 @@ const dash_duration = 0.15
 @onready var sprite = $AnimatedSprite3D
 @onready var dash = $Dash
 
+var wearing_sunglasses
+
 func _ready():
 	current_room = null
+	wearing_sunglasses = false
 
 func get_input_vector():
 	var input_vector = Vector2.ZERO
@@ -107,7 +110,10 @@ func _physics_process(delta):
 	velocity = target_velocity
 	move_and_slide()
 	if (dir == Vector3.ZERO):
-		animatedSprite3d.play("idle")
+		if (!wearing_sunglasses):
+			animatedSprite3d.play("idle")
+		else:
+			animatedSprite3d.play("idle_sunglasses")
 	if not iframe_timer.is_stopped():
 		hurtoverlay.visible = true
 	else:
@@ -137,3 +143,8 @@ func _on_dash_timer_timeout():
 
 func _on_attack_timer_timeout():
 	can_shoot = true
+	
+func equip_sunglasses():
+	wearing_sunglasses = true
+	proj_speed = 3.2
+	attack_cd = 0.1

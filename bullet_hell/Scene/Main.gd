@@ -83,7 +83,15 @@ func _process(delta):
 	# print(enemies_alive)
 	if !music.playing:
 		music.play()
+	print(enemies_alive)
 	pass
+
+func spawn_enemy(spawn_type, marker):
+	var enemy = spawn_type.instantiate()
+	enemy.global_position = marker.position;
+	enemies_alive += 1
+	enemy.died.connect(enemy_killed)
+	add_child(enemy)
 
 func _on_main_room_body_entered(body):
 	if (!main_entered):
@@ -95,8 +103,8 @@ func _on_main_room_body_entered(body):
 func _on_room_1_body_entered(body):
 	if (!room_1_entered):
 		add_child(doors)
-		spawn_enemy(teapot_scene, room1_br)
 		spawn_enemy(teapot_scene, room1_bl)
+		spawn_enemy(teapot_scene, room1_br)
 		room1_spawner.start()
 		room_1_entered = true
 		spawning = true
@@ -104,8 +112,8 @@ func _on_room_1_body_entered(body):
 func _on_room_2_body_entered(body):
 	if (!room_2_entered):
 		add_child(doors)
-		spawn_enemy(camera_scene, room2_br)
-		spawn_enemy(camera_scene, room2_bl)
+		spawn_enemy(teapot_scene, room2_br)
+		spawn_enemy(teapot_scene, room2_bl)
 		room2_spawner.start()
 		room_2_entered = true
 		spawning = true
@@ -174,12 +182,6 @@ func _on_room_8_body_entered(body):
 		room_8_entered = true
 		spawning = true
 		
-func spawn_enemy(spawn_type, marker):
-	var enemy = spawn_type.instantiate()
-	enemy.global_position = marker.position;
-	enemies_alive += 1
-	enemy.died.connect(enemy_killed)
-	add_child(enemy)
 
 func _on_room_1_spawner_timeout():
 	spawn_enemy(teapot_scene, room1_tr)
@@ -190,14 +192,14 @@ func _on_room_1_spawner_timeout():
 
 func _on_room_2_spawner_timeout():
 
-	spawn_enemy(camera_scene, room2_tr)
-	spawn_enemy(camera_scene, room2_tl)
+	spawn_enemy(teapot_scene, room2_tr)
+	spawn_enemy(teapot_scene, room2_tl)
 	if cnt < 1:
 		room2_spawner.start()
 		cnt += 1
 	else:
-		spawn_enemy(camera_scene, room2_tr)
 		spawning = false
+		spawn_enemy(enemy_scene, room2_bl)
 		cnt = 0
 
 func _on_room_3_spawner_timeout():
