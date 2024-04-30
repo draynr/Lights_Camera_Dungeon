@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8vvxklbjrjwh"]
+[gd_scene load_steps=3 format=3 uid="uid://b8vvxklbjrjwh"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_hagk4"]
+[ext_resource type="AudioStream" uid="uid://dgvxvv76apjug" path="res://Assets/Audio/Music/Goblins_Den_(Regular).wav" id="2_2keca"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -45,6 +46,10 @@ scale = Vector2(4.40631, 4.6912)
 layout_mode = 2
 text = "GAME OVER"
 horizontal_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2keca")
+volume_db = 1.209
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

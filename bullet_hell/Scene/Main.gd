@@ -28,6 +28,7 @@ var room_2_entered = false
 @onready var main_tl = $Rooms/main_tl
 
 @onready var doors = $doors
+@onready var music = $Music
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# print(enemies_alive)
+	if !music.playing:
+		music.play()
 	pass
 
 func _on_room_2_body_entered(body):

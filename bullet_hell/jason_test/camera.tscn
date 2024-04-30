@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsuqw2emw8po2"]
+[gd_scene load_steps=8 format=3 uid="uid://dsuqw2emw8po2"]
 
 [ext_resource type="Script" path="res://jason_test/camera.gd" id="1_qgwnw"]
 [ext_resource type="Shader" path="res://jason_test/enemy_0.gdshader" id="2_cux7i"]
 [ext_resource type="Texture2D" uid="uid://eomn5g44rfgn" path="res://Assets/Character/camera.png" id="3_t3rp6"]
+[ext_resource type="AudioStream" uid="uid://yolacb62itsi" path="res://Assets/Audio/SFX/shoot_teapot_enemy2.wav" id="4_qm2su"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mb7tq"]
 radius = 3.16424
@@ -66,6 +67,10 @@ shape = SubResource("CylinderShape3D_j3ibh")
 [node name="LineOfSight" type="RayCast3D" parent="."]
 transform = Transform3D(0.7269, 0, 0, 0, -1.60176e-07, -1, 0, 3.66441, -4.37114e-08, 0.00666908, -0.00430323, 0.00419959)
 collision_mask = 5
+
+[node name="ShootAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qm2su")
+volume_db = -0.7
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

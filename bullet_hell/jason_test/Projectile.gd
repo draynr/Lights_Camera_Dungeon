@@ -15,6 +15,8 @@ var init_pos: Vector3 = Vector3.ZERO
 @onready var cam: Camera3D = get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D")
 @onready var arrowhead: Sprite3D = get_node("Sprite3D")
 @onready var tail: GPUParticles3D = get_node("GPUParticles3D")
+@onready var sprite3d = get_node("Sprite3D")
+@onready var player = mainnd.get_node("player")
 
 var rng = RandomNumberGenerator.new()
 var color: Color
@@ -51,10 +53,12 @@ func _on_body_entered(body):
 	if not hit_something and body.is_in_group("enemies"):
 		body.take_damage(damage)
 		hit_something = true;
-		get_node("Sprite3D").visible = false
-		get_node("GPUParticles3D").visible = false
+		sprite3d.visible = false
+		tail.visible = false
 		# get_node("HitSprite").visible = true
-		get_parent().get_node("player/SubViewportContainer/SubViewport/Camera3D").camera_shake(.01, .01)
+		if (player.hp > 0):
+			cam.camera_shake(.02, .02)
+			print("SHAKE!")
 		hit_light.light_energy = 1.0
 		timer.start(0.5)
 	elif body.is_in_group("map"):

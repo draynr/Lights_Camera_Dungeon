@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcgl7maiwokab"]
+[gd_scene load_steps=8 format=3 uid="uid://dcgl7maiwokab"]
 
 [ext_resource type="Script" path="res://jason_test/teapot.gd" id="1_87yhw"]
 [ext_resource type="Shader" path="res://jason_test/enemy_0.gdshader" id="2_cux7i"]
 [ext_resource type="Texture2D" uid="uid://dh4kkaahpo5gd" path="res://jason_test/teapot.png" id="4_a758d"]
+[ext_resource type="AudioStream" uid="uid://rjij877mnjgc" path="res://Assets/Audio/SFX/shoot_teapot_enemy1.wav" id="4_leb72"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mb7tq"]
 radius = 3.16424
@@ -11,7 +12,7 @@ radius = 3.16424
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_cux7i")
-shader_parameter/flash_color = Color(0, 0, 1, 1)
+shader_parameter/flash_color = Color(1, 0, 0, 1)
 shader_parameter/active = false
 shader_parameter/sprite_texture = ExtResource("4_a758d")
 
@@ -64,6 +65,10 @@ one_shot = true
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.49, 0, 0, 0, 0.46267, 0, 0, 0, 0.787365, 0, 0, 0)
 shape = SubResource("CylinderShape3D_j3ibh")
+
+[node name="ShootAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_leb72")
+volume_db = -0.7
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -11,6 +11,7 @@ const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn
 @onready var gun_node = get_node("Gun")
 @onready var player_node = get_node(".")
 
+@onready var damaged_audio = $Damaged_Player
 
 var current_room = null
 signal health_changed(value)
@@ -21,7 +22,7 @@ var proj_speed: float = 1
 var speed = 1.2
 var target_velocity = Vector3()
 
-var hp: int = 3
+var hp: int = 5
 var hearts: float = hp
 
 func _ready():
@@ -99,6 +100,7 @@ func flash():
 
 func take_damage(dmg):
 	if iframe_timer.is_stopped():
+		damaged_audio.play()
 		var viewport = get_node("SubViewportContainer/SubViewport")
 		var colorrect = viewport.get_node("Camera3D/CanvasLayer/ColorRect")
 		iframe_timer.start()
@@ -107,4 +109,7 @@ func take_damage(dmg):
 		if hp <= 0:
 			queue_free()
 			get_tree().change_scene_to_file("res://Scene/game_over.tscn")
+			
+func get_hp():
+	return hp
 	

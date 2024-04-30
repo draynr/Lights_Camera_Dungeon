@@ -76,4 +76,8 @@ trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_8s5kn")
 draw_pass_1 = SubResource("TubeTrailMesh_230x1")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1.00309, 0, 0, 0, 1.00309, 0, 0, 0, 1.00309, 0, 0.139697, 0)
+visible = false
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

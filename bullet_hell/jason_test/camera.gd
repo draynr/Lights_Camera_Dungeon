@@ -33,6 +33,11 @@ var target
 @onready var hitTimer = $HitTimer
 @onready var sprite3d = $Sprite3D
 @onready var projectile_texture = preload ("res://jason_test/teapot_bullet.png")
+@onready var playerNode = get_parent().get_node("player")
+
+@onready var shoot_audio = $ShootAudio
+@onready var damaged_audio = playerNode.get_node("Damaged_Enemy")
+@onready var killed_audio = playerNode.get_node("Killed_Enemy")
 
 enum {IDLE, ALERT}
 
@@ -96,6 +101,8 @@ func shoot() -> void:
 		bullet.spawnRotation = offset_direction
 		get_tree().current_scene.add_child(bullet)
 
+	if !shoot_audio.playing:
+		shoot_audio.play()
 	shoottimer.start()
 	reloadCnt += num_bullets
 	if (reloadCnt >= MAX_BULLETS):
@@ -111,9 +118,11 @@ func take_damage(dmg):
 	hp -= dmg;
 	flash()
 	if hp <= 0:
+		killed_audio.play()
 		die()
 		# queue_free()
 	else:
+		damaged_audio.play()
 		state = ALERT
 
 func _on_hit_timer_timeout():

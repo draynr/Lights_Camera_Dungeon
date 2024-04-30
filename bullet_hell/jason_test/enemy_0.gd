@@ -30,6 +30,9 @@ const turn_speed = 15
 @onready var projectile_texture = preload ("res://jason_test/Enemy_Bullet.png")
 @onready var playerNode = get_parent().get_node("player")
 
+@onready var shoot_audio = $ShootAudio
+@onready var damaged_audio = playerNode.get_node("Damaged_Enemy")
+@onready var killed_audio = playerNode.get_node("Killed_Enemy")
 enum {IDLE, ALERT}
 
 var see_player = false
@@ -76,6 +79,8 @@ func _on_area_3d_body_entered(body):
 
 func shoot() -> void:
 	var bullet: CharacterBody3D = ENEMY_BULLET.instantiate()
+	if !shoot_audio.playing:
+		shoot_audio.play()
 	bullet.projectile_texture = projectile_texture
 	var direction = (playerNode.global_position - global_position).normalized()
 	bullet.rotation.y = atan2(direction.x, direction.z)
@@ -92,9 +97,11 @@ func take_damage(dmg):
 	hp -= dmg;
 	flash()
 	if hp <= 0:
+		killed_audio.play()
 		die()
 		# queue_free()
 	else:
+		damaged_audio.play()
 		state = ALERT
 
 func _on_hit_timer_timeout():
@@ -112,7 +119,7 @@ func die():
 	var _particle = _particle_parent.get_node("death_particles")
 	_particle.position = global_position
 	_particle.emitting = true
-
+	
 	# print(_particle.death_particles.emitting)
 	get_tree().current_scene.add_child(_particle_parent)
 	died.emit()

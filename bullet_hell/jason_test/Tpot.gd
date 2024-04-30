@@ -5,7 +5,7 @@ extends CharacterBody3D
 var speed = 0
 var accel = 1
 const maxhp = 300
-var hp = maxhp
+var hp = 4
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 #var player = null
 var player_spotted: bool = false
@@ -23,6 +23,10 @@ const turn_speed = 5
 @onready var shoottimer2 = $ReloadTimer2
 @onready var player = get_parent().get_node("player")
 
+@onready var damaged_audio = player.get_node("Damaged_Enemy")
+@onready var killed_audio = player.get_node("Killed_Enemy")
+
+@onready var win_screen = preload("res://Scene/win_screen.tscn")
 enum {IDLE, ALERT}
 
 var see_player = false
@@ -192,6 +196,7 @@ func _on_area_3d_body_exited(body):
 
 func take_damage(dmg):
 	hp -= dmg;
+	damaged_audio.play()
 	if hp < maxhp/3:
 		stage = 3
 		shoottimer.wait_time = 0.3
@@ -201,7 +206,10 @@ func take_damage(dmg):
 		shoottimer.wait_time = 0.1
 		shoottimer2.wait_time = 6
 	if hp <= 0:
+		killed_audio.play()
+		player.hp = 0
 		queue_free()
+		get_tree().change_scene_to_file("res://Scene/win_screen.tscn")
 	else:
 		state = ALERT
 
