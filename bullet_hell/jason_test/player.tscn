@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=19 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bx3700ge0a8hu" path="res://Assets/Audio/SFX/Bubble heavy 2.wav" id="7_kqxfw"]
 [ext_resource type="PackedScene" uid="uid://lt30cwubnaje" path="res://Scene/dash.tscn" id="8_8yjpi"]
 [ext_resource type="PackedScene" uid="uid://cq1f7ogs4t07" path="res://jason_test/dash_particle.tscn" id="9_wknk2"]
+[ext_resource type="AudioStream" uid="uid://dcyqor8cvw2es" path="res://jason_test/Confirm_1.wav" id="10_7go7t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wejp2"]
 atlas = ExtResource("2_qhpdq")
@@ -74,6 +75,7 @@ sprite_frames = SubResource("SpriteFrames_d7nr3")
 animation = &"idle"
 
 [node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Area3D" type="Area3D" parent="." groups=["playerhurtbox"]]
 collision_layer = 16
@@ -120,5 +122,13 @@ emitting = false
 one_shot = true
 speed_scale = 2.0
 
+[node name="MakeLens" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Lens_Ready" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_7go7t")
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="MakeLens" to="." method="_on_lens_timer_timeout"]

@@ -3,8 +3,11 @@ extends CharacterBody3D
 # const SPEED = 5.0
 # const JUMP_VELOCITY = 4.5
 const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn")
+const LENS_SCENE: PackedScene = preload("res://lens.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
 @onready var iframe_timer: Timer = get_node("Invuln")
+@onready var lens_timer: Timer = get_node("MakeLens")
+
 @onready var hurtoverlay = get_node("SubViewportContainer/SubViewport/Camera3D/CanvasLayer/ColorRect")
 @onready var animatedSprite3d = $AnimatedSprite3D
 @onready var hitTimer = $HitTimer
@@ -12,13 +15,17 @@ const PROJECTILE_SCENE: PackedScene = preload ("res://jason_test/Projectile.tscn
 @onready var player_node = get_node(".")
 
 @onready var damaged_audio = $Damaged_Player
+@onready var lens_ready = $Lens_Ready
 
 @onready var dash_timer = $DashTimer
 var current_room = null
 signal health_changed(value)
 
 var attack_cd: float = 0.3
+var lens_cd: float = 5.0
 var proj_speed: float = 2.5
+
+var lens_focal_length = 0.1
 var can_shoot = true
 
 var speed = 1.2
@@ -43,7 +50,20 @@ func get_input_vector():
 	input_vector = input_vector.normalized()
 	return input_vector
 
-func get_click_vector() -> Vector3:
+# func get_click_vector() -> Vector3:
+# 	var viewport = get_node("SubViewportContainer/SubViewport")
+# 	var cam = viewport.get_node("Camera3D")
+# 	var mouse_pos = viewport.get_mouse_position()
+# 	var from = cam.project_ray_origin(mouse_pos)
+# 	var dir = cam.project_ray_normal(mouse_pos) * 1000
+# 	var plane = Plane(Vector3(0, -1, 0), -global_position.y)
+# 	var intersect_pos = plane.intersects_ray(from, dir)
+	
+# 	var shoot_vec = intersect_pos - global_position
+# 	var ret_vec = Vector3(shoot_vec.x, 0, shoot_vec.z)
+# 	return ret_vec
+
+func get_click_pos() -> Vector3:
 	var viewport = get_node("SubViewportContainer/SubViewport")
 	var cam = viewport.get_node("Camera3D")
 	var mouse_pos = viewport.get_mouse_position()
@@ -51,10 +71,12 @@ func get_click_vector() -> Vector3:
 	var dir = cam.project_ray_normal(mouse_pos) * 1000
 	var plane = Plane(Vector3(0, -1, 0), -global_position.y)
 	var intersect_pos = plane.intersects_ray(from, dir)
-	
-	var shoot_vec = intersect_pos - global_position
+	return intersect_pos
+
+func get_shoot_vector(click_pos: Vector3) -> Vector3:
+	var shoot_vec = click_pos - global_position
 	var ret_vec = Vector3(shoot_vec.x, 0, shoot_vec.z)
-	return ret_vec
+	return ret_vec.normalized()
 	
 func get_inputs(dir):
 	if Input.is_action_pressed("move_down"):
@@ -86,14 +108,42 @@ func shoot(shoot_vector: Vector3) -> void:
 	get_tree().current_scene.add_child(projectile)
 	projectile.launch(global_position, shoot_vector, proj_speed)
 
+func spawn_lens(click_vector: Vector3) -> void:
+	var lens: StaticBody3D = LENS_SCENE.instantiate()
+	get_tree().current_scene.add_child(lens)
+	lens.global_position = Vector3(click_vector.x, 0.2, click_vector.z)
+	var target_direction = -(lens.global_position - global_position) 
+	var target_rotation = Vector3(0, atan2(target_direction.x, target_direction.z), 0)
+	lens.rotation.y = target_rotation.y
+	var sprite_lens = lens.get_node("Sprite3D")
+	var sprite_fnear = lens.get_node("FocalNear")
+	var sprite_ffar = lens.get_node("FocalFar")
+	lens.focal_length = lens_focal_length
+	sprite_fnear.global_position -= target_direction * lens_focal_length
+	sprite_ffar.global_position += target_direction * lens_focal_length
+	if abs(lens.rotation_degrees.y) < 90:
+		sprite_lens.rotation_degrees.x = -45
+		sprite_fnear.rotation_degrees.x = -45
+		sprite_ffar.rotation_degrees.x = -45
+	else:
+		sprite_lens.rotation_degrees.x = -135
+		sprite_fnear.rotation_degrees.x = -135
+		sprite_ffar.rotation_degrees.x = -135
+	#sprite_lens.material_override.next_pass.set_instance_shader_parameter("begin_time", Time.get_ticks_msec()*1000)
+	sprite_lens.set_instance_shader_parameter("begin_time", float(Time.get_ticks_msec())/1000.)
+
 func handle_attack():
-	var click_vector = get_click_vector()
+	var click_pos = get_click_pos()
+	var shoot_vector = get_shoot_vector(click_pos)
 	var gun = gun_node
-	gun.aim_gun(player_node, click_vector, gun_node)
-	if Input.is_mouse_button_pressed(1) and can_shoot:
-		shoot(click_vector.normalized())
-		can_shoot = false
+	gun.aim_gun(player_node, shoot_vector, gun_node)
+	if Input.is_mouse_button_pressed(1) and attack_timer.is_stopped():
+		shoot(shoot_vector)
 		attack_timer.start(attack_cd)
+	if Input.is_action_just_pressed("makelens") and lens_timer.is_stopped():
+		if lens_timer.is_stopped():
+			spawn_lens(click_pos)
+			lens_timer.start(lens_cd)
 
 func _physics_process(delta):
 	var dir = Vector3()
@@ -137,3 +187,7 @@ func _on_dash_timer_timeout():
 
 func _on_attack_timer_timeout():
 	can_shoot = true
+
+func _on_lens_timer_timeout():
+	lens_ready.play()
+	pass # Replace with function body.

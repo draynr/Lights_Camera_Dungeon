@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bchsfh3be0mbg"]
+
+[ext_resource type="Script" path="res://lens.gd" id="1_lj1mu"]
+[ext_resource type="Texture2D" uid="uid://csy300hl1sg6i" path="res://Scene/Button_Big_08.png" id="1_qraye"]
+[ext_resource type="Shader" path="res://lens.gdshader" id="3_4r0jk"]
+[ext_resource type="Shape3D" path="res://lenscoll1.tres" id="3_g68m4"]
+[ext_resource type="Texture2D" uid="uid://r2vg573d7be0" path="res://jason_test/sparkredoutline.png" id="4_uevhf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpka0"]
+render_priority = 0
+shader = ExtResource("3_4r0jk")
+shader_parameter/sprite_texture = ExtResource("1_qraye")
+
+[node name="Lens" type="StaticBody3D" groups=["lens"]]
+collision_layer = 128
+script = ExtResource("1_lj1mu")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = SubResource("ShaderMaterial_wpka0")
+texture_filter = 0
+texture = ExtResource("1_qraye")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.02)
+shape = ExtResource("3_g68m4")
+
+[node name="FocalNear" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("4_uevhf")
+
+[node name="FocalFar" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("4_uevhf")
