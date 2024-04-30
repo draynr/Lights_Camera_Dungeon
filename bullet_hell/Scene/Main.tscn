@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dao7uc1w3p3nk" path="res://jason_test/player.tscn" id="3_sx4l6"]
 [ext_resource type="Script" path="res://Scene/Camera3D.gd" id="4_j5gsd"]
 [ext_resource type="Shader" path="res://Scene/screen.gdshader" id="4_mcvp3"]
-[ext_resource type="PackedScene" path="res://jason_test/ui.tscn" id="7_l4jvi"]
+[ext_resource type="PackedScene" uid="uid://dugh4dkyhicte" path="res://jason_test/ui.tscn" id="7_l4jvi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oqyxg"]
 render_priority = 0

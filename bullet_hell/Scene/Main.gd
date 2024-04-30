@@ -97,6 +97,8 @@ func _on_room_2_spawner_timeout():
 		cnt += 1
 		
 func enemy_killed():
+	if (enemies_alive <= 0):
+		pass
 	enemies_alive -= 1
 	if enemies_alive <= 0:
 		enemies_alive = 0
