@@ -20,7 +20,6 @@ var angle_between_rays := deg_to_rad(5.)
 
 var target
 const turn_speed = 15
-@onready var main_node = get_node("Main")
 @onready var raycast: RayCast3D = $LineOfSight
 @onready var vision = $vision
 @onready var shoottimer = $ReloadTimer
@@ -119,7 +118,6 @@ func die():
 	var _particle = _particle_parent.get_node("death_particles")
 	_particle.position = global_position
 	_particle.emitting = true
-	
 	# print(_particle.death_particles.emitting)
 	get_tree().current_scene.add_child(_particle_parent)
 	died.emit()

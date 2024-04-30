@@ -21,7 +21,6 @@ var view_distance = 20.0
 var angle_cone := deg_to_rad(30.)
 var angle_between_rays := deg_to_rad(5.)
 var target
-
 @onready var raycast: RayCast3D = $LineOfSight
 @onready var vision = $vision
 

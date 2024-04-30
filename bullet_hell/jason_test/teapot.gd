@@ -33,7 +33,6 @@ var target
 @onready var sprite3d = $Sprite3D
 @onready var hitTimer = $HitTimer
 @onready var projectile_texture = preload("res://jason_test/teabag.png")
-
 @onready var playerNode = get_parent().get_node("player")
 @onready var shoot_audio = $ShootAudio
 @onready var damaged_audio = playerNode.get_node("Damaged_Enemy")
