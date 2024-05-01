@@ -44,11 +44,11 @@ var delta_ang2 = 0
 func _ready():
 	pass
 
-func _on_shoot_timer_timeout():
-	if raycast.is_colliding():
-		var hit = raycast.get_collider()
-		if hit.is_in_group("player"):
-			print("hit motherfker")
+#func _on_shoot_timer_timeout():
+	#if raycast.is_colliding():
+		#var hit = raycast.get_collider()
+		#if hit.is_in_group("player"):
+			#print("hit motherfker")
 
 func _physics_process(delta):
 	var target_direction = global_position - player.global_position

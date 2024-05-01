@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=25 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
 [ext_resource type="PackedScene" uid="uid://datklj0fvgipp" path="res://Scene/gun.tscn" id="3_fd6yu"]
+[ext_resource type="Texture2D" uid="uid://c4hkdtuaxsfb3" path="res://Assets/Character/coputer_sunglasses-Sheet.png" id="3_imq8y"]
 [ext_resource type="AudioStream" uid="uid://d08rpg76hsmp0" path="res://Assets/Audio/SFX/hit_enemy.wav" id="4_5mnnu"]
 [ext_resource type="AudioStream" uid="uid://cbbniyiogkif5" path="res://Assets/Audio/SFX/killed_enemy.wav" id="5_621pw"]
 [ext_resource type="AudioStream" uid="uid://7560ys7mftk0" path="res://Assets/Audio/SFX/damaged_player.wav" id="6_11rir"]
@@ -31,6 +32,26 @@ region = Rect2(48, 0, 16, 16)
 atlas = ExtResource("2_qhpdq")
 region = Rect2(64, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka543"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whdah"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vodne"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecfle"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6djm"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(64, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7nr3"]
 animations = [{
 "frames": [{
@@ -52,6 +73,26 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka543")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whdah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vodne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecfle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6djm")
+}],
+"loop": true,
+"name": &"idle_sunglasses",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vucik"]
@@ -72,7 +113,7 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_d7nr3")
-animation = &"idle"
+animation = &"idle_sunglasses"
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
