@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1bbaxnxdg4sw"]
+[gd_scene load_steps=11 format=3 uid="uid://d1bbaxnxdg4sw"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_wgt35"]
-[ext_resource type="AudioStream" uid="uid://dgvxvv76apjug" path="res://Assets/Audio/Music/Goblins_Den_(Regular).wav" id="2_2j13d"]
+[ext_resource type="AudioStream" uid="uid://c6kb6rtgnobyn" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="2_qb1ja"]
+[ext_resource type="AudioStream" uid="uid://sg872dq4i0b" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg" id="3_x7vo1"]
+[ext_resource type="AudioStream" uid="uid://ekmbqrka4mnn" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 03 - To the Unknown.ogg" id="4_63oo6"]
+[ext_resource type="AudioStream" uid="uid://cf8ni1pmkkhn7" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 04 - Valley of Spirits.ogg" id="5_0vw0w"]
+[ext_resource type="AudioStream" uid="uid://wvhgweu105kb" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 05 - Western Cyberhorse.ogg" id="6_lt70r"]
+[ext_resource type="AudioStream" uid="uid://b0rdj7gpjhqvy" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 06 - Diamonds on The Ceiling.ogg" id="7_vrmbm"]
+[ext_resource type="AudioStream" uid="uid://bbgc3e78tlps5" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 07 - The Hidden One.ogg" id="8_x3q1m"]
+[ext_resource type="AudioStream" uid="uid://ca41kxy7n5brb" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 08 - Lost Spaceship's Signal.ogg" id="9_pd40y"]
+[ext_resource type="AudioStream" uid="uid://bj6aye73n6u51" path="res://Assets/Audio/Music/pinkbloom/DavidKBD - Pink Bloom Pack - 09 - Lightyear City.ogg" id="10_gb32d"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -47,9 +55,41 @@ layout_mode = 2
 text = "YOU WIN!"
 horizontal_alignment = 1
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2j13d")
-volume_db = 1.209
+[node name="Music1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qb1ja")
+volume_db = -26.865
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x7vo1")
+volume_db = -26.865
+
+[node name="Music3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_63oo6")
+volume_db = -26.865
+
+[node name="Music4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0vw0w")
+volume_db = -26.865
+
+[node name="Music5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lt70r")
+volume_db = -26.865
+
+[node name="Music6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vrmbm")
+volume_db = -26.865
+
+[node name="Music7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_x3q1m")
+volume_db = -26.865
+
+[node name="Music8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_pd40y")
+volume_db = -26.865
+
+[node name="Music9" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gb32d")
+volume_db = -26.865
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

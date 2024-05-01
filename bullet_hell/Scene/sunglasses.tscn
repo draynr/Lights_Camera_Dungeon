@@ -5,8 +5,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pcmv1"]
 
-[node name="Sprite3D" type="Sprite3D"]
+[node name="Sunglasses" type="Sprite3D"]
 billboard = 1
+texture_filter = 0
 texture = ExtResource("1_u6c5b")
 script = ExtResource("2_2qw17")
 

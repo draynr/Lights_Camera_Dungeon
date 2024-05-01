@@ -11,13 +11,15 @@ extends Control
 @onready var music9 = $Music9
 
 var last_music = null
-var rng
+var rng = RandomNumberGenerator.new()
 var my_random_number
+var last_num 
 @onready var killed_player = $Killed_Player
 func _process(delta):
 	if last_music == null || !last_music.playing:
-		rng = RandomNumberGenerator.new()
-		my_random_number = rng.randi_range(1, 9)
+		while last_num == my_random_number:
+			last_num = randi_range(0, 9)
+		my_random_number = last_num
 		match my_random_number:
 			1:
 				last_music = music1

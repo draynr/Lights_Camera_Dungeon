@@ -7,8 +7,9 @@
 script = ExtResource("1_isj4n")
 
 [node name="HealthFull" type="TextureRect" parent="."]
+texture_filter = 1
 offset_right = 89.0
 offset_bottom = 18.0
-scale = Vector2(0.99767, 1.00116)
+scale = Vector2(5.5, 5.517)
 texture = ExtResource("1_h1jax")
 stretch_mode = 1

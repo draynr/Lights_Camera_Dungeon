@@ -14,6 +14,8 @@ const LENS_SCENE: PackedScene = preload("res://lens.tscn")
 @onready var gun_node = get_node("Gun")
 @onready var player_node = get_node(".")
 
+@onready var label = $Label
+
 @onready var damaged_audio = $Damaged_Player
 @onready var lens_ready = $Lens_Ready
 
@@ -35,8 +37,8 @@ var hp: int = 5
 var hearts: float = hp
 
 #stuff for dashing
-const dash_speed = 5
-const dash_duration = 0.15
+var dash_speed = 5
+var dash_duration = 0.15
 @onready var sprite = $AnimatedSprite3D
 @onready var dash = $Dash
 var wearing_sunglasses
@@ -44,6 +46,7 @@ var wearing_sunglasses
 func _ready():
 	current_room = null
 	wearing_sunglasses = false
+	remove_child(label)
 
 func get_input_vector():
 	var input_vector = Vector2.ZERO
@@ -202,3 +205,14 @@ func equip_sunglasses():
 	animatedSprite3d.play("idle_sunglasses")
 	proj_speed = 3.2
 	attack_cd = 0.1
+
+func equip_pepper():
+	speed = 1.8
+	dash_speed = 7
+	dash_duration = 0.18
+
+func display_text(text):
+	label.text = text
+	add_child(label)
+	await get_tree().create_timer(3).timeout
+	remove_child(label)

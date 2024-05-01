@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=25 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://lt30cwubnaje" path="res://Scene/dash.tscn" id="8_8yjpi"]
 [ext_resource type="PackedScene" uid="uid://cq1f7ogs4t07" path="res://jason_test/dash_particle.tscn" id="9_wknk2"]
 [ext_resource type="AudioStream" uid="uid://dcyqor8cvw2es" path="res://jason_test/Confirm_1.wav" id="10_7go7t"]
-[ext_resource type="FontFile" uid="uid://b1ifgp05hnlrs" path="res://Assets/UI/Elv Pixel Font 2/Elv Pixel Font 2/OpenType/elv-pixels-06.otf" id="12_8ejn2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wejp2"]
 atlas = ExtResource("2_qhpdq")
@@ -172,11 +171,9 @@ one_shot = true
 stream = ExtResource("10_7go7t")
 
 [node name="Label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264658, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206046, 0)
 pixel_size = 0.002
-billboard = 1
 modulate = Color(0.0745098, 1, 0.00784314, 1)
-font = ExtResource("12_8ejn2")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csebvr17eis2d"
-path="res://.godot/imported/full_heart.png-a78094567eb8de889592dc0050702833.ctex"
+uid="uid://bvq62m8tspw7f"
+path.s3tc="res://.godot/imported/pepper.png-96b684785207965b04c4ac7b5a15c4e7.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/UI/full_heart.png"
-dest_files=["res://.godot/imported/full_heart.png-a78094567eb8de889592dc0050702833.ctex"]
+source_file="res://Assets/weapons/pepper.png"
+dest_files=["res://.godot/imported/pepper.png-96b684785207965b04c4ac7b5a15c4e7.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
