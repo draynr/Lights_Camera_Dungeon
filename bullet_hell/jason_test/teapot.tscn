@@ -17,8 +17,8 @@ shader_parameter/active = false
 shader_parameter/sprite_texture = ExtResource("4_a758d")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j3ibh"]
-height = 0.660419
-radius = 0.145474
+height = 0.169
+radius = 0.08
 
 [node name="teapot" type="CharacterBody3D" groups=["enemies"]]
 transform = Transform3D(1.14544, 0, 0, 0, 1.14544, 0, 0, 0, 1.14544, 0.00015673, 0.0152056, -0.0002729)
@@ -63,7 +63,6 @@ wait_time = 0.1
 one_shot = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.49, 0, 0, 0, 0.46267, 0, 0, 0, 0.787365, 0, 0, 0)
 shape = SubResource("CylinderShape3D_j3ibh")
 
 [node name="ShootAudio" type="AudioStreamPlayer" parent="."]

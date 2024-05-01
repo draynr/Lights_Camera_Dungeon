@@ -11,7 +11,6 @@ func _physics_process(delta):
 func _on_Area3D_body_entered(body):
 	player = body
 	player_chase = true
-	print("hello")
 	
 func _on_Area3D_body_exit(body):
 	player = null

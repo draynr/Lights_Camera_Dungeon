@@ -1,14 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://dao7uc1w3p3nk"]
+[gd_scene load_steps=25 format=3 uid="uid://dao7uc1w3p3nk"]
 
 [ext_resource type="Script" path="res://jason_test/player.gd" id="1_5obcd"]
 [ext_resource type="Texture2D" uid="uid://bnv8ckeirmbi8" path="res://Assets/Character/coputer-Sheet.png" id="2_qhpdq"]
 [ext_resource type="PackedScene" uid="uid://datklj0fvgipp" path="res://Scene/gun.tscn" id="3_fd6yu"]
+[ext_resource type="Texture2D" uid="uid://c4hkdtuaxsfb3" path="res://Assets/Character/coputer_sunglasses-Sheet.png" id="3_imq8y"]
 [ext_resource type="AudioStream" uid="uid://d08rpg76hsmp0" path="res://Assets/Audio/SFX/hit_enemy.wav" id="4_5mnnu"]
 [ext_resource type="AudioStream" uid="uid://cbbniyiogkif5" path="res://Assets/Audio/SFX/killed_enemy.wav" id="5_621pw"]
 [ext_resource type="AudioStream" uid="uid://7560ys7mftk0" path="res://Assets/Audio/SFX/damaged_player.wav" id="6_11rir"]
 [ext_resource type="AudioStream" uid="uid://bx3700ge0a8hu" path="res://Assets/Audio/SFX/Bubble heavy 2.wav" id="7_kqxfw"]
 [ext_resource type="PackedScene" uid="uid://lt30cwubnaje" path="res://Scene/dash.tscn" id="8_8yjpi"]
 [ext_resource type="PackedScene" uid="uid://cq1f7ogs4t07" path="res://jason_test/dash_particle.tscn" id="9_wknk2"]
+[ext_resource type="AudioStream" uid="uid://dcyqor8cvw2es" path="res://jason_test/Confirm_1.wav" id="10_7go7t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wejp2"]
 atlas = ExtResource("2_qhpdq")
@@ -28,6 +30,26 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sylds"]
 atlas = ExtResource("2_qhpdq")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka543"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whdah"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vodne"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecfle"]
+atlas = ExtResource("3_imq8y")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6djm"]
+atlas = ExtResource("3_imq8y")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7nr3"]
@@ -51,6 +73,26 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka543")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whdah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vodne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecfle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6djm")
+}],
+"loop": true,
+"name": &"idle_sunglasses",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vucik"]
@@ -71,9 +113,10 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_d7nr3")
-animation = &"idle"
+animation = &"idle_sunglasses"
 
 [node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Area3D" type="Area3D" parent="." groups=["playerhurtbox"]]
 collision_layer = 16
@@ -120,5 +163,13 @@ emitting = false
 one_shot = true
 speed_scale = 2.0
 
+[node name="MakeLens" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Lens_Ready" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_7go7t")
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="MakeLens" to="." method="_on_lens_timer_timeout"]
