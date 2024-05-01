@@ -14,6 +14,7 @@ shader_parameter/glow_strength = 1.3
 shader_parameter/sprite_texture = ExtResource("1_6qtve")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_seeg3"]
+resource_local_to_scene = true
 radius = 0.0878808
 
 [node name="enemy_bullet" type="CharacterBody3D"]
@@ -36,7 +37,6 @@ collision_layer = 8
 collision_mask = 21
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.19222, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_seeg3")
 
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout_new"]

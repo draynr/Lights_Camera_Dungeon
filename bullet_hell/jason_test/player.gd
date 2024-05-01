@@ -17,6 +17,7 @@ const LENS_SCENE: PackedScene = preload("res://lens.tscn")
 @onready var label = $Label
 
 @onready var damaged_audio = $Damaged_Player
+@onready var shoot_audio = $Player_Shoot
 @onready var lens_ready = $Lens_Ready
 
 @onready var dash_timer = $DashTimer
@@ -29,6 +30,7 @@ var proj_speed: float = 2.5
 
 var lens_focal_length = 0.1
 var can_shoot = true
+var lenses = []
 
 var speed = 1.2
 var target_velocity = Vector3()
@@ -136,6 +138,7 @@ func spawn_lens(click_vector: Vector3) -> void:
 		sprite_ffar.rotation_degrees.x = -135
 	#sprite_lens.material_override.next_pass.set_instance_shader_parameter("begin_time", Time.get_ticks_msec()*1000)
 	sprite_lens.set_instance_shader_parameter("begin_time", float(Time.get_ticks_msec())/1000.)
+	lenses.push_back(lens)
 
 func handle_attack():
 	var click_pos = get_click_pos()
@@ -147,6 +150,9 @@ func handle_attack():
 		attack_timer.start(attack_cd)
 	if Input.is_action_just_pressed("makelens") and lens_timer.is_stopped():
 		if lens_timer.is_stopped():
+			for lens_existing in lenses:
+				if click_pos.distance_to(lens_existing.global_position) < 0.6:
+					return
 			spawn_lens(click_pos)
 			lens_timer.start(lens_cd)
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdl5wuhd5200e"]
+
+[ext_resource type="Texture2D" uid="uid://b8lbsce8y04g1" path="res://swirlyglasses.png" id="1_sdgns"]
+[ext_resource type="Script" path="res://Scene/StudyLens.gd" id="2_h0iuh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_585yf"]
+transparency = 1
+albedo_texture = ExtResource("1_sdgns")
+metallic_specular = 0.37
+texture_filter = 0
+texture_repeat = false
+billboard_keep_scale = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkkf1"]
+
+[node name="Sprite3D" type="Sprite3D"]
+material_override = SubResource("StandardMaterial3D_585yf")
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_sdgns")
+script = ExtResource("2_h0iuh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.294143, 0, 0, 0, 1.26503, 0, 0, 0, 0.296406, 0, 0, 0)
+shape = SubResource("BoxShape3D_rkkf1")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
