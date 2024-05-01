@@ -13,7 +13,7 @@ extends Control
 var last_music = null
 var rng
 var my_random_number
-@onready var killed_player = $Killed_Player
+@onready var killed_player = get_node("player/Killed_Player")
 func _process(delta):
 	if last_music == null || !last_music.playing:
 		rng = RandomNumberGenerator.new()
