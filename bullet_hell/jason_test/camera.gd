@@ -99,6 +99,9 @@ func shoot() -> void:
 	for i in range(num_bullets):
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = projectile_texture
+		var sprite = bullet.get_node("Sprite3D")
+		sprite.material_override.set_shader_parameter("sprite_texture", projectile_texture)
+		sprite.material_override.set_shader_parameter("glow_strength", .75)
 		
 		var offset_angle = start_angle + i * spread_angle
 		var offset_direction = direction.rotated(Vector3.UP, offset_angle)

@@ -32,7 +32,7 @@ var target
 
 @onready var sprite3d = $Sprite3D
 @onready var hitTimer = $HitTimer
-@onready var projectile_texture = preload("res://jason_test/teabag.png")
+@onready var projectile_texture = preload ("res://jason_test/teabag.png")
 @onready var playerNode = get_parent().get_node("player")
 @onready var shoot_audio = $ShootAudio
 @onready var damaged_audio = playerNode.get_node("Damaged_Enemy")
@@ -99,6 +99,9 @@ func shoot() -> void:
 	for i in range(num_bullets):
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = projectile_texture
+		var sprite = bullet.get_node("Sprite3D")
+		sprite.material_override.set_shader_parameter("sprite_texture", projectile_texture)
+		sprite.material_override.set_shader_parameter("glow_strength", 2.1)
 		
 		var offset_angle = start_angle + i * spread_angle
 		var offset_direction = direction.rotated(Vector3.UP, offset_angle)

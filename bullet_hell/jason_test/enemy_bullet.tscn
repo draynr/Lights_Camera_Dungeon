@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpx7kv0r6vjiw"]
+[gd_scene load_steps=6 format=3 uid="uid://cpx7kv0r6vjiw"]
 
 [ext_resource type="Texture2D" uid="uid://dxwcixq36oaxl" path="res://jason_test/Enemy_Bullet.png" id="1_6qtve"]
 [ext_resource type="Script" path="res://jason_test/enemy_bullet.gd" id="1_rhtmu"]
+[ext_resource type="Shader" path="res://jason_test/enemy_bullet.gdshader" id="2_k8dyi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03bvj"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_k8dyi")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/active = false
+shader_parameter/glow_strength = 1.3
+shader_parameter/sprite_texture = ExtResource("1_6qtve")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_seeg3"]
 radius = 0.0878808
@@ -12,7 +22,8 @@ collision_mask = 20
 script = ExtResource("1_rhtmu")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.999997, -0.000119359, -0.00240112, 0.000125721, 0.999997, 0.00264975, 0.00240079, -0.00265004, 0.999994, 0, 0, 0)
+transform = Transform3D(0.999997, -0.000119359, -0.00240112, 0.000125721, 0.999997, 0.00264975, 0.00240079, -0.00265004, 0.999994, 0.00183369, 0.00303698, 0.0013683)
+material_override = SubResource("ShaderMaterial_03bvj")
 billboard = 1
 shaded = true
 texture_filter = 0

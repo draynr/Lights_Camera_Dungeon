@@ -12,7 +12,7 @@ radius = 3.16424
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_cux7i")
-shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/flash_color = Color(0, 1.5, 0, 1)
 shader_parameter/active = false
 shader_parameter/sprite_texture = ExtResource("3_t3rp6")
 
@@ -41,7 +41,7 @@ transform = Transform3D(0.128427, 0, 0, 0, 0.128427, 0, 0, 0, 0.128427, 0, 0, 0)
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="HitTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 
 [node name="ReloadTimer" type="Timer" parent="."]
 wait_time = 2.5

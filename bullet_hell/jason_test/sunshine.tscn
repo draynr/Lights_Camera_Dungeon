@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://o6tuxjnajtdd"]
+[gd_scene load_steps=12 format=3 uid="uid://b4x2nq7hn8bb7"]
 
 [ext_resource type="Texture2D" uid="uid://bxgrrnv6pvsct" path="res://Assets/Character/player_idle.png" id="1_1no7q"]
-[ext_resource type="Script" path="res://jason_test/enemy_0.gd" id="1_ffrcs"]
+[ext_resource type="Script" path="res://jason_test/sunshine.gd" id="1_vun8k"]
 [ext_resource type="Shader" path="res://jason_test/enemy_0.gdshader" id="2_cux7i"]
+[ext_resource type="Texture2D" uid="uid://fv4213wqj518" path="res://jason_test/sunshine.png" id="3_3voeh"]
 [ext_resource type="PackedScene" uid="uid://cj544myivxn40" path="res://jason_test/enemy_death_explosion.tscn" id="4_kjtpl"]
 [ext_resource type="AudioStream" uid="uid://bko5o7nj0wdru" path="res://Assets/Audio/SFX/shoot_cloak_enemy_short.wav" id="5_hsss5"]
 
@@ -15,7 +16,7 @@ render_priority = 0
 shader = ExtResource("2_cux7i")
 shader_parameter/flash_color = Color(1.5, 0, 0, 1)
 shader_parameter/active = false
-shader_parameter/sprite_texture = ExtResource("1_1no7q")
+shader_parameter/sprite_texture = ExtResource("3_3voeh")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7imdd"]
 atlas = ExtResource("1_1no7q")
@@ -36,11 +37,11 @@ animations = [{
 height = 0.660419
 radius = 0.145474
 
-[node name="enemy_0" type="CharacterBody3D" groups=["enemies"]]
+[node name="sunshine" type="CharacterBody3D" groups=["enemies"]]
 transform = Transform3D(1.15464, 0, 0, 0, 1.15464, 0, 0, 0, 1.15464, 0, 0.0141568, 0)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_ffrcs")
+script = ExtResource("1_vun8k")
 
 [node name="LineOfSight" type="RayCast3D" parent="."]
 transform = Transform3D(0.7269, 0, 0, 0, -1.60176e-07, -1, 0, 3.66441, -4.37114e-08, 0.00505462, -0.00430323, 0.00419959)

@@ -17,6 +17,7 @@ var player_spotted: bool = false
 var ray_count = 5
 var view_distance = 20.0
 var view_angle = 45.0
+@onready var projectile_texture = preload ("res://jason_test/Enemy_Bullet.png")
 
 var target
 const turn_speed = 5
@@ -101,6 +102,10 @@ func shootA2() -> void:
 		var angle = deg_to_rad(i)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
+		var sprite = bullet.get_node("Sprite3D")
+		sprite.material_override.set_shader_parameter("sprite_texture", projectile_texture)
+		sprite.material_override.set_shader_parameter("glow_strength", 2.0)
+
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
@@ -119,6 +124,9 @@ func shootB1() -> void:
 		var angle = deg_to_rad(i + delta_ang)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
+		var sprite = bullet.get_node("Sprite3D")
+		sprite.material_override.set_shader_parameter("sprite_texture", projectile_texture)
+		sprite.material_override.set_shader_parameter("glow_strength", 2.0)
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
@@ -137,6 +145,9 @@ func shootB2() -> void:
 		var angle = deg_to_rad(i)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
+		var sprite = bullet.get_node("Sprite3D")
+		sprite.material_override.set_shader_parameter("sprite_texture", projectile_texture)
+		sprite.material_override.set_shader_parameter("glow_strength", 2.0)
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
@@ -154,6 +165,9 @@ func shootC1() -> void:
 		var angle = deg_to_rad(i)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
+		var sprite = bullet.get_node("Sprite3D")
+		sprite.material_override.set_shader_parameter("sprite_texture", projectile_texture)
+		sprite.material_override.set_shader_parameter("glow_strength", 2.0)
 		var offset_direction = direction.rotated(Vector3.UP, angle)
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
@@ -175,7 +189,11 @@ func shootC2() -> void:
 		var angle = deg_to_rad(i + delta_ang2)
 		var bullet = ENEMY_BULLET.instantiate()
 		bullet.projectile_texture = load("res://jason_test/Enemy_Bullet_classic.png")
+		var sprite = bullet.get_node("Sprite3D")
+		sprite.material_override.set_shader_parameter("sprite_texture", projectile_texture)
+		sprite.material_override.set_shader_parameter("glow_strength", 2.0)
 		var offset_direction = direction.rotated(Vector3.UP, angle)
+		
 		bullet.spawnCoords = global_position + Vector3(0, -.05, 0)
 		bullet.spawnRotation = offset_direction
 		bullet.acceldir = 0.005 * pow(i, 2) * direction

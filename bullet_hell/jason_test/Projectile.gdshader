@@ -1,5 +1,10 @@
 shader_type spatial;
 uniform sampler2D sprite_texture : source_color, filter_nearest;
+
+
+uniform vec4 flash_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform bool active = false;
+uniform float glow_strength = 1.0;
 // const float PI = 3.14159265358979323846;
 // varying 
 
@@ -20,6 +25,7 @@ void fragment() {
 	vec3 addcol = vec3(r, g, b);
 	ALBEDO = color.rgb + addcol;
 	ALPHA = color.a;
+	EMISSION = ALBEDO* glow_strength;
 }
 
 //void light() {
