@@ -115,7 +115,9 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_d7nr3")
-animation = &"idle_sunglasses"
+animation = &"idle"
+frame = 4
+frame_progress = 0.683844
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
@@ -142,7 +144,8 @@ volume_db = -2.552
 
 [node name="Killed_Enemy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_621pw")
-volume_db = -3.19
+volume_db = -22.928
+pitch_scale = 0.57
 
 [node name="Damaged_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_11rir")

@@ -92,7 +92,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# print(enemies_alive)
 	if last_music == null || !last_music.playing:
 		while last_num == my_random_number:
 			last_num = randi_range(0, 9)
@@ -243,7 +242,6 @@ func _on_room_3_spawner_timeout():
 
 	spawn_enemy(teapot_scene, room3_tr)
 	spawn_enemy(enemy_scene, room3_tl)
-	spawn_enemy(camera_scene, room3_bl)
 	spawn_enemy(camera_scene, room3_br)
 	if cnt < 1:
 		room3_spawner.start()
@@ -255,7 +253,7 @@ func _on_room_3_spawner_timeout():
 func _on_room_4_spawner_timeout():
 	spawn_enemy(teapot_scene, room4_tr)
 	spawn_enemy(camera_scene, room4_tl)
-	spawn_enemy(camera_scene, room4_bl)
+	spawn_enemy(enemy_scene, room4_bl)
 	spawn_enemy(teapot_scene, room4_br)
 	if cnt < 1:
 		room4_spawner.start()
